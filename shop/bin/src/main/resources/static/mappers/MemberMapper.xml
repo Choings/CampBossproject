@@ -33,7 +33,7 @@
 	<update id="update" parameterType="com.example.demo.member.Member">
 		update cb_user
 		set
-		user_pwd=#{user_pwd}, user_name=#{user_name}, user_email = #{user_email}, user_tel=#{user_tel}, user_addr=#{user_addr}, user_birth = #{user_birth}
+		user_pwd=#{user_pwd}, user_name=#{user_name}, user_nickname=#{user_nickname}, user_email = #{user_email}, user_tel=#{user_tel}, user_addr=#{user_addr}, user_birth = #{user_birth}
 		where user_id=#{user_id}
 	</update>
 	

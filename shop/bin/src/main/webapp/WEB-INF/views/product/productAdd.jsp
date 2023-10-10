@@ -87,34 +87,25 @@
 	<select id="s3" name="category3_id" class="box">
 		<option disabled selected>소분류</option>
 	</select>	
-	<div class="div-form"></div>
 	
 	<div>
   		<input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="제품이름">
 	</div>
 	
-	<div >
-		<textarea name = "info" class="form-control" id="exampleFormControlTextarea1" placeholder = "제품내용"></textarea>
-	</div>
-	
 	<div>
-		<input type="text" name="price" class="form-control" id="exampleFormControlInput1" placeholder="제품가격">
+		<textarea name = "info" class="form-control" id="exampleFormControlTextarea1" rows="5" cols="50" placeholder = "제품내용"></textarea>
 	</div>
-
-
-	<div>
-		<input type="text" name="seller_id" 
-		value="${sessionScope.user_id }" readonly
-		class="form-control" id="exampleFormControlInput1">
-	</div>
-	
+	제품내용 : <input type="text" name="info"><br>
+	제품가격:<input type="text" name="price"><br>
+	판매자 : <input type="text" name="seller_id" 
+	value="${sessionScope.user_id }" readonly><br>
 	
 	 <input type="file" name="file1" class="form-control"><br>
 	 <input type="file" name="file2" class="form-control"><br>
 	<input type="file" name="file3" class="form-control"><br>
 	
-	<input type="submit" value="등록" class="form-control">
-	<input type="reset" value="취소" class="form-control" style="margin-bottom: 20px">	
+	<input type="submit" value="등록">
+	<input type="reset" value="취소">	
 	</form>
 </body>
 </html>

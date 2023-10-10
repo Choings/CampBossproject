@@ -6,7 +6,6 @@
 	<resultMap type="com.example.demo.seller.Product" id="ProdResult">
 		<result column="num" property="num" />
 		<result column="name" property="name" />
-		<result column="quantity" property="quantity" />
 		<result column="info" property="info" />
 		<result column="price" property="price" />
 		<result column="seller_id" property="seller_id" />
@@ -16,9 +15,14 @@
 	</resultMap>
 	<insert id="insert" parameterType="com.example.demo.seller.Product">
 		insert into cbproduct
-		values(#{num}, #{name}, #{quantity}, #{info}, #{price},
+		values(#{num}, #{name}, #{info}, #{price},
 		#{seller_id}, #{category1_id}, #{category2_id}, #{category3_id}) 
 	</insert>
+	
+	<select id="select" resultMap="ProdResult" 
+	parameterType="String">
+		select * from cbproduct where seller_id = #{seller_id}
+	</select >
 	
 	<select id="selectByNum" parameterType="int" 
 	resultMap="ProdResult">
@@ -62,8 +66,8 @@
 	</select>
 	
 	<update id="update" parameterType="com.example.demo.seller.Product">
-		update cbproduct set name=#{name}, price=#{price}, info=#{info}, 
-		quantity=#{quantity} where num=#{num}
+		update cbproduct set name=#{name},  info=#{info},  price=#{price}
+		 where num = #{num}
 	</update>
 	
 	<delete id="delete" parameterType="int">

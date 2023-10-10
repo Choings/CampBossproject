@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+
+<link href="${path}/resources/css/adminPage.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	var sel1=0; //선택한 것 저장할 변수 대분류
@@ -73,40 +77,72 @@
 					}
 					this.form.submit();
 				});
+
 			});
 </script>
 </head>
 <body>
-
+	</br></br>
+	<h2>카테고리추가</h2></br>
 	
-	<h3>관리자</h3>
-	대분류:
 	<form id="f1"action="${pageContext.request.contextPath }
 	/admin/addCategory" onsubmit="return false" method="post">
-		<select id="s1" name="s1"></select> 
-		<input type="text" id="n1" name="name">
-		<input type="hidden" name="type" value="1">
-		<input type="button" id="b1" value="추가">
+	  <table class="t1">
+	    <thead>
+	     <tr>
+		   <th>대분류<th>
+		 </tr>
+		</thead>
+		
+		 <tbody>
+		  <tr><td><select id="s1" name="s1"></select></td></tr>
+		  <tr><td><input type="text" id="n1" name="name">
+		          <input type="hidden" name="type" value="1"></td></tr>
+		  <tr><td><input type="button" id="b1" value="추가"></td></tr>
+		 </tbody>
+	  </table>
 	</form>
-	<br>	
-	중분류:	
-	<form id="f2" action="${pageContext.request.contextPath }
-	/admin/addCategory" onsubmit="return false"  method="post">
-		<select id="s2"  name="s2"></select> 
-		<input type="text" id="n2" name="name">
-		<input type="hidden" name="type" value="2">
-		<input type="hidden" id="h1" name="p_id" value="">
-		<input type="button" id="b2" value="추가">
+
+	<form id="f2" action="${pageContext.request.contextPath}
+	/admin/addCategory" onsubmit="return false" method="post">
+ 	 <table class="t2">
+    	<thead>
+     	 <tr>
+          <th>중분류</th>
+     	 </tr>
+   	 </thead>
+    
+    	<tbody>
+      	 <tr><td><select id="s2" name="s2"></select></td></tr>
+     	  <tr><td><input type="text" id="n2" name="name">
+              <input type="hidden" name="type" value="2">
+      		  <input type="hidden" id="h1" name="p_id" value=""></td></tr>
+      	  <tr><td><input type="button" id="b2" value="추가"></td></tr>    
+   	    </tbody>
+  	  </table>
 	</form>
-	<br>	
-	소분류:
-	<form id="f3" action="${pageContext.request.contextPath }
-	/admin/addCategory?type=3" onsubmit="return false"  method="post">
-		<select id="s3"  name="s3"></select> 
-		<input type="text" id="n3" name="name">
-		<input type="hidden" name="type" value="3">
-		<input type="hidden" id="h2" name="p_id" value="">
-		<input type="button" id="b3" value="추가">
-	</form>
+
+	<form id="f3" action="${pageContext.request.contextPath}
+	/admin/addCategory?type=3" onsubmit="return false" method="post">
+ 	 <table class="t3">
+  	  <thead>
+     	 <tr>
+       	   <th>소분류</th>
+      	</tr>
+    </thead>
+    
+    <tbody>
+       <tr><td><select id="s3" name="s3"></select></td></tr>
+       <tr><td><input type="text" id="n3" name="name">
+          <input type="hidden" name="type" value="3">
+          <input type="hidden" id="h2" name="p_id" value=""></td></tr>
+       <tr><td><input type="button" id="b3" value="추가"></td></tr>
+    </tbody>
+  </table>
+</form>
+
+	
+	
+	
 </body>
 </html>

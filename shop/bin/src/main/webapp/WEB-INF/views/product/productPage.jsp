@@ -59,7 +59,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<h3>CAMPBOSS - 상품리스트</h3>
+<h3>Camp Boss - 상품리스트</h3>
 
 <!-- 카테고리 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/cateList"
@@ -85,8 +85,8 @@ $(document).ready(function() {
 	<form action="${pageContext.request.contextPath }/seller/nameList"
 		method="post">
 		
-	
-		<input type="text" name="name" placeholder = "제품명으로 검색" >
+		
+		<input type="text" name="name" placeholder = "제품명으로 검색">
 		<input type="submit" value="검색">
 		
 	</form>
@@ -95,7 +95,7 @@ $(document).ready(function() {
 	<form action="${pageContext.request.contextPath }/seller/sellerList"
 		method="post">
 		
-		<input type="text" name="seller_id"  placeholder = "판매자 검색" >
+		<input type="text" name="seller_id"  placeholder = "판매자 검색">
 		<input type="submit" value="검색">
 		
 	</form>
