@@ -1,6 +1,3 @@
-@charset "EUC-KR";
-
-
 h3{
 	text-align: center;
 	font-size: 35px;
@@ -8,6 +5,7 @@ h3{
 }
 
 select.box {
+
   width: 30%;
   height: 30px;
   box-sizing: border-box;
@@ -28,13 +26,19 @@ input[type = text]{
   	border-radius: 4px;
   	font-weight: bold;
   	padding: 10px;
+<<<<<<< HEAD
   	width: 92%;
   	margin-top: 20px;
+=======
+  	  float: left;
+  	margin-left: 15%;
+  	width: 70%;
+>>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
   	margin-right: 2px;
 }
 
 
-input[type=submit] {
+.ct-btn{
   background-color:transparent;
   border: 0 solid #d9d6d6;
   border-radius: 5px;
@@ -44,5 +48,64 @@ input[type=submit] {
   font-weight: bold;
   line-height: 1.4;
   padding: 8px;
-  width: 100px
+  width: 5%;
+}
+
+.bo2 {
+  background-color:transparent;
+  border: 0 solid #d9d6d6;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-size:16px;
+  font-weight: bold;
+  line-height: 1.4;
+  padding: 8px;
+  width: 20%;
+}
+
+.over{
+	margin-top: 40px;
+	
+}
+
+.table {
+  border: 1px #a39485 solid;
+  font-size: .9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+h2 {
+ text-align: center;
+ color: black; /* 글자 색상을 검정색으로 설정 */
+}
+
+th {
+  text-align: left;
+}
+  
+.thead {
+  font-weight: bold;
+  color: black;/* 헤더 텍스트 색상 (배경색으로 인해 안 보일 수 있음) */
+  background: transparent; /* 배경 색상을 투명하게 설정 */
+}
+  
+ td, th {
+  padding: 1em .5em;
+  vertical-align: middle;
+}
+  
+ td {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  background: #fff;
+}
+
+a {
+  color: #73685d;
 }
