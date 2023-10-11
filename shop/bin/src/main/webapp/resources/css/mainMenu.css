@@ -32,6 +32,7 @@
 .brand a:visited {
   color: #000000; /* 글꼴 색상 검정색 */
   text-decoration: none;
+  font-style:italic;
 }
 
 .nav-container {
@@ -66,7 +67,7 @@ nav ul li a:visited {
 
 nav ul li a:hover,
 nav ul li a:visited:hover {
-  background: rgb(20, 20, 20, 0.08); /* 배경색 투명 */
+  background: rgb(255, 255, 255); /* 배경색 투명 */
   color: #000000; /* 글꼴 색상 검정색 */
 }
 
