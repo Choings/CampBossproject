@@ -5,6 +5,27 @@ body {
   font: 600 16px/18px 'Open Sans', sans-serif;
 }
 
+.mapin {
+    width: 40%; /* 길이를 늘리려면 더 큰 값으로 조정할 수 있습니다. */
+    margin-top: 4%;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: 0.5px solid;
+    background: white; /* 배경을 흰색으로 설정 */
+    color: black; /* 글씨를 검정색으로 설정 */
+}
+
+.input2 {
+	width: 45%;
+	height: 40px;
+	border:none;
+	padding:12px 20px;
+	border-radius:20px;
+ 	background:rgba(255,255,255,.1);
+}
+
 h2 {
   text-align: center;
   color: black; /* 글자 색상을 검정색으로 설정 */
