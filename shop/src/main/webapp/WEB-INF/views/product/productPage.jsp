@@ -60,12 +60,11 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<<<<<<< HEAD
+
 <h3>CAMPBOSS - 상품리스트</h3>
-=======
-<h2>Camp Boss - 상품리스트</h2>
+
 </br>
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
+
 
 <!-- 카테고리 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/cateList"
@@ -92,34 +91,23 @@ $(document).ready(function() {
   	</br></br></br>
 	<form action="${pageContext.request.contextPath }/seller/nameList"
 		method="post">
-<<<<<<< HEAD
-		
-	
-		<input type="text" name="name" placeholder = "제품명으로 검색" >
-		<input type="submit" value="검색">
-		
-=======
+
 
 		<input type="text" name="name" placeholder = "제품명으로 검색">
 		<input type="submit" value="검색" class = "ct-btn">
 
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
+
 	</form>
 	
 <!-- 판매자로 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/sellerList"
 		method="post">
-<<<<<<< HEAD
-		
-		<input type="text" name="seller_id"  placeholder = "판매자 검색" >
-		<input type="submit" value="검색">
-		
-=======
+
 
 		<input type="text" name="seller_id"  placeholder = "판매자 검색">
 		<input type="submit" value="검색" class = "ct-btn">
 
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
+
 	</form>
 
 	<div class="over" ></div>
