@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 
 <link href="${path}/resources/css/productPage.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -60,18 +59,15 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<<<<<<< HEAD
+
 <h3>CAMPBOSS - 상품리스트</h3>
-=======
-<h2>Camp Boss - 상품리스트</h2>
-</br>
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
+
 
 <!-- 카테고리 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/cateList"
 		method="post">
 	
-		<select id="s1" name="c1" class="box" >
+		<select id="s1" name="c1" class="box">
 			<option disabled selected>대분류</option>
 		</select>
 	
@@ -79,52 +75,45 @@ $(document).ready(function() {
 			<option disabled selected>중분류</option>
 		</select>
 		
-		<select id="s3" name="c3" class="box">
+		<select id="s3" name="c3"class="box">
 			<option disabled selected>소분류</option>
 		</select> 
 	
-	<input type="submit" value="검색" class = "ct-btn" >	
+	<input type="submit" value="검색"  class="boxbtn">	
 	</form>
 	
 	
 <!-- 제품명으로 검색 -->	
 
-  	</br></br></br>
+
 	<form action="${pageContext.request.contextPath }/seller/nameList"
 		method="post">
-<<<<<<< HEAD
 		
-	
-		<input type="text" name="name" placeholder = "제품명으로 검색" >
-		<input type="submit" value="검색">
+		<div>
+			<input type="text" name="name" placeholder = "제품명으로 검색" class="name-search">
+			<input type="submit" value="검색" class="name-searchbtn">
+		</div>
 		
-=======
 
-		<input type="text" name="name" placeholder = "제품명으로 검색">
-		<input type="submit" value="검색" class = "ct-btn">
+		
 
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
 	</form>
 	
 <!-- 판매자로 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/sellerList"
 		method="post">
-<<<<<<< HEAD
-		
-		<input type="text" name="seller_id"  placeholder = "판매자 검색" >
-		<input type="submit" value="검색">
-		
-=======
 
-		<input type="text" name="seller_id"  placeholder = "판매자 검색">
-		<input type="submit" value="검색" class = "ct-btn">
 
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
+	<div>
+		<input type="text" name="seller_id"  placeholder = "판매자 검색" class="seller-search">
+		<input type="submit" value="검색" class="seller-searchbtn">
+	</div>
+
 	</form>
 
 	<div class="over" ></div>
 	<!-- 검색된 상품 리스트 출력 -->
-	</br></br>
+
 	
 	<c:if test="${empty list }">
 	<table border="1" class="table">

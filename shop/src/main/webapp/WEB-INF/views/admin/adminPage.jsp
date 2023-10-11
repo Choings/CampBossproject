@@ -82,8 +82,8 @@
 </script>
 </head>
 <body>
-	</br></br>
-	<h2>카테고리추가</h2></br>
+	
+	<h3>카테고리 수정 및 추가</h3>
 	
 	<form id="f1"action="${pageContext.request.contextPath }
 	/admin/addCategory" onsubmit="return false" method="post">

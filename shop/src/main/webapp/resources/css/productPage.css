@@ -4,55 +4,102 @@ h3{
 	font-style: italic;
 }
 
-select.box {
+/* 카테고리 검색 css*/
 
-  width: 30%;
-  height: 30px;
-  box-sizing: border-box;
-  margin-left: 6px;
+.box{
+width: 30%;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 25px;
   padding: 5px 0 5px 10px;
   border-radius: 4px;
   border: 1px solid #d9d6d6;
   color: #383838;
   background-color: #ffffff;
   font-family: 'Montserrat', 'Pretendard', sans-serif;
+  box-shadow: 0 0 4px black ;
+  font-style: italic;	
+  text-align: center;
+  font-size: 15px;
 }
 
-input[type = text]{
+.boxbtn{
+	margin-left: 10px;
+	background-color:transparent;
+	border-radius: 5px;
+	border: 1px solid #d9d6d6;
+	box-shadow: 0 0 4px black ;
+	width: 50px;
+	height: 40px;
+}
+
+
+/* 제품명으로 검색 css */
+
+.name-search{
+	float: left;
+	margin-top: 50px;
+	margin-left: 20%;
+	margin-bottom: 30px;
+	border-radius: 5px;
+	border: 1px solid #d9d6d6;
+	box-shadow: 0 0 4px black ;
+	width: 300px;
+	height: 50px;
 	text-align: center;
 	font-size: 15px;
-	border: 0;
-	box-sizing: border-box;
-  	border-radius: 4px;
-  	font-weight: bold;
-  	padding: 10px;
-<<<<<<< HEAD
-  	width: 92%;
-  	margin-top: 20px;
-=======
-  	  float: left;
-  	margin-left: 15%;
-  	width: 70%;
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
-  	margin-right: 2px;
+}
+
+.name-searchbtn{
+	float: left;
+	margin-top: 50px;
+	margin-left: 10px;
+	margin-bottom: 30px;
+	background-color:transparent;
+	border-radius: 5px;
+	border: 1px solid #d9d6d6;
+	box-shadow: 0 0 4px black ;
+	width: 60px;
+	height: 50px;
+	font-size: 15px;
 }
 
 
-.ct-btn{
-  background-color:transparent;
-  border: 0 solid #d9d6d6;
-  border-radius: 5px;
-  cursor: pointer;
-  color: rgb(0, 0, 0);
-  font-size:16px;
-  font-weight: bold;
-  line-height: 1.4;
-  padding: 8px;
-  width: 5%;
+/* 판매자로 검색 css */
+
+.seller-search{
+	float: left;
+	margin-top: 50px;
+	margin-left: 200px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+	border: 1px solid #d9d6d6;
+	box-shadow: 0 0 4px black ;
+	width: 300px;
+	height: 50px;
+	text-align: center;
+	font-size: 15px;
 }
+
+.seller-searchbtn{
+	float: left;
+	margin-top: 50px;
+	margin-left: 10px;
+	margin-bottom: 30px;
+	background-color:transparent;
+	border-radius: 5px;
+	border: 1px solid #d9d6d6;
+	box-shadow: 0 0 4px black ;
+	width: 60px;
+	height: 50px;
+	font-size: 15px;
+}
+
+/* 검색시 출력화면 css */
 
 .bo2 {
   background-color:transparent;
+  
   border: 0 solid #d9d6d6;
   border-radius: 5px;
   cursor: pointer;
@@ -72,7 +119,7 @@ input[type = text]{
 .table {
   border: 1px #a39485 solid;
   font-size: .9em;
-  box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  box-shadow: 0 0 4px black ;
   width: 80%;
   margin: 0 auto;
   border-collapse: collapse;

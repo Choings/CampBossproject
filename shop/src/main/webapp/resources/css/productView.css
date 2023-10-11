@@ -9,8 +9,7 @@ h3{
 
 
 
-.form-control{
-	
+.form-control {
 	width: 30%;
   height: 40px;
   box-sizing: border-box;
@@ -22,11 +21,35 @@ h3{
   background-color: #ffffff;
   font-family: 'Montserrat', 'Pretendard', sans-serif;
   margin-left: 35%;
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 
-
-.div1{
-	margin-bottom:  20px;
+.p1{
+	font-size: 20px;
+	text-align: center;
 }
+
+.in{
+   align-content: center;
+   
+}
+
+.img1 {
+   align-content: center;
+    margin-left: 40%;
+
+}
+
+.img2 {
+   margin-top: 2%;
+    margin-left: 40%;
+    
+}
+
+.no-img{
+	
+	text-align: center;
+}
+
