@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>CAMPBOSS</title>
@@ -25,37 +21,32 @@
 		});
 	});
 </script>
+
+<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
+	<br><br><br>
 </head>
 <body>
-
 <h3>CAMPBOSS - 상품 수정 및 삭제</h3>
 
 <form action="${pageContext.request.contextPath }/product/edit" method="post"  id="f1">
 <input type="hidden" name="num" value="${p.num }">
-t.git
-
 
 <div>
 	<p class="name-title">제품이름</p>
 	<input type="text" name="name" value="${p.name }" class="name">
 </div>
 
+
 <div>
 	<p class="info-title">제품내용</p>
 </div>
-
-  <div class="in">
-    <label for="name">제품이름</label><br><br>
-    <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="제품이름" value="${p.name }"><br><br>
-  </div>
-
-
 
 <div>
 	<textarea name="info" class="info" >${p.info }</textarea>
 </div>
 
-  
+<div>
+ 	
  	<c:if test="${empty file0 }">
 		<div>
 			<p class="not-img">등록된 이미지가 없습니다.</p>
@@ -99,7 +90,6 @@ t.git
 
 
 
-  
 </form>
 </body>
 </html>
