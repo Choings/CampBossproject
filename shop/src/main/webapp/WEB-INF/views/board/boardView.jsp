@@ -51,7 +51,7 @@ $(document).ready(function() {
       	<c:if test="${not empty file0 }">
       
       	<div>
-      		<img id="bigImg" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&num=${b.board_num }" 
+      		<img id="bigImg" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&board_num=${b.board_num }" 
      		 class="img-head"> 
      		  </div>
       

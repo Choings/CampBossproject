@@ -47,7 +47,7 @@ public class SellerController {
 	
 		@RequestMapping(value = "/seller/allList")
 		public ModelAndView allList() {
-			ModelAndView mav = new ModelAndView("member/main");
+			ModelAndView mav = new ModelAndView("product/productPage");
 			ArrayList<Product> list = (ArrayList<Product>) service.getProductAll();
 			mav.addObject("list", list);
 			return mav;
@@ -58,7 +58,7 @@ public class SellerController {
 		public ModelAndView cateList(@RequestParam(value = "c1", required = true) int c1,
 				@RequestParam(value = "c2", required = false, defaultValue = "0") int c2,
 				@RequestParam(value = "c3", required = false, defaultValue = "0") int c3) {
-			ModelAndView mav = new ModelAndView("member/main");
+			ModelAndView mav = new ModelAndView("product/productPage");
 			ArrayList<Product> list = null;
 			if (c2 == 0) {
 				list = (ArrayList<Product>) service.getProductByC1(c1);
@@ -73,7 +73,7 @@ public class SellerController {
 
 		@RequestMapping(value = "/seller/nameList")
 		public ModelAndView nameList(@RequestParam(value = "name") String name) {
-			ModelAndView mav = new ModelAndView("member/main");
+			ModelAndView mav = new ModelAndView("product/productPage");
 			ArrayList<Product> list = (ArrayList<Product>) service.getProductByName(name);
 			mav.addObject("list", list);
 			return mav;
@@ -82,7 +82,7 @@ public class SellerController {
 		
 		@RequestMapping(value = "/seller/sellerList")
 		public ModelAndView sellerList(@RequestParam(value = "seller_id") String seller_id) {
-			ModelAndView mav = new ModelAndView("member/main");
+			ModelAndView mav = new ModelAndView("product/productPage");
 			ArrayList<Product> list = (ArrayList<Product>) service.getProductBySellerId(seller_id);
 			mav.addObject("list", list);
 			return mav;
@@ -121,7 +121,7 @@ public class SellerController {
 		saveImg(num, p.getFile1());
 		saveImg(num, p.getFile2());
 		saveImg(num, p.getFile3());
-		return "member/main";
+		return "product/productPage";
 	}
 	@RequestMapping(value = "/cbproduct/cbForm")
 	public void form() {
@@ -213,7 +213,7 @@ public class SellerController {
 	@RequestMapping(value = "/product/edit")
 	public String edit(Product p) {
 		service.editProduct(p);
-		return "product/productList";
+		return "product/productPage";
 	}
 
 	//삭제
@@ -230,7 +230,7 @@ public class SellerController {
 			}
 		}
 		imgDir.delete();
-		return "product/productList";
+		return "product/productPage";
 	}
 
 	

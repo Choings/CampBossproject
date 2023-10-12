@@ -26,7 +26,24 @@
         
         <c:if test="${sessionScope.user_type==1 }">
         <ul class="nav-list">
-            <li>
+             
+             <li>
+            <a href="#!">상품</a>
+            <ul class="nav-dropdown">
+             <li>
+              	<a href="${pageContext.request.contextPath }/product/productPage">상품리스트</a>
+              </li>
+              <li>
+                <a href="${pageContext.request.contextPath }/product/productAdd">상품등록</a>
+              </li>
+              <li>
+                <a href="${pageContext.request.contextPath }/product/productList">판매리스트</a>
+              </li>
+             
+            </ul>
+          </li>
+             
+           <li>
                <a href="#">게시판</a>
                <ul class="nav-dropdown">
                		<li>
@@ -38,8 +55,11 @@
                		<li>
                			<a href="${pageContext.request.contextPath }/board/boardList">내 작성글</a>
                		</li>
+               		
+               		
                </ul>
              </li>
+           
           <li>
             <a href="#">내정보</a>
             <ul class="nav-dropdown">
@@ -54,20 +74,7 @@
               </li>
             </ul>
           </li>
-          <li>
-            <a href="#!">상품</a>
-            <ul class="nav-dropdown">
-              <li>
-                <a href="${pageContext.request.contextPath }/product/productAdd">상품등록</a>
-              </li>
-              <li>
-                <a href="${pageContext.request.contextPath }/product/productList">판매리스트</a>
-              </li>
-              <li>
-              	<a href="${pageContext.request.contextPath }/product/productPage">상품리스트</a>
-              </li>
-            </ul>
-          </li>
+          
         </ul>
         
            
