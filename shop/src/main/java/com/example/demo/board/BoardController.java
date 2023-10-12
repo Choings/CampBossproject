@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.seller.Product;
+
 @Controller
 public class BoardController {
 
@@ -227,7 +229,36 @@ public class BoardController {
 	}
 	
 	
+	//게시글전체출력 (관리자 )
+	@RequestMapping(value = "/admin/boardList")
+	public ModelAndView boList() {
+		ModelAndView mav = new ModelAndView("admin/boardList");
+		ArrayList<Board> list = (ArrayList<Board>) service.getBoardAll();
+		mav.addObject("list", list);
+		return mav;
+	}
 	
+	//게시글리스트 삭제(관리자 )
+	@RequestMapping(value = "/board/bodel")
+	public String bodel(@RequestParam(value = "num") int num) {
+		service.delBoard(num);
+		String path = basePath + num + "\\";
+		File imgDir = new File(path);
+		if (imgDir.exists()) {
+			String[] files = imgDir.list();
+			for (int j = 0; j < files.length; j++) {
+				File f = new File(path + files[j]);
+				f.delete();
+			}
+		}
+		imgDir.delete();
+		
+	    ModelAndView mav = new ModelAndView("admin/boardList");
+	    ArrayList<Board> list = (ArrayList<Board>) service.getBoardAll();
+	    mav.addObject("list", list);
+	    return "redirect:/admin/boardList";
+		
+	}
 	
 	
 }

@@ -1,7 +1,7 @@
 @charset "EUC-KR";
 
 
-/*제목 css*/
+
 h3{
 	text-align: center;
 	font-size: 35px;
@@ -9,7 +9,6 @@ h3{
 }
 
 
-/*카테고리 css*/
 .box {
 
   width: 30%;
@@ -26,14 +25,14 @@ h3{
   font-style: italic;
 }
 
-/*각항목 제목 css*/
+
 p{
 	margin-top: 50px;
 	text-align: center;
 	font-style: italic;
 }
 
-/*제품이름 css*/
+
 .name{
 	
 	margin-left: 40%;
@@ -45,7 +44,6 @@ p{
 }
 
 
-/*제품설명 css*/
 .info{
 	width: 300px;
 	height: 300px;
@@ -57,7 +55,7 @@ p{
 	box-shadow: 0 0 4px black ;
 }
 
-/*제품가격 css*/
+
 
 .price{
 	margin-left: 40%;
@@ -69,7 +67,7 @@ p{
 }
 
 
-/*판매자 css*/
+
 
 .seller{
 	margin-left: 40%;
@@ -80,7 +78,6 @@ p{
 	height: 30px;
 }
 
-/*제품이미지 css*/
 
 .upload-name {
     margin-left: 40%;
@@ -91,8 +88,6 @@ p{
 	width: 300px;
 	height: 25px;
 }
-
-/*등록취소 버튼 css*/
 
 .submit{
 	margin-left: 40%;

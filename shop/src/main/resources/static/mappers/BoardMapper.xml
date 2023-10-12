@@ -5,7 +5,8 @@
 <mapper namespace="com.example.demo.board.BoardMapper">
 	<resultMap type="com.example.demo.board.Board" id="BoardResult">
 		<result column="board_num" property="board_num" />
-		<result column="boaer_name" property="boaer_name" />
+		<result column="board_name" property="board_name" />
+		<result column="board_addr" property="board_addr" />
 		<result column="board_info" property="board_info" />
 		<result column="board_id" property="board_id" />
 		<result column="boardcategory1_id" property="boardcategory1_id" />
@@ -15,7 +16,7 @@
 	
 	<insert id="insert" parameterType="com.example.demo.board.Board">
 		insert into cbboard
-		values(#{board_num}, #{board_name}, #{board_info},
+		values(#{board_num}, #{board_name}, #{board_addr}, #{board_info},
 		#{board_id}, #{boardcategory1_id}, #{boardcategory2_id}, #{boardcategory3_id}) 
 	</insert>
 	
@@ -62,7 +63,7 @@
 	</select>
 	
 	<update id="update" parameterType="com.example.demo.board.Board">
-		update cbboard set board_name=#{board_name},  board_info=#{board_info} 
+		update cbboard set board_name=#{board_name}, board_addr=#{board_addr}, board_info=#{board_info} 
 		 where board_num = #{board_num}
 	</update>
 	

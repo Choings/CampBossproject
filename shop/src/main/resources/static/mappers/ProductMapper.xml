@@ -7,6 +7,7 @@
 		<result column="num" property="num" />
 		<result column="name" property="name" />
 		<result column="info" property="info" />
+		<result column="addr" property="addr" />
 		<result column="price" property="price" />
 		<result column="seller_id" property="seller_id" />
 		<result column="category1_id" property="category1_id" />
@@ -15,7 +16,7 @@
 	</resultMap>
 	<insert id="insert" parameterType="com.example.demo.seller.Product">
 		insert into cbproduct
-		values(#{num}, #{name}, #{info}, #{price},
+		values(#{num}, #{name}, #{info}, #{addr}, #{price},
 		#{seller_id}, #{category1_id}, #{category2_id}, #{category3_id}) 
 	</insert>
 	
@@ -66,7 +67,7 @@
 	</select>
 	
 	<update id="update" parameterType="com.example.demo.seller.Product">
-		update cbproduct set name=#{name},  info=#{info},  price=#{price}
+		update cbproduct set name=#{name}, info=#{info}, addr=#{addr}, price=#{price}
 		 where num = #{num}
 	</update>
 	

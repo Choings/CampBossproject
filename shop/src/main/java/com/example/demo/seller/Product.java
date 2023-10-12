@@ -7,6 +7,7 @@ public class Product {
 	private String name;
 	private int quantity;
 	private String info;
+	private String addr;
 	private int price;
 	private String seller_id;
 	private int category1_id;
@@ -19,12 +20,30 @@ public class Product {
 	public Product() {
 	}
 
-	public Product(int num, String name, int quantity, String info, int price, String seller_id, int category1_id,
-			int category2_id, int category3_id, MultipartFile file1, MultipartFile file2, MultipartFile file3) {
+	public Product(int num, String name, int quantity, String info, String addr, int price, String seller_id,
+			int category1_id, int category2_id, int category3_id) {
+
 		this.num = num;
 		this.name = name;
 		this.quantity = quantity;
 		this.info = info;
+		this.addr = addr;
+		this.price = price;
+		this.seller_id = seller_id;
+		this.category1_id = category1_id;
+		this.category2_id = category2_id;
+		this.category3_id = category3_id;
+	}
+
+	public Product(int num, String name, int quantity, String info, String addr, int price, String seller_id,
+			int category1_id, int category2_id, int category3_id, MultipartFile file1, MultipartFile file2,
+			MultipartFile file3) {
+
+		this.num = num;
+		this.name = name;
+		this.quantity = quantity;
+		this.info = info;
+		this.addr = addr;
 		this.price = price;
 		this.seller_id = seller_id;
 		this.category1_id = category1_id;
@@ -33,19 +52,6 @@ public class Product {
 		this.file1 = file1;
 		this.file2 = file2;
 		this.file3 = file3;
-	}
-
-	public Product(int num, String name, int quantity, String info, int price, String seller_id, int category1_id,
-			int category2_id, int category3_id) {
-		this.num = num;
-		this.name = name;
-		this.quantity = quantity;
-		this.info = info;
-		this.price = price;
-		this.seller_id = seller_id;
-		this.category1_id = category1_id;
-		this.category2_id = category2_id;
-		this.category3_id = category3_id;
 	}
 
 	public int getNum() {
@@ -78,6 +84,14 @@ public class Product {
 
 	public void setInfo(String info) {
 		this.info = info;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public int getPrice() {
@@ -146,8 +160,8 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [num=" + num + ", name=" + name + ", quantity=" + quantity + ", info=" + info + ", price="
-				+ price + ", seller_id=" + seller_id + ", category1_id=" + category1_id + ", category2_id="
+		return "Product [num=" + num + ", name=" + name + ", quantity=" + quantity + ", info=" + info + ", addr=" + addr
+				+ ", price=" + price + ", seller_id=" + seller_id + ", category1_id=" + category1_id + ", category2_id="
 				+ category2_id + ", category3_id=" + category3_id + ", file1=" + file1 + ", file2=" + file2 + ", file3="
 				+ file3 + "]";
 	}
