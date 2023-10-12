@@ -42,6 +42,7 @@
 			<th>제품이름</th>
 			<th>제품내용</th>
 			<th>제품 가격</th>
+			<th>조회수</th>
 		</tr>
 	</thead>
 	
@@ -63,6 +64,7 @@
 		<th scope="col">제품이름</th>
 		<th scope="col">제품내용</th>
 		<th scope="col">가격</th>
+		<th scope="col">조회수</th>
 	</tr>
 </thead>		
 
@@ -75,6 +77,7 @@
 		<td><a href="${pageContext.request.contextPath }/product/productEdit?num=${p.num}">${p.name }</a></td>
 		<td>${p.info }</td>
 		<td>${p.price }</td>
+		<td>${p.cbproduct_hit }</td>
 	</tr>
 </tbody>
 	</c:forEach>

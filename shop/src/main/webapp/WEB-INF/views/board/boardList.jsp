@@ -40,6 +40,7 @@
 			<th>글번호</th>
 			<th>제목</th>
 			<th>내용</th>
+			<th>조회수</th>
 		</tr>
 	</thead>
 	
@@ -60,6 +61,7 @@
 		<th scope="col">글번호</th>
 		<th scope="col">제목</th>
 		<th scope="col">내용</th>
+		<th scope="col">조회수</th>
 	</tr>
 </thead>		
 
@@ -71,6 +73,7 @@
 		<td >${b.board_num }</td>
 		<td><a href="${pageContext.request.contextPath }/board/boardEdit?board_num=${b.board_num}">${b.board_name }</a></td>
 		<td>${b.board_info }</td>
+		<td>${b.cbboard_hit}</td>
 
 	</tr>
 </tbody>

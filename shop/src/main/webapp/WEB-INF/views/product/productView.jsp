@@ -11,6 +11,24 @@
 <link href="${path}/resources/css/productEdit.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
+// 조회수
+
+let cbproduct_hit = ${p.cbproduct_hit};
+
+function increaseHit() {
+	cbproduct_hit++;
+	
+	document.getElementById("hitDisplay").innerText = cbproduct_hit;
+}
+
+window.onload = function () {
+	increaseHit();
+}
+
+
+
+
+
 $(document).ready(function() {
 	$(".img").mouseover(function() {
 		$("#bigImg").attr('src', this.src);
@@ -37,8 +55,13 @@ $(document).ready(function() {
 		</div>
 		
 		<div >
+			<p class="name-title">조회수</p> 
+			<input type="text" value="${p.cbproduct_hit }" class="name" readonly >
+		</div>
+		
+		<div >
 			<p class="seller-title">판매자</p> 
-			<input type="text" value="${p.seller_id }" class="seller" readonly >
+			<input type="text" value="${p.seller_id }" id="hitDisplay" class="seller" readonly >
 		</div>
 		
 		<c:if test="${empty file0 }">
@@ -70,7 +93,7 @@ $(document).ready(function() {
 		
 		
 		</br>
-			<p class="name-title">장소</p>
+		<p class="name-title">장소</p>
 		<input type="text" id="sample5_address" class="name" name="addr" value="${p.addr }" readonly> </br>		
 		<div id="map" style="width:350px;height:350px;" class="name"></div>
 

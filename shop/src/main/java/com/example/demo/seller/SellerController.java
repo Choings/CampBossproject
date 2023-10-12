@@ -133,6 +133,7 @@ public class SellerController {
 	@RequestMapping(value = "/product/productView")
 	public ModelAndView view(@RequestParam(value = "num") int num, @RequestParam(value = "type") int type) {
 		ModelAndView mav = new ModelAndView();
+		service.editCbproduct_hit(num);
 		if (type == 1) {
 			mav.setViewName("product/productView");
 		}

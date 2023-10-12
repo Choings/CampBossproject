@@ -18,5 +18,6 @@ public interface ProductMapper {
 	List selectAll();
 	void update(Product p);
 	void delete(int num);
+	void editCbproduct_hit(int num);
 	int getNum();
 }

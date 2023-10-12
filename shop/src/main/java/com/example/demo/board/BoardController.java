@@ -165,6 +165,7 @@ public class BoardController {
 	@RequestMapping(value = "/board/boardView")
 	public ModelAndView boardview(@RequestParam(value = "board_num") int board_num, @RequestParam(value = "type") int type) {
 		ModelAndView mav = new ModelAndView();
+		service.editCbboard_hit(board_num);
 		if(type == 1) {
 			mav.setViewName("board/boardView");
 		}

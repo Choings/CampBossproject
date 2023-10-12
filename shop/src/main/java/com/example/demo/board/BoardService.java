@@ -58,6 +58,9 @@ public class BoardService {
 		mapper.delete(board_num);
 	}
 	
+	public void editCbboard_hit(int board_num) {
+		mapper.editCbboard_hit(board_num);
+	}
 	public int getNum() {
 		return mapper.getNum();
 	}

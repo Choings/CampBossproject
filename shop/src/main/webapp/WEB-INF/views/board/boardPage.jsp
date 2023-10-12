@@ -127,7 +127,7 @@ $(document).ready(function() {
 	<c:if test="${not empty list }">
 	<table border="1" cellspacing="0" class="table">
 	 <thead class="thead">
-	<tr><th>제목</th><th>내용</th><th>작성자</th></tr>
+	<tr><th>제목</th><th>내용</th><th>작성자</th><th>조회수</th></tr>
 	 </thead>
 	 
 	 
@@ -136,7 +136,7 @@ $(document).ready(function() {
 	<tr>
 	<td><a href="${pageContext.request.contextPath }
 	/board/boardView?board_num=${b.board_num }&type=1">${b.board_name }</a></td>
-	<td>${b.board_info }</td><td>${b.board_id }</td>
+	<td>${b.board_info }</td><td>${b.board_id }</td><td>${b.cbboard_hit }</td>
 	</tr>
 	 </tbody>
 	</c:forEach>

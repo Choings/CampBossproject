@@ -11,6 +11,21 @@
 <link href="${path}/resources/css/productEdit.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
+//조회수
+
+let cbboard_hit = ${b.cbboard_hit};
+
+function increaseHit() {
+	cbboard_hit++;
+	
+	document.getElementById("hitDisplay").innnerText - cbboard_hit;
+}
+
+window.onload  = function () {
+	increaseHit();
+}
+
+
 $(document).ready(function() {
 	$(".img").mouseover(function() {
 		$("#bigImg").attr('src', this.src);
@@ -34,6 +49,11 @@ $(document).ready(function() {
 		<div >
 			<p class="name-title">제목</p> 
 			<input type="text" value="${b.board_name }" class="name"  readonly >
+		</div>
+		
+		<div >
+			<p class="name-title">조회수</p> 
+			<input type="text" value="${b.cbboard_hit }" class="name"  readonly >
 		</div>
 		
 		</br>

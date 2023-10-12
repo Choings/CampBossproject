@@ -124,7 +124,7 @@ $(document).ready(function() {
 	<c:if test="${not empty list }">
 	<table border="1" cellspacing="0" class="table">
 	 <thead class="thead">
-	<tr><th>제품이름</th><th>제품설명</th><th>제품가격</th><th>판매자</th></tr>
+	<tr><th>제품이름</th><th>제품설명</th><th>제품가격</th><th>판매자</th><th>조회수</th></tr>
 	 </thead>
 	 
 	 
@@ -135,6 +135,7 @@ $(document).ready(function() {
 	/product/productView?num=${p.num }&type=1">${p.name }</a></td>
 	<td>${p.info }</td><td>${p.price }</td>
 	<td>${p.seller_id }</td>
+	<td>${p.cbproduct_hit }</td>
 	</tr>
 	 </tbody>
 	</c:forEach>

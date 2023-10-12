@@ -57,6 +57,10 @@ public class SellerService {
 	public void delProduct(int num) {
 		mapper.delete(num);
 	}
+	
+	public void editCbproduct_hit(int num) {
+		mapper.editCbproduct_hit(num);
+	}
 
 	public int getNum() {
 		return mapper.getNum();

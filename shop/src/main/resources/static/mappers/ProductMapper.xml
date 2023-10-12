@@ -13,11 +13,12 @@
 		<result column="category1_id" property="category1_id" />
 		<result column="category2_id" property="category2_id" />
 		<result column="category3_id" property="category3_id" />
+		<result column="cbproduct_hit" property="cbproduct_hit"/>
 	</resultMap>
 	<insert id="insert" parameterType="com.example.demo.seller.Product">
 		insert into cbproduct
 		values(#{num}, #{name}, #{info}, #{addr}, #{price},
-		#{seller_id}, #{category1_id}, #{category2_id}, #{category3_id}) 
+		#{seller_id}, #{category1_id}, #{category2_id}, #{category3_id},0) 
 	</insert>
 	
 	<select id="select" resultMap="ProdResult" 
@@ -74,6 +75,10 @@
 	<delete id="delete" parameterType="int">
 		delete cbproduct where num=#{num}
 	</delete>
+	
+	<update id="editCbproduct_hit">
+		update cbproduct set cbproduct_hit=cbproduct_hit +1 where num = #{num}
+	</update>
 	
 	<select id="getNum" resultType="int">
 		select seq_cbproduct.nextval from dual
