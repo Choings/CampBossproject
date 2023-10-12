@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,6 +39,11 @@ public class SellerController {
 	
 	
 	// 상품 리스트 전체 및 검색 출력
+	
+		@GetMapping(value = "/product/productPage")
+		public String productPage() {
+			return "product/productPage";
+		}
 	
 		@RequestMapping(value = "/seller/allList")
 		public ModelAndView allList() {
@@ -184,7 +190,7 @@ public class SellerController {
 		}
 	}
 
-	// 상품수정
+	// 상품수정 및 삭제
 	@RequestMapping(value = "/product/productEdit")
 	public ModelAndView productEdit(@RequestParam(value = "num") int num) {
 		ModelAndView mav = new ModelAndView();
@@ -210,6 +216,7 @@ public class SellerController {
 		return "product/productList";
 	}
 
+	//삭제
 	@RequestMapping(value = "/seller/del")
 	public String del(@RequestParam(value = "num") int num) {
 		service.delProduct(num);

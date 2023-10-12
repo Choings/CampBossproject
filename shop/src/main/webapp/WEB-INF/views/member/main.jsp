@@ -20,7 +20,7 @@
 
 
 <c:if test="${sessionScope.user_type==1 }">
-	<c:import url="/WEB-INF/views/product/productPage.jsp"></c:import>
+	<c:import url="/WEB-INF/views/member/membermainPage.jsp"></c:import>
 	
 </c:if>
 

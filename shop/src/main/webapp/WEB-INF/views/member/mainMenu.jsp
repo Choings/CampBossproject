@@ -28,6 +28,17 @@
         <ul class="nav-list">
             <li>
                <a href="#">게시판</a>
+               <ul class="nav-dropdown">
+               		<li>
+               			<a href="${pageContext.request.contextPath }/board/boardPage">게시글 목록</a>
+               		</li>
+               		<li>
+               			<a href="${pageContext.request.contextPath }/board/boardAdd">게시글 작성</a>
+               		</li>
+               		<li>
+               			<a href="${pageContext.request.contextPath }/board/boardList">내 작성글</a>
+               		</li>
+               </ul>
              </li>
           <li>
             <a href="#">내정보</a>
@@ -48,10 +59,12 @@
             <ul class="nav-dropdown">
               <li>
                 <a href="${pageContext.request.contextPath }/product/productAdd">상품등록</a>
-
               </li>
               <li>
                 <a href="${pageContext.request.contextPath }/product/productList">판매리스트</a>
+              </li>
+              <li>
+              	<a href="${pageContext.request.contextPath }/product/productPage">상품리스트</a>
               </li>
             </ul>
           </li>

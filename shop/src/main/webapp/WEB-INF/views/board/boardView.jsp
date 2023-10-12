@@ -26,20 +26,21 @@ $(document).ready(function() {
 
 </head>
 <body>
-	<h3>상품 상세정보</h3>
+<h3>게시글 상세정보</h3>
 	<form id="f1" action="${pageContext.request.contextPath }/product/view" 
 	method="post" class="row g-3">
-	<input type="hidden" name="pro_num" value="${p.num }">
+	<input type="hidden" name="board_num" value="${b.board_num }">
 
 		<div >
-			<p class="name-title">제품이름</p> 
-			<input type="text" value="${p.name }" class="name" readonly >
+			<p class="name-title">제목</p> 
+			<input type="text" value="${b.board_name }" class="name"  readonly >
 		</div>
 		
 		<div >
-			<p class="seller-title">판매자</p> 
-			<input type="text" value="${p.seller_id }" class="seller" readonly >
+			<p class="seller-title">작성자</p> 
+			<input type="text" value="${b.board_id }" class="seller"  readonly >
 		</div>
+		
 		
 		<c:if test="${empty file0 }">
 			<div>
@@ -50,35 +51,29 @@ $(document).ready(function() {
       	<c:if test="${not empty file0 }">
       
       	<div>
-      		<img id="bigImg" src="${pageContext.request.contextPath }/img?fname=${file0 }&num=${p.num }" 
+      		<img id="bigImg" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&num=${b.board_num }" 
      		 class="img-head"> 
      		  </div>
       
       	<div>   
-      		<img src="${pageContext.request.contextPath }/img?fname=${file0 }&num=${p.num }" class="img img-body1" >
-      		<img src="${pageContext.request.contextPath }/img?fname=${file1 }&num=${p.num }"  class="img img-body2" >
-      		<img src="${pageContext.request.contextPath }/img?fname=${file2 }&num=${p.num }" class="img img-body3" >
+      		<img src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&board_num=${b.board_num }"class="img img-body1" >
+      		<img src="${pageContext.request.contextPath }/boardimg?fname=${file1 }&board_num=${b.board_num }" class="img img-body2" >
+      		<img src="${pageContext.request.contextPath }/boardimg?fname=${file2 }&board_num=${b.board_num }" class="img img-body3" >
         </div>
             </c:if>
 		
 		
 		<div>
-			<p class="info-title">제품내용</p>
+			<p class="info-title">내용</p>
 		</div>
-			<textarea name="info" class="info" readonly>${p.info }</textarea>
+			<textarea name="info" class="info" readonly>${b.board_info }</textarea>
 		<div></div>
 		
-		<div >
-			<p class="price-title">제품가격</p> 
-			<input type="text" class="price" value="${p.price }"  readonly>
-		</div>
 			
   
       	
 
 			
 	</form>
-
 </body>
 </html>
-

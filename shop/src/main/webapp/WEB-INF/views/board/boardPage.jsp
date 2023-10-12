@@ -57,17 +57,19 @@ $(document).ready(function() {
 });
 });
 </script>
-<!-- 상단 메뉴바 불러오기  -->
-	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
+
+<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
+	<br><br><br>
 </head>
 <body>
 
-<h3>CAMPBOSS - 상품리스트</h3>
 
+<h3>CAMPBOSS - 게시글리스트</h3>
 
 
 <!-- 카테고리 검색 -->
-	<form action="${pageContext.request.contextPath }/seller/cateList"
+
+<form action="${pageContext.request.contextPath }/board/cateList"
 		method="post">
 	
 		<select id="s1" name="c1" class="box">
@@ -83,37 +85,38 @@ $(document).ready(function() {
 		</select> 
 	
 	<input type="submit" value="검색"  class="boxbtn">	
-	</form>
-	
-	
-<!-- 제품명으로 검색 -->	
+</form>
 
 
-	<form action="${pageContext.request.contextPath }/seller/nameList"
+<!-- 게시글 제목 검색 -->
+
+<form action="${pageContext.request.contextPath }/board/board_nameList"
 		method="post">
 
-		
 		<div>
-			<input type="text" name="name" placeholder = "제품명으로 검색" class="name-search">
+			<input type="text" name="board_name" placeholder = "게시글 제목 검색" class="name-search">
 			<input type="submit" value="검색" class="name-searchbtn">
 		</div>
 
 	</form>
-	
-<!-- 판매자로 검색 -->
-	<form action="${pageContext.request.contextPath }/seller/sellerList"
+
+
+<!-- 작성자 검색 -->
+	<form action="${pageContext.request.contextPath }/board/board_idList"
 		method="post">
 	<div>
-		<input type="text" name="seller_id"  placeholder = "판매자 검색" class="seller-search">
+		<input type="text" name="board_id"  placeholder = "작성자 검색" class="seller-search">
 		<input type="submit" value="검색" class="seller-searchbtn">
 	</div>
 	</form>
 
-	<div class="over" ></div>
-	<!-- 검색된 상품 리스트 출력 -->
 
-	
-	<c:if test="${empty list }">
+
+<div class="over" ></div>
+
+<!-- 검색된 게시글 리스트 출력 -->
+
+<c:if test="${empty list }">
 	<table border="1" class="table">
 	<tr>
 	<td>검색된 상품이 없습니다.</td>
@@ -124,23 +127,23 @@ $(document).ready(function() {
 	<c:if test="${not empty list }">
 	<table border="1" cellspacing="0" class="table">
 	 <thead class="thead">
-	<tr><th>제품이름</th><th>제품설명</th><th>제품가격</th><th>판매자</th></tr>
+	<tr><th>제목</th><th>내용</th><th>작성자</th></tr>
 	 </thead>
 	 
 	 
-	<c:forEach var="p" items="${list }">
+	<c:forEach var="b" items="${list }">
 	 <tbody class="tbody">
 	<tr>
 	<td><a href="${pageContext.request.contextPath }
-	/product/productView?num=${p.num }&type=1">${p.name }</a></td>
-	<td>${p.info }</td><td>${p.price }</td>
-	<td>${p.seller_id }</td>
+	/board/boardView?board_num=${b.board_num }&type=1">${b.board_name }</a></td>
+	<td>${b.board_info }</td><td>${b.board_id }</td>
 	</tr>
 	 </tbody>
 	</c:forEach>
 
 	</table>
 	</c:if>
+
 
 
 </body>
