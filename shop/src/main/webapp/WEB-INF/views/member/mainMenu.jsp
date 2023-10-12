@@ -103,6 +103,9 @@
               <li>
                 <a href="${pageContext.request.contextPath }/admin/productList"> 상품리스트관리</a>
               </li>
+              <li>
+                <a href="${pageContext.request.contextPath }/admin/boardList"> 게시글관리</a>
+              </li>
             </ul>
           </li>
           <li>
