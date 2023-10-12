@@ -36,8 +36,11 @@ public class BoardController {
 	// 게시글 전체출력 및 검색
 	
 	@GetMapping(value = "/board/boardPage")
-	public String boardPage() {
-		return "board/boardPage";
+	public ModelAndView boardPage() {
+			ModelAndView mav = new ModelAndView("board/boardPage");
+			ArrayList<Board> list = (ArrayList<Board>) service.getBoardAll();
+			mav.addObject("list", list);
+			return mav;
 	}
 	
 	@RequestMapping(value = "/board/allList")

@@ -41,8 +41,11 @@ public class SellerController {
 	// 상품 리스트 전체 및 검색 출력
 	
 		@GetMapping(value = "/product/productPage")
-		public String productPage() {
-			return "product/productPage";
+		public ModelAndView productPage() {
+				ModelAndView mav = new ModelAndView("product/productPage");
+				ArrayList<Product> list = (ArrayList<Product>) service.getProductAll();
+				mav.addObject("list", list);
+			return mav;
 		}
 	
 		@RequestMapping(value = "/seller/allList")
