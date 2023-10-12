@@ -7,11 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
     <script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
    <title>Insert title here</title>
-    <link href="${path}/resources/css/mainMenu.css" rel="stylesheet">
+    <link href="${path}/resources/css/Menu.css" rel="stylesheet">
    
 
 </head>
-<body class="bodymenu">
+<body>
 
 
 <section class="nav-bar">
