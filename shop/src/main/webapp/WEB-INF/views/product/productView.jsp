@@ -52,12 +52,17 @@ $(document).ready(function() {
 		<h2>${p.name }</h2>
 		<h5>조회수 : ${p.cbproduct_hit }</h5>
 		
+	<div>
 		<table>
 			<colgroup>
 				<col style="width : px;"><col>
 			</colgroup>
 		
 			<tbody>
+			<tr>
+				<th>작성날짜</th>
+				<td>${p.cb_date }</td>
+			</tr>
 				<tr>
 				<th>가격</th>
 				<td  class="pricecolor"><b>${p.price}</b>원</td>
@@ -80,7 +85,7 @@ $(document).ready(function() {
 			
 			</tbody>
 		</table>
-		
+	</div>	
 		<c:if test="${not empty file0 }">
 		<div  class="img_head">
 			<img id="bigImg" src="${pageContext.request.contextPath }/img?fname=${file0 }&num=${p.num }" > 
