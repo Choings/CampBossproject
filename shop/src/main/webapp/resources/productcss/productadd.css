@@ -4,7 +4,9 @@ h3{
 	font-size: 35px;
 }
 
-
+input{
+	height: 30px;
+}
 
 body{
 	padding: 50px;
@@ -14,9 +16,6 @@ body{
 li{
 	list-style-type: none;
 }
-/* 카테고리 css */
-
-
 
 /* 본문 css */
 

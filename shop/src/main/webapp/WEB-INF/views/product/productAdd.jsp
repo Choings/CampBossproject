@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>CampBoss - 상품등록</title>
-<link href="${path}/resources/css/productAdd.css" rel="stylesheet">
+<link href="${path}/resources/productcss/productadd.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	$(document).ready(
@@ -86,24 +86,73 @@
 		<option disabled selected>소분류</option>
 	</select>	
 	
-	<div>
-		<p>제품이름</p>
-  		<input type="text" name="name"  class="name">
+	<div class="product-view">
+		
+		<table>
+			<colgroup>
+			<col style="width : px;"><col>
+		</colgroup>
+		
+		<tbody>
+			<tr>
+				<th>제품이름</th>
+				<td><input type="text" name="name"  ></td>
+			</tr>
+			
+			<tr>
+				<th>가격</th>
+				<td class="pricecolor"><input type="text" name="price" ></td>
+			</tr>
+			
+			<tr>
+				<th>판매자</th>
+				<td><input type="text" name="seller_id" 
+				value="${sessionScope.user_id }"  readonly>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>내용</th>
+				<td>하단 이용</td>
+			</tr>
+		
+			<tr>
+				<th>장소</th>
+				<td>
+				<input type="text" id="sample5_address"  name="addr" value="${p.addr }">
+				<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"  style="text-align: center;">
+				<div id="map" style="width:300px;height:150px; margin-top: 20px"class="name" ></div>
+				</td>
+			</tr>
+			
+			<tr>
+				<th></th>
+				<td>	
+				<input type="submit" value="등록" class="btn">
+				<input type="reset" value="취소" class="btn">
+				</td>
+			</tr>
+		</tbody>
+		</table>
+		
+		<div class="img_head"> 
+			<p>제품이미지</p>
+			<input type="file" name="file1" class="img"><br>
+			<input type="file" name="file2" class="img"><br>
+			<input type="file" name="file3" class="img"><br>
+		</div>
 	</div>
 	
-	<div>
-		<p>제품설명</p>
-		<textarea name = "info" class="info"></textarea>
-	</div>
+	<div class="line1">
+		<textarea name="info" class="info"></textarea>
+</div>
+	
+</form>
 	
 	
-	</br>
-		<p>장소</p>
-		<input type="text" id="sample5_address" class="name" name="addr">
-		<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" class="submit" ><br>
-			<div id="map" style="width:300px;height:300px; display:none" class="name"></div>
-				
-				<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+	
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
 				<script>
 				    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
@@ -152,35 +201,5 @@
 				        }).open();
 				    }
 				</script>
-	</br>
-	
-	
-	
-	
-	
-	<div>
-		<p>제품가격</p>
-		<input type="text" name="price" class="price">
-	</div>
-
-
-	<div>
-		<p>판매자</p>
-		<input type="text" name="seller_id" 
-		value="${sessionScope.user_id }" class="seller" readonly>
-	</div>
-	
-	<div> 
-		<p>제품이미지</p>
-		<input type="file" name="file1" class="upload-name">
-		<input type="file" name="file2" class="upload-name">
-		<input type="file" name="file3" class="upload-name">
-	</div>
-	 
-	<div>
-		<input type="submit" value="등록" class="submit">
-		<input type="reset" value="취소" class="reset">	
-	</div>
-	</form>
 </body>
 </html>

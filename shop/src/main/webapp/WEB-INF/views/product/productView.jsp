@@ -74,7 +74,7 @@ $(document).ready(function() {
 				<th>¿Âº“</th>
 				<td>
 				${p.addr }
-				<div id="map" style="width:200px;height:150px; "class="name" ></div>
+				<div id="map" style="width:300px;height:150px; margin-top: 20px"class="name" ></div>
 				</td>
 			</tr>
 			
