@@ -20,6 +20,9 @@ public interface BoardMapper {
 	List selectAll();
 	
 	void update(Board b);
+	void uplike(int board_num);
+	void uphate(int board_num);
+	
 	void delete(int board_num);
 	void editCbboard_hit(int board_num);
 	int getNum();

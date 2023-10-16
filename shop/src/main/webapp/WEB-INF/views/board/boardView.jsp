@@ -35,6 +35,38 @@ $(document).ready(function() {
 		$("#f1").submit();
 	});
 });
+
+
+
+$(document).ready(function() {
+    $("#btn1").click(function() {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/board/uplike?board_num=${b.board_num}&type=1",
+            data: { },
+            success: function(response) {
+                
+                location.reload(); 
+            }
+        });
+    });
+});
+
+
+$(document).ready(function() {
+    $("#btn2").click(function() {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/board/uphate?board_num=${b.board_num}&type=1",
+            data: { },
+            success: function(response) {
+                
+                location.reload(); 
+            }
+        });
+    });
+});
+
 </script>
 	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
 
@@ -76,6 +108,9 @@ $(document).ready(function() {
 						<div id="map" style="width:350px;height:150px;" class="name"></div>
 					</td>
 				</tr>
+				
+			
+
 			</tbody>
 			</table>
 			
@@ -99,6 +134,14 @@ $(document).ready(function() {
      	 </ul>
      </div>
 	</c:if>
+</div>
+
+<div>
+	좋아요 : ${b.board_like} <input type="button" id="btn1" class="btn" value="좋아요">
+</div>
+
+<div>
+	싫어요 : ${b.board_hate} <input type="button" id="btn2" class="btn" value="싫어요">
 </div>
 		
 <div class="line1">

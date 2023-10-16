@@ -10,6 +10,8 @@
 		<result column="board_info" property="board_info" />
 		<result column="board_id" property="board_id" />
 		<result column="board_date" property="board_date" />
+		<result column="board_like" property="board_like" />
+		<result column="board_hate" property="board_hate" />
 		<result column="boardcategory1_id" property="boardcategory1_id" />
 		<result column="boardcategory2_id" property="boardcategory2_id" />
 		<result column="boardcategory3_id" property="boardcategory3_id" />
@@ -18,7 +20,8 @@
 	
 	<insert id="insert" parameterType="com.example.demo.board.Board">
 		insert into cbboard
-		values(#{board_num}, #{board_name}, #{board_addr}, #{board_info}, #{board_id}, sysdate, #{boardcategory1_id}, #{boardcategory2_id}, #{boardcategory3_id},0) 
+		values(#{board_num}, #{board_name}, #{board_addr}, #{board_info}, #{board_id}, sysdate, 0, 0, 
+		#{boardcategory1_id}, #{boardcategory2_id}, #{boardcategory3_id},0) 
 	</insert>
 	
 	<select id="select" resultMap="BoardResult" 
@@ -67,6 +70,15 @@
 		update cbboard set board_name=#{board_name}, board_addr=#{board_addr}, board_info=#{board_info}
 		 where board_num = #{board_num}
 	</update>
+	
+	<update id="uplike">
+		UPDATE cbboard SET board_like = board_like + 1 WHERE board_num = #{board_num}
+	</update>
+	
+	<update id="uphate">
+		UPDATE cbboard SET board_hate = board_hate + 1 WHERE board_num = #{board_num}
+	</update>
+	
 	
 	<delete id="delete" parameterType="int">
 		delete cbboard where board_num=#{board_num}

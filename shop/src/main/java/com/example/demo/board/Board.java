@@ -12,6 +12,8 @@ public class Board {
 	private String board_info;
 	private String board_id;
 	private Date board_date;
+	private int board_like;
+	private int board_hate;
 	private int boardcategory1_id;
 	private int boardcategory2_id;
 	private int boardcategory3_id;
@@ -25,15 +27,35 @@ public class Board {
 	}
 
 	public Board(int board_num, String board_name, String board_addr, String board_info, String board_id,
-			Date board_date, int boardcategory1_id, int boardcategory2_id, int boardcategory3_id, int cbboard_hit,
-			MultipartFile file1, MultipartFile file2, MultipartFile file3) {
-		super();
+			Date board_date, int board_like, int board_hate, int boardcategory1_id, int boardcategory2_id,
+			int boardcategory3_id, int cbboard_hit) {
+
 		this.board_num = board_num;
 		this.board_name = board_name;
 		this.board_addr = board_addr;
 		this.board_info = board_info;
 		this.board_id = board_id;
 		this.board_date = board_date;
+		this.board_like = board_like;
+		this.board_hate = board_hate;
+		this.boardcategory1_id = boardcategory1_id;
+		this.boardcategory2_id = boardcategory2_id;
+		this.boardcategory3_id = boardcategory3_id;
+		this.cbboard_hit = cbboard_hit;
+	}
+
+	public Board(int board_num, String board_name, String board_addr, String board_info, String board_id,
+			Date board_date, int board_like, int board_hate, int boardcategory1_id, int boardcategory2_id,
+			int boardcategory3_id, int cbboard_hit, MultipartFile file1, MultipartFile file2, MultipartFile file3) {
+
+		this.board_num = board_num;
+		this.board_name = board_name;
+		this.board_addr = board_addr;
+		this.board_info = board_info;
+		this.board_id = board_id;
+		this.board_date = board_date;
+		this.board_like = board_like;
+		this.board_hate = board_hate;
 		this.boardcategory1_id = boardcategory1_id;
 		this.boardcategory2_id = boardcategory2_id;
 		this.boardcategory3_id = boardcategory3_id;
@@ -41,21 +63,6 @@ public class Board {
 		this.file1 = file1;
 		this.file2 = file2;
 		this.file3 = file3;
-	}
-
-	public Board(int board_num, String board_name, String board_addr, String board_info, String board_id,
-			Date board_date, int boardcategory1_id, int boardcategory2_id, int boardcategory3_id, int cbboard_hit) {
-		super();
-		this.board_num = board_num;
-		this.board_name = board_name;
-		this.board_addr = board_addr;
-		this.board_info = board_info;
-		this.board_id = board_id;
-		this.board_date = board_date;
-		this.boardcategory1_id = boardcategory1_id;
-		this.boardcategory2_id = boardcategory2_id;
-		this.boardcategory3_id = boardcategory3_id;
-		this.cbboard_hit = cbboard_hit;
 	}
 
 	public int getBoard_num() {
@@ -104,6 +111,22 @@ public class Board {
 
 	public void setBoard_date(Date board_date) {
 		this.board_date = board_date;
+	}
+
+	public int getBoard_like() {
+		return board_like;
+	}
+
+	public void setBoard_like(int board_like) {
+		this.board_like = board_like;
+	}
+
+	public int getBoard_hate() {
+		return board_hate;
+	}
+
+	public void setBoard_hate(int board_hate) {
+		this.board_hate = board_hate;
 	}
 
 	public int getBoardcategory1_id() {
@@ -166,9 +189,10 @@ public class Board {
 	public String toString() {
 		return "Board [board_num=" + board_num + ", board_name=" + board_name + ", board_addr=" + board_addr
 				+ ", board_info=" + board_info + ", board_id=" + board_id + ", board_date=" + board_date
-				+ ", boardcategory1_id=" + boardcategory1_id + ", boardcategory2_id=" + boardcategory2_id
-				+ ", boardcategory3_id=" + boardcategory3_id + ", cbboard_hit=" + cbboard_hit + ", file1=" + file1
-				+ ", file2=" + file2 + ", file3=" + file3 + "]";
+				+ ", board_like=" + board_like + ", board_hate=" + board_hate + ", boardcategory1_id="
+				+ boardcategory1_id + ", boardcategory2_id=" + boardcategory2_id + ", boardcategory3_id="
+				+ boardcategory3_id + ", cbboard_hit=" + cbboard_hit + ", file1=" + file1 + ", file2=" + file2
+				+ ", file3=" + file3 + "]";
 	}
 
 }

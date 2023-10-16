@@ -264,5 +264,50 @@ public class BoardController {
 		
 	}
 	
-	
+	//좋아요
+		@RequestMapping(value = "/board/uplike")
+		public ModelAndView uplike(@RequestParam(value = "board_num") int board_num, @RequestParam(value = "type") int type) {
+			ModelAndView mav = new ModelAndView();
+			service.uplike(board_num);
+			if(type == 1) {
+				mav.setViewName("board/boardView");
+			}
+			
+			Board b = service.getBoardByNum(board_num);
+			String path = basePath + b.getBoard_num() + "\\";
+			File boardimgDir = new File(path);
+			
+			if(boardimgDir.exists()) {
+				String[] files = boardimgDir.list();
+				for(int j = 0; j<files.length; j++) {
+					mav.addObject("file" + j,files[j]);
+				}
+			}
+			
+			mav.addObject("b",b);
+			return mav;
+		}
+	//싫어요
+		@RequestMapping(value = "/board/uphate")
+		public ModelAndView uphate(@RequestParam(value = "board_num") int board_num, @RequestParam(value = "type") int type) {
+			ModelAndView mav = new ModelAndView();
+			service.uphate(board_num);
+			if(type == 1) {
+				mav.setViewName("board/boardView");
+			}
+			
+			Board b = service.getBoardByNum(board_num);
+			String path = basePath + b.getBoard_num() + "\\";
+			File boardimgDir = new File(path);
+			
+			if(boardimgDir.exists()) {
+				String[] files = boardimgDir.list();
+				for(int j = 0; j<files.length; j++) {
+					mav.addObject("file" + j,files[j]);
+				}
+			}
+			
+			mav.addObject("b",b);
+			return mav;
+		}
 }

@@ -66,6 +66,11 @@ public class BoardService {
 	}
 	
 	
+	public void uplike(int board_num) {
+		mapper.uplike(board_num);
+	}
 	
-	
+	public void uphate(int board_num) {
+		mapper.uphate(board_num);
+	}
 }
