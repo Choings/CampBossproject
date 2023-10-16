@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>CampBoss - 내 작성글 리스트</title>
 
-<link href="${path}/resources/css/prolist.css" rel="stylesheet">
+<link href="${path}/resources/boardcss/boardlist.css" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
@@ -29,7 +29,7 @@
 </head>
 <body>
 <div class="over" ></div>
-<h2>내 작성글 리스트</h2>
+<h3>내 작성글 리스트</h3>
 
 <form action="${pageContext.request.contextPath }/board/boardList">
 <table class="table">
@@ -41,6 +41,7 @@
 			<th>제목</th>
 			<th>내용</th>
 			<th>조회수</th>
+			<th>작성날짜</th>
 		</tr>
 	</thead>
 	
@@ -62,6 +63,7 @@
 		<th scope="col">제목</th>
 		<th scope="col">내용</th>
 		<th scope="col">조회수</th>
+		<th scope="col">작성날짜</th>
 	</tr>
 </thead>		
 
@@ -74,7 +76,7 @@
 		<td><a href="${pageContext.request.contextPath }/board/boardEdit?board_num=${b.board_num}">${b.board_name }</a></td>
 		<td>${b.board_info }</td>
 		<td>${b.cbboard_hit}</td>
-
+		<td>${b.board_date }</td>
 	</tr>
 </tbody>
 	</c:forEach>

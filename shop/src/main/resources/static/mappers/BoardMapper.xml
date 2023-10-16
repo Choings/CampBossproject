@@ -18,8 +18,7 @@
 	
 	<insert id="insert" parameterType="com.example.demo.board.Board">
 		insert into cbboard
-		values(#{board_num}, #{board_name}, #{board_addr}, #{board_info},
-		#{board_id}, sysdate, #{boardcategory1_id}, #{boardcategory2_id}, #{boardcategory3_id},0) 
+		values(#{board_num}, #{board_name}, #{board_addr}, #{board_info}, #{board_id}, sysdate, #{boardcategory1_id}, #{boardcategory2_id}, #{boardcategory3_id},0) 
 	</insert>
 	
 	<select id="select" resultMap="BoardResult" 

@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
-<link href="${path}/resources/css/productPage.css" rel="stylesheet">
+<link href="${path}/resources/boardcss/boardpage.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -71,20 +71,28 @@ $(document).ready(function() {
 
 <form action="${pageContext.request.contextPath }/board/cateList"
 		method="post">
-	
-		<select id="s1" name="c1" class="box">
+<div class="select-view">
+	<div class="select1">
+		<select id="s1" name="c1">
 			<option disabled selected>대분류</option>
 		</select>
 	
-		<select id="s2" name="c2" class="box">
+	</div>
+		
+	<div class="select1">
+		<select id="s2" name="c2" >
 			<option disabled selected>중분류</option>
 		</select>
+	</div>
 		
-		<select id="s3" name="c3"class="box">
+	<div>
+		<select id="s3" name="c3">
 			<option disabled selected>소분류</option>
-		</select> 
+		</select>
+	</div> 
 	
-	<input type="submit" value="검색"  class="boxbtn">	
+	<button class="btn" style="margin-top: 15px; margin-left: 40px">search</button>
+</div>	
 </form>
 
 
@@ -93,9 +101,9 @@ $(document).ready(function() {
 <form action="${pageContext.request.contextPath }/board/board_nameList"
 		method="post">
 
-		<div>
-			<input type="text" name="board_name" placeholder = "게시글 제목 검색" class="name-search">
-			<input type="submit" value="검색" class="name-searchbtn">
+		<div class="name-view">
+			<input type="text" name="board_name" placeholder = "게시글 제목 검색"  class="name1">
+			<button class="btn">search</button>
 		</div>
 
 	</form>
@@ -104,23 +112,30 @@ $(document).ready(function() {
 <!-- 작성자 검색 -->
 	<form action="${pageContext.request.contextPath }/board/board_idList"
 		method="post">
-	<div>
-		<input type="text" name="board_id"  placeholder = "작성자 검색" class="seller-search">
-		<input type="submit" value="검색" class="seller-searchbtn">
+	<div  class="seller-view">
+		<input type="text" name="board_id"  placeholder = "작성자 검색"  class="seller1">
+		<button class="btn">search</button>
 	</div>
 	</form>
-
-
-
-<div class="over" ></div>
 
 <!-- 검색된 게시글 리스트 출력 -->
 
 <c:if test="${empty list }">
 	<table border="1" class="table">
-	<tr>
-	<td>검색된 상품이 없습니다.</td>
-	</tr>
+	<thead class="thead">
+		<tr>
+			<th>제목</th>
+			<th>내용</th>
+			<th>작성자</th>
+			<th>조회수</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr class="tbody">
+			<td colspan="4">검색된 글이 없습니다.</td>
+		</tr>
+	</tbody>
 	</table>
 	 </c:if>
 	 

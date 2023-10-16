@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>CAMPBOSS</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<link href="${path}/resources/css/productEdit.css" rel="stylesheet">
+<link href="${path}/resources/boardcss/boardview.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 //조회수
@@ -37,34 +37,76 @@ $(document).ready(function() {
 });
 </script>
 	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
-	<br><br><br>
 
 </head>
 <body>
-<h3>게시글 상세정보</h3>
 	<form id="f1" action="${pageContext.request.contextPath }/product/view" 
 	method="post" class="row g-3">
 	<input type="hidden" name="board_num" value="${b.board_num }">
+	
+		<div class="product-view">
+			<h2>${b.board_name }</h2>
+			<h5>조회수 : ${b.cbboard_hit }</h5>
+			
+			<table>
+				<colgroup>
+				<col style="width : px;"><col>
+			</colgroup>
+			
+			<tbody>
+				<tr>
+				<th>작성날짜</th>
+				<td>${b.board_date }</td>
+				</tr>
+				
+				<tr>
+				<th>작성자</th>
+				<td>${b.board_id }</td>
+				</tr>
+				
+				<tr>
+				<th>내용</th>
+				<td>하단참조</td>
+				</tr>
+				
+				<tr>
+					<th>장소</th>
+					<td>	
+						${b.board_addr }
+						<div id="map" style="width:350px;height:150px;" class="name"></div>
+					</td>
+				</tr>
+			</tbody>
+			</table>
+			
+	<c:if test="${not empty file0 }">
+      
+      	<div class="img_head">
+      		<img id="bigImg" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&board_num=${b.board_num }" > 
+     		 
+     		 <ul>
+     	 	<li>
+     	 		<img class="img" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&board_num=${b.board_num }" >
+     	 	</li>
+     	 	
+     	 	<li>
+     	 		<img class="img" src="${pageContext.request.contextPath }/boardimg?fname=${file1 }&board_num=${b.board_num }">
+     	 	</li>
+     	 	
+     	 	<li>
+     	 		<img class="img" src="${pageContext.request.contextPath }/boardimg?fname=${file2 }&board_num=${b.board_num }">
+     	 	</li>
+     	 </ul>
+     </div>
+	</c:if>
+</div>
+		
+<div class="line1">
+		<textarea class="info" >${b.board_info }</textarea>
+</div>
+		
 
-		<div >
-			<p class="name-title">제목</p> 
-			<input type="text" value="${b.board_name }" class="name"  readonly >
-		</div>
-		
-		<div >
-			<p class="name-title">작성일</p> 
-			<input type="text" value="${b.board_date }" class="name"  readonly >
-		</div>
-		
-		<div >
-			<p class="name-title">조회수</p> 
-			<input type="text" value="${b.cbboard_hit }" class="name"  readonly >
-		</div>
-		
-		</br>
-			<p class="name-title">장소</p>
-		<input type="text" id="sample5_address" class="name" name="board_addr" value="${b.board_addr }" readonly> </br>		
-		<div id="map" style="width:350px;height:350px;" class="name"></div>
+
 
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
@@ -119,48 +161,6 @@ $(document).ready(function() {
 				    window.onload = initializeMap;
 				    	
 			</script>
-		</br>
-		
-		
-		
-		<div >
-			<p class="seller-title">작성자</p> 
-			<input type="text" value="${b.board_id }" class="seller"  readonly >
-		</div>
-		
-		
-		<c:if test="${empty file0 }">
-			<div>
-				<p class="not-img">등록된 이미지가 없습니다.</p>
-			</div>
-     	 </c:if> 
-   		
-      	<c:if test="${not empty file0 }">
-      
-      	<div>
-      		<img id="bigImg" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&board_num=${b.board_num }" 
-     		 class="img-head"> 
-     		  </div>
-      
-      	<div>   
-      		<img src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&board_num=${b.board_num }"class="img img-body1" >
-      		<img src="${pageContext.request.contextPath }/boardimg?fname=${file1 }&board_num=${b.board_num }" class="img img-body2" >
-      		<img src="${pageContext.request.contextPath }/boardimg?fname=${file2 }&board_num=${b.board_num }" class="img img-body3" >
-        </div>
-            </c:if>
-		
-		
-		<div>
-			<p class="info-title">내용</p>
-		</div>
-			<textarea name="info" class="info" readonly>${b.board_info }</textarea>
-		<div></div>
-		
-			
-  
-      	
-
-			
 	</form>
 </body>
 </html>

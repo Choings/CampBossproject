@@ -23,7 +23,6 @@
 </script>
 
 <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
-	<br><br><br>
 </head>
 <body>
 <h3>CAMPBOSS - 상품 수정 및 삭제</h3>

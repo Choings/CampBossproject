@@ -1,45 +1,9 @@
-h3{
-	text-align: center;
-	margin-top: 50px;
-	font-size: 35px;
-}
+@charset "EUC-KR";@charset "EUC-KR";
 
-input{
-	height: 30px;
-}
 
 body{
 	padding: 50px;
 	min-height: 100%;
-}
-
-/* 카테고리 css */
-p{
-	margin-top: 50px;
-	text-align: center;
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 25px;
-}
-
-
-.box{
-	width: 150px;
-	border: 1px solid #C4C4C4;
-	box-sizing: border-box;
-	border-radius: 10px;
-	padding: 12px 13px;
-	font-family: 'Roboto';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	text-align: center;
-	line-height: 16px;
-	background: url(./img/Polygon_up.png) 93% no-repeat; /*화살표 이미지 삽입*/
-	appearance: none;	
-	
-	margin-left: 280px;
 }
 
 li{
@@ -49,7 +13,7 @@ li{
 /* 본문 css */
 
 .product-view{
-	margin-top: 150px;
+	margin-top: 200px;
 	margin-left: 350px;
 	position: relative;
 	padding: 0 0 0 395px;
@@ -143,20 +107,4 @@ li{
 .line1 {
 	margin-top: 30px;
 	border-top: 2px solid black;	
-}
-
-.btn {
-  transition: all 0.3s ease;
-  background-color: transparent;
-  width: 130px;
-  height: 40px;
-  border: none;
-  font-size: 18px;
-}
-.btn:hover {
-   box-shadow:
-   -7px -7px 20px 0px #fff9,
-   -4px -4px 5px 0px #fff9,
-   7px 7px 20px 0px #0002,
-   4px 4px 5px 0px #0001;
 }

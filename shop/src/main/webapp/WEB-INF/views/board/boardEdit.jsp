@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>CAMPBOSS</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<link href="${path}/resources/css/productEdit.css" rel="stylesheet">
+<link href="${path}/resources/boardcss/boardedit.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	$(document).ready(function() {
@@ -23,25 +23,80 @@
 </script>
 
 <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
-	<br><br><br>
+
 </head>
 <body>
-<h3>CAMPBOSS - 상품 수정 및 삭제</h3>
+<h3>CAMPBOSS - 게시글 수정 및 삭제</h3>
 
 <form action="${pageContext.request.contextPath }/board/edit" method="post"  id="f1">
 <input type="hidden" name="board_num" value="${b.board_num }">
 
-<div>
-	<p class="name-title">제목</p>
-	<input type="text" name="board_name" value="${b.board_name }" class="name">
+<div class="product-view">
+	<h2><input type="text" name="board_name" value="${b.board_name }"></h2>
+	
+	<table>
+		<colgroup>
+			<col style="width : px;"><col>
+		</colgroup>
+		
+		<tbody>
+			<tr>
+				<th>작성자</th>
+				<td><input type="text" name="board_id" value="${b.board_id }"readonly></td>
+			</tr>
+			
+			<tr>
+				<th>내용</th>
+				<td>하단 이용</td>
+			</tr>
+			
+			<tr>
+				<th>장소</th>
+				<td>
+					<input type="text" id="sample5_address" class="name" name="board_addr" value="${b.board_addr }">
+					<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" class="submit" style="text-align: center;"><br>
+					<div id="map" style="width:300px;height:150px; margin-top: 20px" class="name"></div>
+				</td>
+			</tr>
+			
+			<tr>
+				<th></th>
+				<td>	
+					<input type="submit" value="수정" class="btn">
+					<input type="reset" value="삭제" id="del"  class="btn">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<c:if test="${not empty file0 }">
+		<div class="img_head">
+			<img id="bigImg" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&num=${b.board_num }" >
+		
+		<ul>
+			<li>
+				<img class="img" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&board_num=${b.board_num }" >
+			</li>
+				
+			<li>
+				<img class="img" src="${pageContext.request.contextPath }/boardimg?fname=${file1 }&board_num=${b.board_num }" >
+			</li>
+			
+			<li>
+				<img class="img" src="${pageContext.request.contextPath }/boardimg?fname=${file2 }&board_num=${b.board_num }">
+			</li>
+		</ul>
+		
+		</div>
+	
+	</c:if>
+</div>
+
+<div class="line1">
+		<textarea name="board_info" class="info">${b.board_info }</textarea>
 </div>
 
 
-</br>
-		<p class="name-title" >장소</p>
-		<input type="text" id="sample5_address" class="name" name="board_addr" value="${b.board_addr }">
-		<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색" class="submit" style="text-align: center;"><br>
-			<div id="map" style="width:300px;height:300px; display:none" class="name"></div>
 				
 				<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
@@ -92,55 +147,6 @@
 				        }).open();
 				    }
 				</script>
-	</br>
-
-
-
-<div>
-	<p class="info-title">내용</p>
-</div>
-
-<div>
-	<textarea name="board_info" class="info" >${b.board_info }</textarea>
-</div>
-
-<div>
- 	
- 	<c:if test="${empty file0 }">
-		<div>
-			<p class="not-img">등록된 이미지가 없습니다.</p>
-		</div>
-	</c:if>
-	
-	<c:if test="${not empty file0 }">
-		<div>
-			<div>
-			<img id="bigImg" src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&num=${b.board_num }" 
-							 class="img-head">
-			</div>
-			
-			<div>
-				<img src="${pageContext.request.contextPath }/boardimg?fname=${file0 }&board_num=${b.board_num }" class="img img-body1">
-				<img src="${pageContext.request.contextPath }/boardimg?fname=${file1 }&board_num=${b.board_num }" class="img  img-body2">
-				<img src="${pageContext.request.contextPath }/boardimg?fname=${file2 }&board_num=${b.board_num }" class="img  img-body3">
-			</div>
-		</div>
-	</c:if>
-
-
-<div>
-	<p class="seller-title">작성자</p>
-	<input type="text" name="board_id" value="${b.board_id }" class="seller" readonly>
-</div>
-	<input type="submit" value="수정" class="submit">
-	<input type="reset" value="삭제" id="del" class="reset">
-<div>
-
-</div>
-
-
-
-
 
 </form>
 </body>

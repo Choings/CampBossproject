@@ -69,13 +69,13 @@
 </script>
 
 	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
-	<br><br><br>
 
 </head>
 <body>
 	<h3>CampBoss - 상품등록</h3>
 	<form action="${pageContext.request.contextPath }/seller/add" 
 	method="post" enctype="multipart/form-data"> 
+	<p>카테고리 선택</p>
 	<select id="s1" name="category1_id" class="box" >
 		<option disabled selected>대분류</option>
 	</select>
@@ -144,7 +144,7 @@
 	</div>
 	
 	<div class="line1">
-		<textarea name="info" class="info"></textarea>
+		<textarea name="info" class="info" placeholder = "내용입력"></textarea>
 </div>
 	
 </form>
