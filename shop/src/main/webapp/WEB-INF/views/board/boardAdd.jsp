@@ -161,8 +161,9 @@
 		<p>작성자</p>
 		<input type="text" name="board_id" 
 		value="${sessionScope.user_id }" class="seller" readonly>
+		
 	</div>
-	
+		
 	<div> 
 		<p>제품이미지</p>
 		<input type="file" name="file1" class="upload-name">

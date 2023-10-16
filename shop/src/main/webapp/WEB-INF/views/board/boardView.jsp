@@ -52,6 +52,11 @@ $(document).ready(function() {
 		</div>
 		
 		<div >
+			<p class="name-title">작성일</p> 
+			<input type="text" value="${b.board_date }" class="name"  readonly >
+		</div>
+		
+		<div >
 			<p class="name-title">조회수</p> 
 			<input type="text" value="${b.cbboard_hit }" class="name"  readonly >
 		</div>

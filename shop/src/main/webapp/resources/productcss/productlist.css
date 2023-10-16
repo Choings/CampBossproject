@@ -24,8 +24,8 @@ th {
   
 thead {
   font-weight: bold;
-  color: black;/* 헤더 텍스트 색상 (배경색으로 인해 안 보일 수 있음) */
-  background: transparent; /* 배경 색상을 투명하게 설정 */
+  color: black;
+  background: transparent; 
 }
   
  td, th {
@@ -36,4 +36,6 @@ thead {
  td {
   border-bottom: 1px solid rgba(0,0,0,.1);
   }
+  
+
   
