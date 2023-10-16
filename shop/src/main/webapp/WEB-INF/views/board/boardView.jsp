@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%   
+ response.setHeader("Cache-Control","no-store");   
+ response.setHeader("Pragma","no-cache");   
+ response.setDateHeader("Expires",0);   
+ if (request.getProtocol().equals("HTTP/1.1")) 
+ response.setHeader("Cache-Control", "no-cache"); %>   
+ 
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,6 +75,8 @@ $(document).ready(function() {
         });
     });
 });
+
+
 
 </script>
 	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
@@ -205,5 +216,63 @@ $(document).ready(function() {
 				    	
 			</script>
 	</form>
+	
+	
+	<div class="" style="margin-left: 400px;">
+	<h3>댓글</h3>
+	
+		<div class="">
+		<form action="" method="post">
+		<input type="text" id="content${b.board_num }">
+		
+		<input type="hidden" id="re_num${b.board_num }" value="${b.board_num }">
+		<input type="hidden" id="writer_id${b.board_num }" value="${sessionScope.user_id }">
+		
+		<input type="button" class="btn" value="작성" 
+					onclick="writeComment(${b.board_num})">
+		</form>
+		</div>
+	
+			<div id="div_${b.board_num }" class="">
+			<c:forEach var="r" items="${i.reps }">
+			${r.content }(작성자:${r.writer_id })<br>
+			</c:forEach>
+			</div>
+	</div>
+	
+<script>
+$(document).ready(function() {
+    // 페이지 로딩 시 댓글 리스트 가져오기
+    loadComments(${b.board_num});
+    
+    $(".btn").click(function() {
+        writeComment(${b.board_num});
+    });
+});
+
+var num = 0;
+
+function writeComment(boardNum) {
+    // 사용자가 입력한 데이터 가져오기
+    var reNum = $("#re_num" + boardNum).val();
+    var writerId = $("#writer_id" + boardNum).val();
+    var content = $("#content" + boardNum).val();
+
+    $.post("/rep/write", {
+        re_num: reNum,
+        writer_id: writerId,
+        content: content
+    }).done(function (data) {
+        var items = eval("(" + data + ")"); // JSON 파일을 객체로 변환 
+        var str = "";
+        for (var i = 0; i < items.length; i++) {
+            str += items[i].content + "(작성자:" + items[i].writer_id + ")<br>";
+        }
+
+        $("#div_" + items[0].re_num).html(str);
+    });
+}
+</script>
+
 </body>
 </html>
