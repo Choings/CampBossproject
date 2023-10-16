@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>CampBoss - 판매리스트</title>
 
-<link href="${path}/resources/css/prolist.css" rel="stylesheet">
+<link href="${path}/resources/productcss/productlist.css" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
@@ -30,7 +30,7 @@
 <body>
 
 <div class="over" ></div>
-<h2>판매리스트</h2>
+<h3>판매리스트</h3>
 
 <form action="${pageContext.request.contextPath }/product/productList">
 <table class="table">

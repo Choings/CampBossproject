@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>CAMPBOSS</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<link href="${path}/resources/css/productEdit.css" rel="stylesheet">
+<link href="${path}/resources/productcss/productview.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 // 조회수
@@ -30,7 +31,7 @@ window.onload = function () {
 
 
 $(document).ready(function() {
-	$(".img").mouseover(function() {
+	$(".img").click(function() {
 		$("#bigImg").attr('src', this.src);
 	});
 	$("#del").click(function() {
@@ -39,63 +40,87 @@ $(document).ready(function() {
 	});
 });
 </script>
-	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
-	<br><br><br>
 
+<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
 </head>
 <body>
-	<h3>상품 상세정보</h3>
 	<form id="f1" action="${pageContext.request.contextPath }/product/view" 
-	method="post" class="row g-3">
+	method="post" >
 	<input type="hidden" name="pro_num" value="${p.num }">
+	
+	<div class="product-view">
+		<h2>${p.name }</h2>
+		<h5>조회수 : ${p.cbproduct_hit }</h5>
+		
+		<table>
+			<colgroup>
+				<col style="width : px;"><col>
+			</colgroup>
+		
+			<tbody>
+				<tr>
+				<th>가격</th>
+				<td  class="pricecolor"><b>${p.price}</b>원</td>
+			</tr>
+			<tr>
+				<th>판매자</th>
+				<td>${p.seller_id }</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td>하단 참조</td>
+			</tr>
+			<tr>
+				<th>장소</th>
+				<td>
+				${p.addr }
+				<div id="map" style="width:200px;height:150px; "class="name" ></div>
+				</td>
+			</tr>
+			
+			</tbody>
+		</table>
+		
+		<c:if test="${not empty file0 }">
+		<div  class="img_head">
+			<img id="bigImg" src="${pageContext.request.contextPath }/img?fname=${file0 }&num=${p.num }" > 
+		<ul >
+			<li >
+				<img class="img" src="${pageContext.request.contextPath }/img?fname=${file0 }&num=${p.num }">
+			</li>
+			<li >
+				<img class="img" src="${pageContext.request.contextPath }/img?fname=${file1 }&num=${p.num }"  >
+			</li>
+			<li >
+				<img class="img" src="${pageContext.request.contextPath }/img?fname=${file2 }&num=${p.num }"  >
+			</li>
+		</ul>
+	</div>
+	
+	</c:if>
+	</div>
+	
+	
+	<div class="line1">
+		<textarea class="info" >${p.info }</textarea>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
-		<div >
-			<p class="name-title">제품이름</p> 
-			<input type="text" value="${p.name }" class="name" readonly >
-		</div>
-		
-		<div >
-			<p class="name-title">조회수</p> 
-			<input type="text" value="${p.cbproduct_hit }" class="name" readonly >
-		</div>
-		
-		<div >
-			<p class="seller-title">판매자</p> 
-			<input type="text" value="${p.seller_id }" id="hitDisplay" class="seller" readonly >
-		</div>
-		
-		<c:if test="${empty file0 }">
-			<div>
-				<p class="not-img">등록된 이미지가 없습니다.</p>
-			</div>
-     	 </c:if> 
-   		
-      	<c:if test="${not empty file0 }">
-      
-      	<div>
-      		<img id="bigImg" src="${pageContext.request.contextPath }/img?fname=${file0 }&num=${p.num }" 
-     		 class="img-head"> 
-     		  </div>
-      
-      	<div>   
-      		<img src="${pageContext.request.contextPath }/img?fname=${file0 }&num=${p.num }" class="img img-body1" >
-      		<img src="${pageContext.request.contextPath }/img?fname=${file1 }&num=${p.num }"  class="img img-body2" >
-      		<img src="${pageContext.request.contextPath }/img?fname=${file2 }&num=${p.num }" class="img img-body3" >
-        </div>
-            </c:if>
+
+
 		
 		
-		<div>
-			<p class="info-title">제품내용</p>
-		</div>
-			<textarea name="info" class="info" readonly>${p.info }</textarea>
-		<div></div>
 		
-		
-		</br>
-		<p class="name-title">장소</p>
-		<input type="text" id="sample5_address" class="name" name="addr" value="${p.addr }" readonly> </br>		
-		<div id="map" style="width:350px;height:350px;" class="name"></div>
+		<div id="map" style="width:350px;height:350px; margin-top: 600px" class="name"></div>
 
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
@@ -150,16 +175,10 @@ $(document).ready(function() {
 				    window.onload = initializeMap;
 				    	
 			</script>
-		</br>
+	
+
 		
-		
-		
-		<div >
-			<p class="price-title">제품가격</p> 
-			<input type="text" class="price" value="${p.price }"  readonly>
-		</div>
-			
-  
+	
       	
 
 			

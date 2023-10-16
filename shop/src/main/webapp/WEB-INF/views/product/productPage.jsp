@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
-<link href="${path}/resources/css/productPage.css" rel="stylesheet">
+<link href="${path}/resources/productcss/productpage.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -61,7 +61,6 @@ $(document).ready(function() {
 	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
 </head>
 <body>
-
 <h3>CAMPBOSS - 상품리스트</h3>
 
 
@@ -69,20 +68,29 @@ $(document).ready(function() {
 <!-- 카테고리 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/cateList"
 		method="post">
-	
-		<select id="s1" name="c1" class="box">
+<div class="select-view">
+	<div class="select1">
+		<select id="s1" name="c1">
 			<option disabled selected>대분류</option>
 		</select>
 	
-		<select id="s2" name="c2" class="box">
+	</div>
+		
+	<div class="select1">
+		<select id="s2" name="c2" >
 			<option disabled selected>중분류</option>
 		</select>
+	</div>
 		
-		<select id="s3" name="c3"class="box">
+	<div>
+		<select id="s3" name="c3">
 			<option disabled selected>소분류</option>
-		</select> 
+		</select>
+	</div> 
 	
-	<input type="submit" value="검색"  class="boxbtn">	
+	<button class="btn" style="margin-top: 15px; margin-left: 40px">search</button>
+</div>		
+	
 	</form>
 	
 	
@@ -91,11 +99,9 @@ $(document).ready(function() {
 
 	<form action="${pageContext.request.contextPath }/seller/nameList"
 		method="post">
-
-		
-		<div>
-			<input type="text" name="name" placeholder = "제품명으로 검색" class="name-search">
-			<input type="submit" value="검색" class="name-searchbtn">
+		<div class="name-view">
+			<input type="text" name="name" placeholder = "제품명으로 검색" class="name1">
+			<button class="btn">search</button>
 		</div>
 
 	</form>
@@ -103,26 +109,36 @@ $(document).ready(function() {
 <!-- 판매자로 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/sellerList"
 		method="post">
-	<div>
-		<input type="text" name="seller_id"  placeholder = "판매자 검색" class="seller-search">
-		<input type="submit" value="검색" class="seller-searchbtn">
+	<div class="seller-view">
+		<input type="text" name="seller_id"  placeholder = "판매자 검색" class="seller1">
+		<button class="btn">search</button>
 	</div>
 	</form>
 
-	<div class="over" ></div>
-	<!-- 검색된 상품 리스트 출력 -->
 
-	
-	<c:if test="${empty list }">
+<div class="list1">
+	<c:if test="${empty list }">	
 	<table border="1" class="table">
-	<tr>
-	<td>검색된 상품이 없습니다.</td>
+	<thead class="thead">
+		<tr>
+			<th>글번호</th>
+			<th>제품이름</th>
+			<th>제품내용</th>
+			<th>제품 가격</th>
+			<th>조회수</th>
+		</tr>
+	</thead>
+	
+<tbody class="tbody">
+	<tr >
+		<td colspan="4">상품이 없습니다.</td>
 	</tr>
+</tbody>	
 	</table>
 	 </c:if>
 	 
 	<c:if test="${not empty list }">
-	<table border="1" cellspacing="0" class="table">
+	<table border="1" cellspacing="0">
 	 <thead class="thead">
 	<tr><th>제품이름</th><th>제품설명</th><th>제품가격</th><th>판매자</th><th>조회수</th></tr>
 	 </thead>
@@ -133,7 +149,7 @@ $(document).ready(function() {
 	<tr>
 	<td><a href="${pageContext.request.contextPath }
 	/product/productView?num=${p.num }&type=1">${p.name }</a></td>
-	<td>${p.info }</td><td>${p.price }</td>
+	<td class="info1">${p.info }</td><td>${p.price }</td>
 	<td>${p.seller_id }</td>
 	<td>${p.cbproduct_hit }</td>
 	</tr>
@@ -142,6 +158,11 @@ $(document).ready(function() {
 
 	</table>
 	</c:if>
+	
+
+
+</div>
+	
 
 
 </body>
