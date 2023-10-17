@@ -13,10 +13,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CAMPBOSS</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <link href="${path}/resources/boardcss/boardview.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
@@ -127,7 +127,7 @@ $(document).ready(function(){
 
 </head>
 <body>
-	<form id="f1" action="${pageContext.request.contextPath }/product/view" 
+	<form id="f1" action="${pageContext.request.contextPath }/board/boardView" 
 	method="post" class="row g-3">
 	<input type="hidden" name="board_num" value="${b.board_num }">
 	
@@ -135,12 +135,14 @@ $(document).ready(function(){
 			<h2>${b.board_name }</h2>
 			<h5>조회수 : ${b.cbboard_hit }</h5>
 			
+			
 			<table>
 				<colgroup>
 				<col style="width : px;"><col>
 			</colgroup>
 			
 			<tbody>
+				
 				<tr>
 				<th>작성날짜</th>
 				<td>${b.board_date }</td>
@@ -159,13 +161,18 @@ $(document).ready(function(){
 				<tr>
 					<th>장소</th>
 					<td>	
-						${b.board_addr }
+						<i class="fa-solid fa-location-dot"></i>${b.board_addr }
 						<div id="map" style="width:350px;height:150px;" class="name"></div>
 					</td>
 				</tr>
 				
-			
-
+				<tr>
+					<th></th>
+					<td >
+						<input type="button" id="btn1" class="btn1" value="좋아요"><i class="fa-regular fa-thumbs-up"></i>${b.board_like}
+						 <input type="button" id="btn2" class="btn2" value="싫어요"><i class="fa-regular fa-thumbs-down"></i> ${b.board_hate}
+					</td>
+				</tr>
 			</tbody>
 			</table>
 			
@@ -191,20 +198,11 @@ $(document).ready(function(){
 	</c:if>
 </div>
 
-<div>
-	좋아요 : ${b.board_like} <input type="button" id="btn1" class="btn" value="좋아요">
-</div>
 
-<div>
-	싫어요 : ${b.board_hate} <input type="button" id="btn2" class="btn" value="싫어요">
-</div>
 		
 <div class="line1">
 		<textarea class="info" >${b.board_info }</textarea>
 </div>
-		
-
-
 
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>

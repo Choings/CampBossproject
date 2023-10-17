@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
     <script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
    <title>Insert title here</title>
@@ -17,7 +18,7 @@
 <section class="nav-bar">
     <div class="nav-container">
       <div class="brand">                                 <!-- 로고 이미지 폴더에 사진 넣고 경로 변경  -->
-    	
+    	<i class="fa-solid fa-tents"></i>
         <a href="${pageContext.request.contextPath }/member/main">
         CampBoss
          </a>

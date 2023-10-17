@@ -15,12 +15,13 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
 <title>CAMPBOSS</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <link href="${path}/resources/productcss/productview.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-// 조회수
+
 
 let cbproduct_hit = ${p.cbproduct_hit};
 
@@ -117,7 +118,7 @@ $(document).ready(function(){
 			</tr>
 				<tr>
 				<th>가격</th>
-				<td  class="pricecolor"><b>${p.price}</b>원</td>
+				<td  class="pricecolor"><b>${p.price}</b><i class="fa-solid fa-won-sign"></i></td>
 			</tr>
 			<tr>
 				<th>판매자</th>
@@ -130,7 +131,7 @@ $(document).ready(function(){
 			<tr>
 				<th>장소</th>
 				<td>
-				${p.addr }
+				<i class="fa-solid fa-location-dot"></i>${p.addr }
 				<div id="map" style="width:300px;height:150px; margin-top: 20px"class="name" ></div>
 				</td>
 			</tr>
@@ -156,29 +157,8 @@ $(document).ready(function(){
 	
 	</c:if>
 	</div>
-	
-	
-	<div class="line1">
-		<textarea class="info" >${p.info }</textarea>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-
-
-		
-		
-		
-		<div id="map" style="width:350px;height:350px; margin-top: 600px" class="name"></div>
-
+	
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
 				<script>
@@ -231,29 +211,40 @@ $(document).ready(function(){
 				    // 페이지가 로드될 때 자동으로 실행되도록 설정
 				    window.onload = initializeMap;
 				    	
-			</script>
-	
-	<div class="" style="margin-left: 400px;">
 
-      	<h3>댓글</h3>
+			</script>	
+	</form>
+	<div class="line1">
+		<textarea class="info" >${p.info }</textarea>
+	</div>
 	
+	
+	
+	
+
+	<h3>댓글</h3>
+	<div class="reply" >
+
 		<div class="">
 		<form action="" method="post">
-		<input type="text" id="repro_content${p.num }">
+		<input type="text" id="repro_content${p.num }" class="reply1">
 		
 		<input type="hidden" id="repro_num${p.num }" value="${p.num }">
 		<input type="hidden" id="repro_writer_id${p.num }" value="${sessionScope.user_id }">
 		
-		<input type="button" class="btn" value="작성" 
+		<input type="button" class="btn" value="등록" 
 					onclick="writeComment(${p.num})">
 		</form>
 		</div>
 	
 			<div id="div_${p.num }" class="">
 			<c:forEach var="r" items="${i.reps }">
+	
 			${r.repro_content }(작성자:${r.repro_writer_id })<br>
 			</c:forEach>
 			</div>
+			
+			
 	</div>	
 
 	
