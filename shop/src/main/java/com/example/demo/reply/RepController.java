@@ -29,6 +29,11 @@ public class RepController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/rep/print")
+	public String print(Reply r){
+		return "redirect:/rep/list?re_num="+r.getRe_num();
+	}
+	
 	
 	
 }

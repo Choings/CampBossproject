@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%   
@@ -14,13 +14,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CAMPBOSS</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <link href="${path}/resources/boardcss/boardview.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-//Á¶È¸¼ö
+//ì¡°íšŒìˆ˜
 
 let cbboard_hit = ${b.cbboard_hit};
 
@@ -78,6 +78,50 @@ $(document).ready(function() {
 
 
 
+
+var num = 0;
+
+function writeComment(boardNum) {
+    // ì‚¬ìš©ìê°€ ì…ë ¥í•œ ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
+    var reNum = $("#re_num" + boardNum).val();
+    var writerId = $("#writer_id" + boardNum).val();
+    var content = $("#content" + boardNum).val();
+
+    $.post("/rep/write", {
+        re_num: reNum,
+        writer_id: writerId,
+        content: content
+    }).done(function (data) {
+        var items = eval("(" + data + ")"); // JSON íŒŒì¼ì„ ê°ì²´ë¡œ ë³€í™˜ 
+        var str = "";
+        for (var i = 0; i < items.length; i++) {
+            str += items[i].content + "(ì‘ì„±ì:" + items[i].writer_id + ")<br>";
+        }
+
+        $("#div_" + items[0].re_num).html(str);
+        $("#content"+${b.board_num }).val("");
+        
+    });
+}
+
+$(document).ready(function(){
+    var reNum = $("#re_num" + ${b.board_num}).val();
+
+    $.post("/rep/print", {
+        re_num: reNum
+    }).done(function (data) {
+        var items = eval("(" + data + ")"); // JSON íŒŒì¼ì„ ê°ì²´ë¡œ ë³€í™˜ 
+        var str = "";
+        for (var i = 0; i < items.length; i++) {
+            str += items[i].content + "(ì‘ì„±ì:" + items[i].writer_id + ")<br>";
+        }
+
+        $("#div_" + items[0].re_num).html(str);
+    });
+});
+
+
+
 </script>
 	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
 
@@ -89,7 +133,7 @@ $(document).ready(function() {
 	
 		<div class="product-view">
 			<h2>${b.board_name }</h2>
-			<h5>Á¶È¸¼ö : ${b.cbboard_hit }</h5>
+			<h5>ì¡°íšŒìˆ˜ : ${b.cbboard_hit }</h5>
 			
 			<table>
 				<colgroup>
@@ -98,22 +142,22 @@ $(document).ready(function() {
 			
 			<tbody>
 				<tr>
-				<th>ÀÛ¼º³¯Â¥</th>
+				<th>ì‘ì„±ë‚ ì§œ</th>
 				<td>${b.board_date }</td>
 				</tr>
 				
 				<tr>
-				<th>ÀÛ¼ºÀÚ</th>
+				<th>ì‘ì„±ì</th>
 				<td>${b.board_id }</td>
 				</tr>
 				
 				<tr>
-				<th>³»¿ë</th>
-				<td>ÇÏ´ÜÂüÁ¶</td>
+				<th>ë‚´ìš©</th>
+				<td>í•˜ë‹¨ì°¸ì¡°</td>
 				</tr>
 				
 				<tr>
-					<th>Àå¼Ò</th>
+					<th>ì¥ì†Œ</th>
 					<td>	
 						${b.board_addr }
 						<div id="map" style="width:350px;height:150px;" class="name"></div>
@@ -148,11 +192,11 @@ $(document).ready(function() {
 </div>
 
 <div>
-	ÁÁ¾Æ¿ä : ${b.board_like} <input type="button" id="btn1" class="btn" value="ÁÁ¾Æ¿ä">
+	ì¢‹ì•„ìš” : ${b.board_like} <input type="button" id="btn1" class="btn" value="ì¢‹ì•„ìš”">
 </div>
 
 <div>
-	½È¾î¿ä : ${b.board_hate} <input type="button" id="btn2" class="btn" value="½È¾î¿ä">
+	ì‹«ì–´ìš” : ${b.board_hate} <input type="button" id="btn2" class="btn" value="ì‹«ì–´ìš”">
 </div>
 		
 <div class="line1">
@@ -165,53 +209,53 @@ $(document).ready(function() {
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
 				<script>
-				    var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div
+				    var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div
 				        mapOption = {
-				            center: new daum.maps.LatLng(37.537187, 127.005476), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-				            level: 5 // ÁöµµÀÇ È®´ë ·¹º§
+				            center: new daum.maps.LatLng(37.537187, 127.005476), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+				            level: 5 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
 				        };
 				
-				    //Áöµµ¸¦ ¹Ì¸® »ı¼º
+				    //ì§€ë„ë¥¼ ë¯¸ë¦¬ ìƒì„±
 				    var map = new daum.maps.Map(mapContainer, mapOption);
-				    //ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼º
+				    //ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±
 				    var geocoder = new daum.maps.services.Geocoder();
-				    //¸¶Ä¿¸¦ ¹Ì¸® »ı¼º
+				    //ë§ˆì»¤ë¥¼ ë¯¸ë¦¬ ìƒì„±
 				    var marker = new daum.maps.Marker({
 				        position: new daum.maps.LatLng(37.537187, 127.005476),
 				        map: map
 				    });
 				
 				
-				 // ÆäÀÌÁö°¡ ·ÎµåµÉ ¶§ ÀÚµ¿À¸·Î ½ÇÇàÇÒ ÇÔ¼ö
+				 // í˜ì´ì§€ê°€ ë¡œë“œë  ë•Œ ìë™ìœ¼ë¡œ ì‹¤í–‰í•  í•¨ìˆ˜
 				    function initializeMap() {
 				        var sample5_address = document.getElementById("sample5_address");
 
-				        // »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ÁÖ¼Ò¸¦ ÀÔ·Â ÇÊµå¿¡¼­ °¡Á®¿É´Ï´Ù.
+				        // ì‚¬ìš©ìê°€ ì„ íƒí•œ ì£¼ì†Œë¥¼ ì…ë ¥ í•„ë“œì—ì„œ ê°€ì ¸ì˜µë‹ˆë‹¤.
 				        var addr = sample5_address.value;
 
-				        // ÁÖ¼Ò·Î »ó¼¼ Á¤º¸¸¦ °Ë»ö
+				        // ì£¼ì†Œë¡œ ìƒì„¸ ì •ë³´ë¥¼ ê²€ìƒ‰
 				        geocoder.addressSearch(addr, function(results, status) {
-				            // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é
+				            // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´
 				            if (status === daum.maps.services.Status.OK) {
-				                var result = results[0]; // Ã¹¹øÂ° °á°úÀÇ °ªÀ» È°¿ë
+				                var result = results[0]; // ì²«ë²ˆì§¸ ê²°ê³¼ì˜ ê°’ì„ í™œìš©
 
-				                // ÇØ´ç ÁÖ¼Ò¿¡ ´ëÇÑ ÁÂÇ¥¸¦ ¹Ş¾Æ¼­
+				                // í•´ë‹¹ ì£¼ì†Œì— ëŒ€í•œ ì¢Œí‘œë¥¼ ë°›ì•„ì„œ
 				                var coords = new daum.maps.LatLng(result.y, result.x);
 
-				                // Áöµµ¸¦ º¸¿©Áİ´Ï´Ù.
+				                // ì§€ë„ë¥¼ ë³´ì—¬ì¤ë‹ˆë‹¤.
 				                mapContainer.style.display = "block";
 				                map.relayout();
 
-				                // Áöµµ Áß½ÉÀ» º¯°æÇÕ´Ï´Ù.
+				                // ì§€ë„ ì¤‘ì‹¬ì„ ë³€ê²½í•©ë‹ˆë‹¤.
 				                map.setCenter(coords);
 
-				                // ¸¶Ä¿¸¦ °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ¿Å±é´Ï´Ù.
+				                // ë§ˆì»¤ë¥¼ ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¡œ ì˜®ê¹ë‹ˆë‹¤.
 				                marker.setPosition(coords);
 				            }
 				        });
 				    }
 
-				    // ÆäÀÌÁö°¡ ·ÎµåµÉ ¶§ ÀÚµ¿À¸·Î ½ÇÇàµÇµµ·Ï ¼³Á¤
+				    // í˜ì´ì§€ê°€ ë¡œë“œë  ë•Œ ìë™ìœ¼ë¡œ ì‹¤í–‰ë˜ë„ë¡ ì„¤ì •
 				    window.onload = initializeMap;
 				    	
 			</script>
@@ -219,7 +263,7 @@ $(document).ready(function() {
 	
 	
 	<div class="" style="margin-left: 400px;">
-	<h3>´ñ±Û</h3>
+	<h3>ëŒ“ê¸€</h3>
 	
 		<div class="">
 		<form action="" method="post">
@@ -228,51 +272,19 @@ $(document).ready(function() {
 		<input type="hidden" id="re_num${b.board_num }" value="${b.board_num }">
 		<input type="hidden" id="writer_id${b.board_num }" value="${sessionScope.user_id }">
 		
-		<input type="button" class="btn" value="ÀÛ¼º" 
+		<input type="button" class="btn" value="ì‘ì„±" 
 					onclick="writeComment(${b.board_num})">
 		</form>
 		</div>
 	
 			<div id="div_${b.board_num }" class="">
 			<c:forEach var="r" items="${i.reps }">
-			${r.content }(ÀÛ¼ºÀÚ:${r.writer_id })<br>
+			${r.content }(ì‘ì„±ì:${r.writer_id })<br>
 			</c:forEach>
 			</div>
 	</div>
-	
-<script>
-$(document).ready(function() {
-    // ÆäÀÌÁö ·Îµù ½Ã ´ñ±Û ¸®½ºÆ® °¡Á®¿À±â
-    loadComments(${b.board_num});
-    
-    $(".btn").click(function() {
-        writeComment(${b.board_num});
-    });
-});
 
-var num = 0;
 
-function writeComment(boardNum) {
-    // »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ µ¥ÀÌÅÍ °¡Á®¿À±â
-    var reNum = $("#re_num" + boardNum).val();
-    var writerId = $("#writer_id" + boardNum).val();
-    var content = $("#content" + boardNum).val();
-
-    $.post("/rep/write", {
-        re_num: reNum,
-        writer_id: writerId,
-        content: content
-    }).done(function (data) {
-        var items = eval("(" + data + ")"); // JSON ÆÄÀÏÀ» °´Ã¼·Î º¯È¯ 
-        var str = "";
-        for (var i = 0; i < items.length; i++) {
-            str += items[i].content + "(ÀÛ¼ºÀÚ:" + items[i].writer_id + ")<br>";
-        }
-
-        $("#div_" + items[0].re_num).html(str);
-    });
-}
-</script>
 
 </body>
 </html>
