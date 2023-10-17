@@ -136,6 +136,7 @@ li{
 
 h3{
 	margin-top: 50px;
+	font-size: 25px;
 	text-align: center;
 }
 
@@ -162,4 +163,18 @@ h3{
 	border-radius: 10px;
 }
 
-
+.red {
+	margin-top: 10px;
+	margin-left: 10%;
+	width: 500px;
+	height: 80px;
+	border: 1px solid #C4C4C4;
+	text-align: left;
+	box-sizing: border-box;
+	border-radius: 10px;
+	padding: 12px 13px;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+}

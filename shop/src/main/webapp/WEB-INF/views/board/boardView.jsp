@@ -95,7 +95,16 @@ function writeComment(boardNum) {
         var items = eval("(" + data + ")"); // JSON 파일을 객체로 변환 
         var str = "";
         for (var i = 0; i < items.length; i++) {
-            str += items[i].content + "(작성자:" + items[i].writer_id + ")<br>";
+        	str += '<div>';
+            str += '<table class="red">';
+            str += '<tr>'; 
+            str += '<th>작성자 : ' + items[i].writer_id + '</th>';
+            str += '</tr>';
+            str += '<tr>'; 
+            str += '<td>　' + items[i].content + '</td>';
+            str += '</tr>';
+            str += '</table>';
+            str += '</div>';
         }
 
         $("#div_" + items[0].re_num).html(str);
@@ -113,7 +122,16 @@ $(document).ready(function(){
         var items = eval("(" + data + ")"); // JSON 파일을 객체로 변환 
         var str = "";
         for (var i = 0; i < items.length; i++) {
-            str += items[i].content + "(작성자:" + items[i].writer_id + ")<br>";
+        	str += '<div>';
+            str += '<table class="red">';
+            str += '<tr>'; 
+            str += '<th>작성자 : ' + items[i].writer_id + '</th>';
+            str += '</tr>';
+            str += '<tr>'; 
+            str += '<td>　' + items[i].content + '</td>';
+            str += '</tr>';
+            str += '</table>';
+            str += '</div>';
         }
 
         $("#div_" + items[0].re_num).html(str);
