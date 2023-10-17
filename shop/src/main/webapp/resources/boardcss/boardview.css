@@ -109,4 +109,24 @@ li{
 	border-top: 2px solid black;	
 }
 
+.btn1{
+	width: 60px;
+	height: 30px;
+	font-size: 17px;
+	margin-right: 10px;
+	background-color: transparent;
+	border: none;
+}
+
+
+
+.btn2{
+	width: 60px;
+	height: 30px;
+	font-size: 17px;
+	margin-left: 100px;
+	margin-right: 10px;
+	background-color: transparent;
+	border: none;
+}
 

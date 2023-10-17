@@ -142,13 +142,7 @@ $(document).ready(function(){
 			</colgroup>
 			
 			<tbody>
-				<tr>
-					<th></th>
-					<td >
-						<input type="button" id="btn1" class="btn1" value="좋아요"> ${b.board_like}
-						 <input type="button" id="btn2" class="btn2" value="싫어요"> ${b.board_hate}
-					</td>
-				</tr>
+				
 				<tr>
 				<th>작성날짜</th>
 				<td>${b.board_date }</td>
@@ -167,8 +161,16 @@ $(document).ready(function(){
 				<tr>
 					<th>장소</th>
 					<td>	
-						${b.board_addr }
+						<i class="fa-solid fa-location-dot"></i>${b.board_addr }
 						<div id="map" style="width:350px;height:150px;" class="name"></div>
+					</td>
+				</tr>
+				
+				<tr>
+					<th></th>
+					<td >
+						<input type="button" id="btn1" class="btn1" value="좋아요"><i class="fa-regular fa-thumbs-up"></i>${b.board_like}
+						 <input type="button" id="btn2" class="btn2" value="싫어요"><i class="fa-regular fa-thumbs-down"></i> ${b.board_hate}
 					</td>
 				</tr>
 			</tbody>
