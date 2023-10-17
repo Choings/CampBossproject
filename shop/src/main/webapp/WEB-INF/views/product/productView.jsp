@@ -1,18 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	
+
+
+<%   
+ response.setHeader("Cache-Control","no-store");   
+ response.setHeader("Pragma","no-cache");   
+ response.setDateHeader("Expires",0);   
+ if (request.getProtocol().equals("HTTP/1.1")) 
+ response.setHeader("Cache-Control", "no-cache"); %>   
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CAMPBOSS</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <link href="${path}/resources/productcss/productview.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-// Á¶È¸¼ö
+// ì¡°íšŒìˆ˜
 
 let cbproduct_hit = ${p.cbproduct_hit};
 
@@ -39,6 +47,50 @@ $(document).ready(function() {
 		$("#f1").submit();
 	});
 });
+
+
+var num = 0;
+
+function writeComment(num) {
+    // ì‚¬ìš©ìê°€ ì…ë ¥í•œ ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
+    var reNum = $("#repro_num" + num).val();
+    var writerId = $("#repro_writer_id" + num).val();
+    var content = $("#repro_content" + num).val();
+
+    $.post("/repro/writepro", {
+        repro_num: reNum,
+        repro_writer_id: writerId,
+        repro_content: content
+    }).done(function (data) {
+        var items = eval("(" + data + ")"); // JSON íŒŒì¼ì„ ê°ì²´ë¡œ ë³€í™˜ 
+        var str = "";
+        for (var i = 0; i < items.length; i++) {
+            str += items[i].repro_content + "(ì‘ì„±ì:" + items[i].repro_writer_id + ")<br>";
+        }
+
+        $("#div_" + items[0].repro_num).html(str);
+        $("#repro_content"+${p.num }).val("");
+        
+    });
+}
+
+$(document).ready(function(){
+    var reNum = $("#repro_num" + ${p.num}).val();
+
+    $.post("/repro/printpro", {
+        repro_num: reNum
+    }).done(function (data) {
+        var items = eval("(" + data + ")"); // JSON íŒŒì¼ì„ ê°ì²´ë¡œ ë³€í™˜ 
+        var str = "";
+        for (var i = 0; i < items.length; i++) {
+            str += items[i].repro_content + "(ì‘ì„±ì:" + items[i].repro_writer_id + ")<br>";
+        }
+
+        $("#div_" + items[0].repro_num).html(str);
+    });
+});
+
+
 </script>
 
 <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
@@ -50,7 +102,7 @@ $(document).ready(function() {
 	
 	<div class="product-view">
 		<h2>${p.name }</h2>
-		<h5>Á¶È¸¼ö : ${p.cbproduct_hit }</h5>
+		<h5>ì¡°íšŒìˆ˜ : ${p.cbproduct_hit }</h5>
 		
 	<div>
 		<table>
@@ -60,23 +112,23 @@ $(document).ready(function() {
 		
 			<tbody>
 			<tr>
-				<th>ÀÛ¼º³¯Â¥</th>
+				<th>ì‘ì„±ë‚ ì§œ</th>
 				<td>${p.cb_date }</td>
 			</tr>
 				<tr>
-				<th>°¡°İ</th>
-				<td  class="pricecolor"><b>${p.price}</b>¿ø</td>
+				<th>ê°€ê²©</th>
+				<td  class="pricecolor"><b>${p.price}</b>ì›</td>
 			</tr>
 			<tr>
-				<th>ÆÇ¸ÅÀÚ</th>
+				<th>íŒë§¤ì</th>
 				<td>${p.seller_id }</td>
 			</tr>
 			<tr>
-				<th>³»¿ë</th>
-				<td>ÇÏ´Ü ÂüÁ¶</td>
+				<th>ë‚´ìš©</th>
+				<td>í•˜ë‹¨ ì°¸ì¡°</td>
 			</tr>
 			<tr>
-				<th>Àå¼Ò</th>
+				<th>ì¥ì†Œ</th>
 				<td>
 				${p.addr }
 				<div id="map" style="width:300px;height:150px; margin-top: 20px"class="name" ></div>
@@ -130,64 +182,81 @@ $(document).ready(function() {
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
 				<script>
-				    var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div
+				    var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div
 				        mapOption = {
-				            center: new daum.maps.LatLng(37.537187, 127.005476), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-				            level: 5 // ÁöµµÀÇ È®´ë ·¹º§
+				            center: new daum.maps.LatLng(37.537187, 127.005476), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+				            level: 5 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
 				        };
 				
-				    //Áöµµ¸¦ ¹Ì¸® »ı¼º
+				    //ì§€ë„ë¥¼ ë¯¸ë¦¬ ìƒì„±
 				    var map = new daum.maps.Map(mapContainer, mapOption);
-				    //ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼º
+				    //ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±
 				    var geocoder = new daum.maps.services.Geocoder();
-				    //¸¶Ä¿¸¦ ¹Ì¸® »ı¼º
+				    //ë§ˆì»¤ë¥¼ ë¯¸ë¦¬ ìƒì„±
 				    var marker = new daum.maps.Marker({
 				        position: new daum.maps.LatLng(37.537187, 127.005476),
 				        map: map
 				    });
 				
 				
-				 // ÆäÀÌÁö°¡ ·ÎµåµÉ ¶§ ÀÚµ¿À¸·Î ½ÇÇàÇÒ ÇÔ¼ö
+				 // í˜ì´ì§€ê°€ ë¡œë“œë  ë•Œ ìë™ìœ¼ë¡œ ì‹¤í–‰í•  í•¨ìˆ˜
 				    function initializeMap() {
 				        var sample5_address = document.getElementById("sample5_address");
 
-				        // »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ÁÖ¼Ò¸¦ ÀÔ·Â ÇÊµå¿¡¼­ °¡Á®¿É´Ï´Ù.
+				        // ì‚¬ìš©ìê°€ ì„ íƒí•œ ì£¼ì†Œë¥¼ ì…ë ¥ í•„ë“œì—ì„œ ê°€ì ¸ì˜µë‹ˆë‹¤.
 				        var addr = sample5_address.value;
 
-				        // ÁÖ¼Ò·Î »ó¼¼ Á¤º¸¸¦ °Ë»ö
+				        // ì£¼ì†Œë¡œ ìƒì„¸ ì •ë³´ë¥¼ ê²€ìƒ‰
 				        geocoder.addressSearch(addr, function(results, status) {
-				            // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é
+				            // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´
 				            if (status === daum.maps.services.Status.OK) {
-				                var result = results[0]; // Ã¹¹øÂ° °á°úÀÇ °ªÀ» È°¿ë
+				                var result = results[0]; // ì²«ë²ˆì§¸ ê²°ê³¼ì˜ ê°’ì„ í™œìš©
 
-				                // ÇØ´ç ÁÖ¼Ò¿¡ ´ëÇÑ ÁÂÇ¥¸¦ ¹Ş¾Æ¼­
+				                // í•´ë‹¹ ì£¼ì†Œì— ëŒ€í•œ ì¢Œí‘œë¥¼ ë°›ì•„ì„œ
 				                var coords = new daum.maps.LatLng(result.y, result.x);
 
-				                // Áöµµ¸¦ º¸¿©Áİ´Ï´Ù.
+				                // ì§€ë„ë¥¼ ë³´ì—¬ì¤ë‹ˆë‹¤.
 				                mapContainer.style.display = "block";
 				                map.relayout();
 
-				                // Áöµµ Áß½ÉÀ» º¯°æÇÕ´Ï´Ù.
+				                // ì§€ë„ ì¤‘ì‹¬ì„ ë³€ê²½í•©ë‹ˆë‹¤.
 				                map.setCenter(coords);
 
-				                // ¸¶Ä¿¸¦ °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ¿Å±é´Ï´Ù.
+				                // ë§ˆì»¤ë¥¼ ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¡œ ì˜®ê¹ë‹ˆë‹¤.
 				                marker.setPosition(coords);
 				            }
 				        });
 				    }
 
-				    // ÆäÀÌÁö°¡ ·ÎµåµÉ ¶§ ÀÚµ¿À¸·Î ½ÇÇàµÇµµ·Ï ¼³Á¤
+				    // í˜ì´ì§€ê°€ ë¡œë“œë  ë•Œ ìë™ìœ¼ë¡œ ì‹¤í–‰ë˜ë„ë¡ ì„¤ì •
 				    window.onload = initializeMap;
 				    	
 			</script>
 	
+	<div class="" style="margin-left: 400px;">
 
-		
+      	<h3>ëŒ“ê¸€</h3>
 	
-      	
+		<div class="">
+		<form action="" method="post">
+		<input type="text" id="repro_content${p.num }">
+		
+		<input type="hidden" id="repro_num${p.num }" value="${p.num }">
+		<input type="hidden" id="repro_writer_id${p.num }" value="${sessionScope.user_id }">
+		
+		<input type="button" class="btn" value="ì‘ì„±" 
+					onclick="writeComment(${p.num})">
+		</form>
+		</div>
+	
+			<div id="div_${p.num }" class="">
+			<c:forEach var="r" items="${i.reps }">
+			${r.repro_content }(ì‘ì„±ì:${r.repro_writer_id })<br>
+			</c:forEach>
+			</div>
+	</div>	
 
-			
-	</form>
+	
 
 </body>
 </html>
