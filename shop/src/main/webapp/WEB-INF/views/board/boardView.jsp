@@ -259,13 +259,13 @@ $(document).ready(function(){
 			</script>
 	</form>
 	
-	
-	<div class="" style="margin-left: 400px;">
 	<h3>댓글</h3>
+	<div class="reply" style="margin-left: 400px;">
+
 	
 		<div class="">
 		<form action="" method="post">
-		<input type="text" id="content${b.board_num }">
+		<input type="text" id="content${b.board_num }"class="reply1">
 		
 		<input type="hidden" id="re_num${b.board_num }" value="${b.board_num }">
 		<input type="hidden" id="writer_id${b.board_num }" value="${sessionScope.user_id }">
