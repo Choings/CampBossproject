@@ -1,21 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <link href="${path}/resources/css/adminPage.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-	var sel1=0; //¼±ÅÃÇÑ °Í ÀúÀåÇÒ º¯¼ö ´ëºĞ·ù
-	var sel2=0; //¼±ÅÃÇÑ °Í ÀúÀåÇÒ º¯¼ö ¼ÒºĞ·ù
+	var sel1=0; //ì„ íƒí•œ ê²ƒ ì €ì¥í•  ë³€ìˆ˜ ëŒ€ë¶„ë¥˜
+	var sel2=0; //ì„ íƒí•œ ê²ƒ ì €ì¥í•  ë³€ìˆ˜ ì†Œë¶„ë¥˜
 	$(document).ready(function() {
 	$.post("/admin/getsub", {
-			type : 1,// ´ëºĞ·ù ¹øÈ£ 
+			type : 1,// ëŒ€ë¶„ë¥˜ ë²ˆí˜¸ 
 			p_id : 0 // 
 	}).done(
 			function(data) {
@@ -23,7 +23,7 @@
 				for (i = 0; i < c.length; i++) {
 					$("#s1").append(
 						"<option value='"+c[i].id+"'>"
-						+ c[i].name + "</option>"); //´ëºĞ·ù °ªÀ» ¹Ş¾Æ¿Í¼­ Ãß°¡ÇÏ°í 
+						+ c[i].name + "</option>"); //ëŒ€ë¶„ë¥˜ ê°’ì„ ë°›ì•„ì™€ì„œ ì¶”ê°€í•˜ê³  
 							}
 						});
 				
@@ -33,13 +33,13 @@
 					sel1 = x;
 					$.post("/admin/getsub", {
 						type : 2,
-						p_id : x // Àü´Ü°è ´ëºĞ·ù 
+						p_id : x // ì „ë‹¨ê³„ ëŒ€ë¶„ë¥˜ 
 					}).done(function(data) {
 						var c = eval("(" + data + ")");
-						$("#s2").empty();//ÃÊ±âÈ­¸¦ ÇÏ·Á¸é ºñ¿ì°í 
-						$("#s3").empty(); //ÃÊ±âÈ­¸¦ ÇÏ·Á¸é ºñ¿ì°í
+						$("#s2").empty();//ì´ˆê¸°í™”ë¥¼ í•˜ë ¤ë©´ ë¹„ìš°ê³  
+						$("#s3").empty(); //ì´ˆê¸°í™”ë¥¼ í•˜ë ¤ë©´ ë¹„ìš°ê³ 
 						for (i = 0; i < c.length; i++) {
-							$("#s2").append("<option value='"+c[i].id+"'>"//Ãß°¡ÇÏ°í 
+							$("#s2").append("<option value='"+c[i].id+"'>"//ì¶”ê°€í•˜ê³  
 									+ c[i].name + "</option>");
 						}
 					});
@@ -51,27 +51,27 @@
 					sel2=x;
 					$.post("/admin/getsub", {
 						type : 3,
-						p_id : x // ÁßºĞ·ù ºÎ¸ğ 
+						p_id : x // ì¤‘ë¶„ë¥˜ ë¶€ëª¨ 
 					}).done(function(data) {
 						var c = eval("(" + data + ")");
-						$("#s3").empty();//ÃÊ±âÈ­¸¦ ÇÏ·Á¸é ºñ¿ì°í
+						$("#s3").empty();//ì´ˆê¸°í™”ë¥¼ í•˜ë ¤ë©´ ë¹„ìš°ê³ 
 						for (i = 0; i < c.length; i++) {
-							$("#s3").append("<option value='"+c[i].id+"'>"//Ãß°¡ÇÏ°í 
+							$("#s3").append("<option value='"+c[i].id+"'>"//ì¶”ê°€í•˜ê³  
 									+ c[i].name + "</option>");
 						}
 					});
 				});
 
 				$("input[type=button]").click(function() {		
-					if(this.form.elements[0].name=='s2'){//Áßºå·ù ¹öÆ°À» ´­·¶À» ¶§ sel1ÀÇ °ªÀ» 
+					if(this.form.elements[0].name=='s2'){//ì¤‘ë·´ë¥˜ ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ sel1ì˜ ê°’ì„ 
 						this.form.p_id.value=sel1;
-					}else if(this.form.elements[0].name=='s3'){//¼ÒºĞ·ù ¹öÆ°À» ´­·ÈÀ» ¶§ sel2 °ªÀ» ´ëÀÔ 
+					}else if(this.form.elements[0].name=='s3'){//ì†Œë¶„ë¥˜ ë²„íŠ¼ì„ ëˆŒë ¸ì„ ë•Œ sel2 ê°’ì„ ëŒ€ì… 
 						this.form.p_id.value=sel2;
 					}
 					var o = this.form.elements[0].options;
 					for(i=0;i<o.length;i++){						
 						if(o[i].text==this.form.name.value){
-							alert("ÀÌ¹Ì ÀÖ´Â Ä«Å×°í¸®ÀÔ´Ï´Ù.");
+							alert("ì´ë¯¸ ìˆëŠ” ì¹´í…Œê³ ë¦¬ì…ë‹ˆë‹¤.");
 							return;
 						}
 					}
@@ -83,22 +83,22 @@
 </head>
 <body>
 	
-	<h3>Ä«Å×°í¸® ¼öÁ¤ ¹× Ãß°¡</h3>
+	<h3>ì¹´í…Œê³ ë¦¬ ìˆ˜ì • ë° ì¶”ê°€</h3>
 	
 	<form id="f1"action="${pageContext.request.contextPath }
 	/admin/addCategory" onsubmit="return false" method="post">
 	  <table class="t1">
 	    <thead>
 	     <tr>
-		   <th>´ëºĞ·ù<th>
+		   <th>ëŒ€ë¶„ë¥˜<th>
 		 </tr>
 		</thead>
 		
 		 <tbody>
-		  <tr><td><select id="s1" name="s1"></select></td></tr>
+		  <tr><td><select id="s1" name="s1" ></select></td></tr>
 		  <tr><td><input type="text" id="n1" name="name">
 		          <input type="hidden" name="type" value="1"></td></tr>
-		  <tr><td><input type="button" id="b1" value="Ãß°¡"></td></tr>
+		  <tr><td><input type="button" id="b1" value="ì¶”ê°€"></td></tr>
 		 </tbody>
 	  </table>
 	</form>
@@ -108,16 +108,16 @@
  	 <table class="t2">
     	<thead>
      	 <tr>
-          <th>ÁßºĞ·ù</th>
+          <th>ì¤‘ë¶„ë¥˜</th>
      	 </tr>
    	 </thead>
     
     	<tbody>
-      	 <tr><td><select id="s2" name="s2"></select></td></tr>
+      	 <tr><td><select id="s2" name="s2" ></select></td></tr>
      	  <tr><td><input type="text" id="n2" name="name">
               <input type="hidden" name="type" value="2">
       		  <input type="hidden" id="h1" name="p_id" value=""></td></tr>
-      	  <tr><td><input type="button" id="b2" value="Ãß°¡"></td></tr>    
+      	  <tr><td><input type="button" id="b2" value="ì¶”ê°€"></td></tr>    
    	    </tbody>
   	  </table>
 	</form>
@@ -127,7 +127,7 @@
  	 <table class="t3">
   	  <thead>
      	 <tr>
-       	   <th>¼ÒºĞ·ù</th>
+       	   <th>ì†Œë¶„ë¥˜</th>
       	</tr>
     </thead>
     
@@ -136,7 +136,7 @@
        <tr><td><input type="text" id="n3" name="name">
           <input type="hidden" name="type" value="3">
           <input type="hidden" id="h2" name="p_id" value=""></td></tr>
-       <tr><td><input type="button" id="b3" value="Ãß°¡"></td></tr>
+       <tr><td><input type="button" id="b3" value="ì¶”ê°€"></td></tr>
     </tbody>
   </table>
 </form>

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <link href="${path}/resources/boardcss/boardpage.css" rel="stylesheet">
@@ -64,30 +64,30 @@ $(document).ready(function() {
 <body>
 
 
-<h3>CAMPBOSS - °Ô½Ã±Û¸®½ºÆ®</h3>
+<h3>CAMPBOSS - ê²Œì‹œê¸€ë¦¬ìŠ¤íŠ¸</h3>
 
 
-<!-- Ä«Å×°í¸® °Ë»ö -->
+<!-- ì¹´í…Œê³ ë¦¬ ê²€ìƒ‰ -->
 
 <form action="${pageContext.request.contextPath }/board/cateList"
 		method="post">
 <div class="select-view">
 	<div class="select1">
 		<select id="s1" name="c1">
-			<option disabled selected>´ëºÐ·ù</option>
+			<option disabled selected>ëŒ€ë¶„ë¥˜</option>
 		</select>
 	
 	</div>
 		
 	<div class="select1">
 		<select id="s2" name="c2" >
-			<option disabled selected>ÁßºÐ·ù</option>
+			<option disabled selected>ì¤‘ë¶„ë¥˜</option>
 		</select>
 	</div>
 		
 	<div>
 		<select id="s3" name="c3">
-			<option disabled selected>¼ÒºÐ·ù</option>
+			<option disabled selected>ì†Œë¶„ë¥˜</option>
 		</select>
 	</div> 
 	
@@ -96,45 +96,45 @@ $(document).ready(function() {
 </form>
 
 
-<!-- °Ô½Ã±Û Á¦¸ñ °Ë»ö -->
+<!-- ê²Œì‹œê¸€ ì œëª© ê²€ìƒ‰ -->
 
 <form action="${pageContext.request.contextPath }/board/board_nameList"
 		method="post">
 
 		<div class="name-view">
-			<input type="text" name="board_name" placeholder = "°Ô½Ã±Û Á¦¸ñ °Ë»ö"  class="name1">
+			<input type="text" name="board_name" placeholder = "ê²Œì‹œê¸€ ì œëª© ê²€ìƒ‰"  class="name1">
 			<button class="btn">search</button>
 		</div>
 
 	</form>
 
 
-<!-- ÀÛ¼ºÀÚ °Ë»ö -->
+<!-- ìž‘ì„±ìž ê²€ìƒ‰ -->
 	<form action="${pageContext.request.contextPath }/board/board_idList"
 		method="post">
 	<div  class="seller-view">
-		<input type="text" name="board_id"  placeholder = "ÀÛ¼ºÀÚ °Ë»ö"  class="seller1">
+		<input type="text" name="board_id"  placeholder = "ìž‘ì„±ìž ê²€ìƒ‰"  class="seller1">
 		<button class="btn">search</button>
 	</div>
 	</form>
 
-<!-- °Ë»öµÈ °Ô½Ã±Û ¸®½ºÆ® Ãâ·Â -->
+<!-- ê²€ìƒ‰ëœ ê²Œì‹œê¸€ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥ -->
 
 <c:if test="${empty list }">
 	<table border="1" class="table">
 	<thead class="thead">
 		<tr>
-			<th>Á¦¸ñ</th>
-			<th>³»¿ë</th>
-			<th>ÀÛ¼ºÀÚ</th>
-			<th>Á¶È¸¼ö</th>
-			<th>ÁÁ¾Æ¿ä¡¡½È¾î¿ä</th>
+			<th>ì œëª©</th>
+			<th>ë‚´ìš©</th>
+			<th>ìž‘ì„±ìž</th>
+			<th>ì¡°íšŒìˆ˜</th>
+			<th>ì¢‹ì•„ìš”ã€€ì‹«ì–´ìš”</th>
 		</tr>
 	</thead>
 	
 	<tbody>
 		<tr class="tbody">
-			<td colspan="4">°Ë»öµÈ ±ÛÀÌ ¾ø½À´Ï´Ù.</td>
+			<td colspan="4">ê²€ìƒ‰ëœ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 		</tr>
 	</tbody>
 	</table>
@@ -144,11 +144,11 @@ $(document).ready(function() {
 	<table border="1" cellspacing="0" class="table">
 	 <thead class="thead">
 	<tr>
-	<th >Á¦¸ñ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡</th>
-	<th >³»¿ë¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡</th>
-	<th >ÀÛ¼ºÀÚ¡¡¡¡¡¡¡¡¡¡¡¡¡¡</th>
-	<th >Á¶È¸¼ö¡¡¡¡¡¡¡¡¡¡¡¡¡¡</th>
-	<th>ÁÁ¾Æ¿ä¡¡½È¾î¿ä</th></tr>
+	<th >ì œëª©ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€</th>
+	<th >ë‚´ìš©ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€</th>
+	<th >ìž‘ì„±ìžã€€ã€€ã€€ã€€ã€€ã€€ã€€</th>
+	<th >ì¡°íšŒìˆ˜ã€€ã€€ã€€ã€€ã€€ã€€ã€€</th>
+	<th>ì¢‹ì•„ìš”ã€€ì‹«ì–´ìš”</th></tr>
 	 </thead>
 	 
 	 
@@ -160,7 +160,7 @@ $(document).ready(function() {
 	<td >${b.board_info }</td>
 	<td >${b.board_id }</td>
 	<td >${b.cbboard_hit }</td>
-	<td >${b.board_like }¡¡¡¡¡¡¡¡¡¡${b.board_hate }</td>
+	<td >${b.board_like }ã€€ã€€ã€€ã€€ã€€${b.board_hate }</td>
 	</tr>
 	 </tbody>
 	</c:forEach>

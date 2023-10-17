@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <link href="${path}/resources/productcss/productpage.css" rel="stylesheet">
@@ -57,34 +57,34 @@ $(document).ready(function() {
 });
 });
 </script>
-<!-- ��� �޴��� �ҷ�����  -->
+<!-- 상단 메뉴바 불러오기  -->
 	<c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
 </head>
 <body>
-<h3>CAMPBOSS - ��ǰ����Ʈ</h3>
+<h3>CAMPBOSS - 상품리스트</h3>
 
 
 
-<!-- ī�װ��� �˻� -->
+<!-- 카테고리 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/cateList"
 		method="post">
 <div class="select-view">
 	<div class="select1">
 		<select id="s1" name="c1">
-			<option disabled selected>��з�</option>
+			<option disabled selected>대분류</option>
 		</select>
 	
 	</div>
 		
 	<div class="select1">
 		<select id="s2" name="c2" >
-			<option disabled selected>�ߺз�</option>
+			<option disabled selected>중분류</option>
 		</select>
 	</div>
 		
 	<div>
 		<select id="s3" name="c3">
-			<option disabled selected>�Һз�</option>
+			<option disabled selected>소분류</option>
 		</select>
 	</div> 
 	
@@ -94,23 +94,23 @@ $(document).ready(function() {
 	</form>
 	
 	
-<!-- ��ǰ������ �˻� -->	
+<!-- 제품명으로 검색 -->	
 
 
 	<form action="${pageContext.request.contextPath }/seller/nameList"
 		method="post">
 		<div class="name-view">
-			<input type="text" name="name" placeholder = "��ǰ������ �˻�" class="name1">
+			<input type="text" name="name" placeholder = "제품명으로 검색" class="name1">
 			<button class="btn">search</button>
 		</div>
 
 	</form>
 	
-<!-- �Ǹ��ڷ� �˻� -->
+<!-- 판매자로 검색 -->
 	<form action="${pageContext.request.contextPath }/seller/sellerList"
 		method="post">
 	<div class="seller-view">
-		<input type="text" name="seller_id"  placeholder = "�Ǹ��� �˻�" class="seller1">
+		<input type="text" name="seller_id"  placeholder = "판매자 검색" class="seller1">
 		<button class="btn">search</button>
 	</div>
 	</form>
@@ -121,17 +121,17 @@ $(document).ready(function() {
 	<table border="1" class="table">
 	<thead class="thead">
 		<tr>
-			<th>�۹�ȣ</th>
-			<th>��ǰ�̸�</th>
-			<th>��ǰ����</th>
-			<th>��ǰ ����</th>
-			<th>��ȸ��</th>
+			<th>글번호</th>
+			<th>제품이름</th>
+			<th>제품내용</th>
+			<th>제품 가격</th>
+			<th>조회수</th>
 		</tr>
 	</thead>
 	
 <tbody class="tbody">
 	<tr >
-		<td colspan="4">��ǰ�� �����ϴ�.</td>
+		<td colspan="4">상품이 없습니다.</td>
 	</tr>
 </tbody>	
 	</table>
@@ -140,7 +140,7 @@ $(document).ready(function() {
 	<c:if test="${not empty list }">
 	<table border="1" cellspacing="0">
 	 <thead class="thead">
-	<tr><th>��ǰ�̸�</th><th>��ǰ����</th><th>��ǰ����</th><th>�Ǹ���</th><th>��ȸ��</th></tr>
+	<tr><th>제품이름</th><th>제품설명</th><th>제품가격</th><th>판매자</th><th>조회수</th></tr>
 	 </thead>
 	 
 	 

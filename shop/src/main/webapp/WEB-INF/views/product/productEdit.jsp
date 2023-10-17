@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CAMPBOSS</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <link href="${path}/resources/productcss/productedit.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
 </head>
 <body>
-<h3>CAMPBOSS - »óÇ° ¼öÁ¤ ¹× »èÁ¦</h3>
+<h3>CAMPBOSS - ìƒí’ˆ ìˆ˜ì • ë° ì‚­ì œ</h3>
 
 <form action="${pageContext.request.contextPath }/product/edit" method="post"  id="f1">
 <input type="hidden" name="num" value="${p.num }">
@@ -42,33 +42,33 @@
 		
 		<tbody>
 			<tr>
-			<th>°¡°İ</th>
+			<th>ê°€ê²©</th>
 			<td class="pricecolor"><input type = "text" name="price" value="${p.price }"></td>
 			</tr>
 			
 			<tr>
-			<th>ÆÇ¸ÅÀÚ</th>
+			<th>íŒë§¤ì</th>
 			<td><input type="text" name="seller_id" value="${p.seller_id }" readonly></td>
 			</tr>
 			
 			<tr>
-				<th>³»¿ë</th>
-				<td>ÇÏ´Ü ÂüÁ¶</td>
+				<th>ë‚´ìš©</th>
+				<td>í•˜ë‹¨ ì°¸ì¡°</td>
 			</tr>
 			
 			<tr>
-				<th>Àå¼Ò</th>
+				<th>ì¥ì†Œ</th>
 				<td>
 				<input type="text" id="sample5_address"  name="addr" value="${p.addr }">
-				<input type="button" onclick="sample5_execDaumPostcode()" value="ÁÖ¼Ò °Ë»ö"  style="text-align: center;">
+				<input type="button" onclick="sample5_execDaumPostcode()" value="ì£¼ì†Œ ê²€ìƒ‰"  style="text-align: center;">
 				<div id="map" style="width:300px;height:150px; margin-top: 20px"class="name" ></div>
 				</td>
 			</tr>
 			<tr>
 				<th></th>
 				<td>	
-				<input type="submit" value="¼öÁ¤" class="btn">
-				<input type="reset" value="»èÁ¦" id="del"  class="btn">
+				<input type="submit" value="ìˆ˜ì •" class="btn">
+				<input type="reset" value="ì‚­ì œ" id="del"  class="btn">
 				</td>
 			</tr>
 		
@@ -103,17 +103,17 @@
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
 				<script>
-				    var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div
+				    var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div
 				        mapOption = {
-				            center: new daum.maps.LatLng(37.537187, 127.005476), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-				            level: 5 // ÁöµµÀÇ È®´ë ·¹º§
+				            center: new daum.maps.LatLng(37.537187, 127.005476), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+				            level: 5 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
 				        };
 				
-				    //Áöµµ¸¦ ¹Ì¸® »ı¼º
+				    //ì§€ë„ë¥¼ ë¯¸ë¦¬ ìƒì„±
 				    var map = new daum.maps.Map(mapContainer, mapOption);
-				    //ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼º
+				    //ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±
 				    var geocoder = new daum.maps.services.Geocoder();
-				    //¸¶Ä¿¸¦ ¹Ì¸® »ı¼º
+				    //ë§ˆì»¤ë¥¼ ë¯¸ë¦¬ ìƒì„±
 				    var marker = new daum.maps.Marker({
 				        position: new daum.maps.LatLng(37.537187, 127.005476),
 				        map: map
@@ -123,25 +123,25 @@
 				    function sample5_execDaumPostcode() {
 				        new daum.Postcode({
 				            oncomplete: function(data) {
-				                var addr = data.address; // ÃÖÁ¾ ÁÖ¼Ò º¯¼ö
+				                var addr = data.address; // ìµœì¢… ì£¼ì†Œ ë³€ìˆ˜
 				
-				                // ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
+				                // ì£¼ì†Œ ì •ë³´ë¥¼ í•´ë‹¹ í•„ë“œì— ë„£ëŠ”ë‹¤.
 				                document.getElementById("sample5_address").value = addr;
-				                // ÁÖ¼Ò·Î »ó¼¼ Á¤º¸¸¦ °Ë»ö
+				                // ì£¼ì†Œë¡œ ìƒì„¸ ì •ë³´ë¥¼ ê²€ìƒ‰
 				                geocoder.addressSearch(data.address, function(results, status) {
-				                    // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é
+				                    // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´
 				                    if (status === daum.maps.services.Status.OK) {
 										
-				                        var result = results[0]; //Ã¹¹øÂ° °á°úÀÇ °ªÀ» È°¿ë
+				                        var result = results[0]; //ì²«ë²ˆì§¸ ê²°ê³¼ì˜ ê°’ì„ í™œìš©
 				
-				                        // ÇØ´ç ÁÖ¼Ò¿¡ ´ëÇÑ ÁÂÇ¥¸¦ ¹Ş¾Æ¼­
+				                        // í•´ë‹¹ ì£¼ì†Œì— ëŒ€í•œ ì¢Œí‘œë¥¼ ë°›ì•„ì„œ
 				                        var coords = new daum.maps.LatLng(result.y, result.x);
-				                        // Áöµµ¸¦ º¸¿©ÁØ´Ù.
+				                        // ì§€ë„ë¥¼ ë³´ì—¬ì¤€ë‹¤.
 				                        mapContainer.style.display = "block";
 				                        map.relayout();
-				                        // Áöµµ Áß½ÉÀ» º¯°æÇÑ´Ù.
+				                        // ì§€ë„ ì¤‘ì‹¬ì„ ë³€ê²½í•œë‹¤.
 				                        map.setCenter(coords);
-				                        // ¸¶Ä¿¸¦ °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ¿Å±ä´Ù.
+				                        // ë§ˆì»¤ë¥¼ ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¡œ ì˜®ê¸´ë‹¤.
 				                        marker.setPosition(coords)
 				                    }
 				                });

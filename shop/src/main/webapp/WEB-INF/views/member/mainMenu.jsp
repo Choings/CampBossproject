@@ -5,7 +5,7 @@
 <html>
 <head>
 <script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
    <title>Insert title here</title>
     <link href="${path}/resources/css/Menu.css" rel="stylesheet">

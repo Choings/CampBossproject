@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CAMPBOSS</title>
-<link href="${path}/resources/boardcss/boardview.css" rel="stylesheet">
+<link href="${path}/resources/boardcss/boardview.css?after" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 //조회수

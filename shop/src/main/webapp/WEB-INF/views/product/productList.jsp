@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>CampBoss - �ǸŸ���Ʈ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CampBoss - 판매리스트</title>
 
 <link href="${path}/resources/productcss/productlist.css" rel="stylesheet">
 
@@ -30,7 +30,7 @@
 <body>
 
 <div class="over" ></div>
-<h3>�ǸŸ���Ʈ</h3>
+<h3>판매리스트</h3>
 
 <form action="${pageContext.request.contextPath }/product/productList">
 <table class="table">
@@ -38,17 +38,17 @@
 	<c:when test="${empty list }">
 	<thead class="thead">
 		<tr>
-			<th>�۹�ȣ</th>
-			<th>��ǰ�̸�</th>
-			<th>��ǰ����</th>
-			<th>��ǰ ����</th>
-			<th>��ȸ��</th>
+			<th>글번호</th>
+			<th>제품이름</th>
+			<th>제품내용</th>
+			<th>제품 가격</th>
+			<th>조회수</th>
 		</tr>
 	</thead>
 	
 <tbody class="tbody">
 	<tr >
-		<td colspan="4">��ǰ�� �����ϴ�.</td>
+		<td colspan="4">상품이 없습니다.</td>
 	</tr>
 </tbody>	
 	</c:when>
@@ -60,11 +60,11 @@
 	
 <thead class="thead">
 	<tr>
-		<th scope="col">�۹�ȣ</th>
-		<th scope="col">��ǰ�̸�</th>
-		<th scope="col">��ǰ����</th>
-		<th scope="col">����</th>
-		<th scope="col">��ȸ��</th>
+		<th scope="col">글번호</th>
+		<th scope="col">제품이름</th>
+		<th scope="col">제품내용</th>
+		<th scope="col">가격</th>
+		<th scope="col">조회수</th>
 	</tr>
 </thead>		
 

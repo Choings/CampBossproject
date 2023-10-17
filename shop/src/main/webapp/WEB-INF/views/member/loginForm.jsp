@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>CampBoss - ·Î±×ÀÎ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CampBoss - ë¡œê·¸ì¸</title>
 
 
 <link href="${path}/resources/css/loginForm.css" rel="stylesheet" >
@@ -24,7 +24,7 @@ $(document).ready(function() {
 		if($("#idResult").text().trim()=="OK"){
 			$("form").submit();
 		}else{
-			alert("IDÁßº¹Ã¼Å© ¸ÕÀú ÇØÁÖ¼¼¿ä");
+			alert("IDì¤‘ë³µì²´í¬ ë¨¼ì € í•´ì£¼ì„¸ìš”");
 		}
 	});
 });
@@ -44,11 +44,11 @@ $(document).ready(function() {
 				method="post">
 	      <div class="sign-in-htm">
 	        <div class="group">
-	          <label for="user" class="label">ID</label>
+	          <label for="user" class="label">ì•„ì´ë””</label>
 	          <input id="user" type="text" class="input" name="user_id">
 	        </div>
 	        <div class="group">
-	          <label for="pass" class="label">Password</label>
+	          <label for="pass" class="label">ë¹„ë°€ë²ˆí˜¸</label>
 	          <input id="pass" type="password" class="input" name="user_pwd">
 	        </div>
 	        <div class="group">
@@ -61,32 +61,32 @@ $(document).ready(function() {
 	      <div class="sign-up-htm">
 	
 	        <div class="group">
-	          <label for="user" class="label">ID</label>
+	          <label for="user" class="label">ì•„ì´ë””</label>
 	          <input id="user_id" type="text" class="input2" name="user_id">
-	          <input type="button" id="idCheck" class="button2" style="color: black;" value="IDÁßº¹Ã¼Å©">
+	          <input type="button" id="idCheck" class="button2" style="color: black;" value="IDì¤‘ë³µì²´í¬">
 		      <span id="idResult" style="color: black; font-size: 17px; font: bold;"></span>
 	        </div>
 	        
 	        <div class="group">
-	          <label for="pass" class="label">Password</label>
+	          <label for="pass" class="label">ë¹„ë°€ë²ˆí˜¸</label>
 	          <input id="pass" type="password" class="input" name="user_pwd">
 	        </div>
 	        <div class="group">
-	          <label for="pass" class="label">Username</label>
+	          <label for="pass" class="label">ì´ ë¦„</label>
 	          <input id="pass" type="text" class="input" name="user_name">
 	        </div>
 	        <div class="group">
-	          <label for="pass" class="label">NickName</label>
+	          <label for="pass" class="label">ë‹‰ë„¤ì„</label>
 	          <input id="pass" type="text" class="input" name="user_nickname">
 	        </div>        
 	        
 	        
 		    <div class="group">
-			  <label for="pass" class="label">Email</label>
-			  <input type="text" id="emailPrefix" class="input2" placeholder="ÀÌ¸ŞÀÏ ÁÖ¼Ò ÀÔ·Â">
+			  <label for="pass" class="label">ì´ë©”ì¼</label>
+			  <input type="text" id="emailPrefix" class="input2" placeholder="ì´ë©”ì¼ ì£¼ì†Œ ì…ë ¥">
 			  <a style="font-size: 20px; color: black;" >@</a>
 			  <select id="emailSuffix" onchange="combineEmail()" class="input2">
-			    <option value="Á÷Á¢ÀÔ·Â" class="input2">Á÷Á¢ÀÔ·Â</option>
+			    <option value="ì§ì ‘ì…ë ¥" class="input2">ì§ì ‘ì…ë ¥</option>
 			    <option value="naver.com">naver.com</option>
 			    <option value="daum.net">daum.net</option>
 			    <option value="gmail.com">gmail.com</option>
@@ -98,12 +98,12 @@ $(document).ready(function() {
 			      const emailPrefix = document.getElementById("emailPrefix").value;
 			      const emailSuffix = document.getElementById("emailSuffix").value;
 			
-			      if (emailSuffix === "Á÷Á¢ÀÔ·Â") {
-			        alert("ÀÌ¸ŞÀÏ ÁÖ¼Ò¸¦ Á÷Á¢ ÀÔ·ÂÇÏ¼¼¿ä.");
-			        location.href = "/member/loginForm.jsp"; // ¸®µğ·º¼Ç
+			      if (emailSuffix === "ì§ì ‘ì…ë ¥") {
+			        alert("ì´ë©”ì¼ ì£¼ì†Œë¥¼ ì§ì ‘ ì…ë ¥í•˜ì„¸ìš”.");
+			        location.href = "/member/loginForm.jsp"; // ë¦¬ë””ë ‰ì…˜
 			      } else {
 			        const fullEmail = emailPrefix + "@" + emailSuffix;
-			        document.getElementById("result").value = fullEmail; // .textContent ´ë½Å .value »ç¿ë
+			        document.getElementById("result").value = fullEmail; // .textContent ëŒ€ì‹  .value ì‚¬ìš©
 			      }
 			    }
 			  </script>
@@ -113,31 +113,31 @@ $(document).ready(function() {
 	        
 	        
 	        <div class="group">
-	          <label for="pass" class="label">Tel</label>
+	          <label for="pass" class="label">ì „í™”ë²ˆí˜¸</label>
 	          <input id="pass" type="text" class="input" name="user_tel">
 	        </div>       
 	        
 	        
 	        <div class="group">
-	          <label for="pass" class="label">Address</label>
+	          <label for="pass" class="label">ì£¼ì†Œ</label>
 	          <input type="text" id="sample5_address" class="input" name="user_addr" style="font-size: 18px; font-weight: bold; ">
-				<input type="button" onclick="sample5_execDaumPostcode()" value="ÁÖ¼Ò °Ë»ö" class="mapin" ><br>
+				<input type="button" onclick="sample5_execDaumPostcode()" value="ì£¼ì†Œ ê²€ìƒ‰" class="mapin" ><br>
 				<div id="map" style="width:0.1px;height:0.1px; display:none"></div>
 				
 				<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
 				<script>
-				    var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div
+				    var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div
 				        mapOption = {
-				            center: new daum.maps.LatLng(37.537187, 127.005476), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-				            level: 5 // ÁöµµÀÇ È®´ë ·¹º§
+				            center: new daum.maps.LatLng(37.537187, 127.005476), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+				            level: 5 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
 				        };
 				
-				    //Áöµµ¸¦ ¹Ì¸® »ı¼º
+				    //ì§€ë„ë¥¼ ë¯¸ë¦¬ ìƒì„±
 				    var map = new daum.maps.Map(mapContainer, mapOption);
-				    //ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼º
+				    //ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±
 				    var geocoder = new daum.maps.services.Geocoder();
-				    //¸¶Ä¿¸¦ ¹Ì¸® »ı¼º
+				    //ë§ˆì»¤ë¥¼ ë¯¸ë¦¬ ìƒì„±
 				    var marker = new daum.maps.Marker({
 				        position: new daum.maps.LatLng(37.537187, 127.005476),
 				        map: map
@@ -147,25 +147,25 @@ $(document).ready(function() {
 				    function sample5_execDaumPostcode() {
 				        new daum.Postcode({
 				            oncomplete: function(data) {
-				                var addr = data.address; // ÃÖÁ¾ ÁÖ¼Ò º¯¼ö
+				                var addr = data.address; // ìµœì¢… ì£¼ì†Œ ë³€ìˆ˜
 				
-				                // ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
+				                // ì£¼ì†Œ ì •ë³´ë¥¼ í•´ë‹¹ í•„ë“œì— ë„£ëŠ”ë‹¤.
 				                document.getElementById("sample5_address").value = addr;
-				                // ÁÖ¼Ò·Î »ó¼¼ Á¤º¸¸¦ °Ë»ö
+				                // ì£¼ì†Œë¡œ ìƒì„¸ ì •ë³´ë¥¼ ê²€ìƒ‰
 				                geocoder.addressSearch(data.address, function(results, status) {
-				                    // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é
+				                    // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´
 				                    if (status === daum.maps.services.Status.OK) {
 				
-				                        var result = results[0]; //Ã¹¹øÂ° °á°úÀÇ °ªÀ» È°¿ë
+				                        var result = results[0]; //ì²«ë²ˆì§¸ ê²°ê³¼ì˜ ê°’ì„ í™œìš©
 				
-				                        // ÇØ´ç ÁÖ¼Ò¿¡ ´ëÇÑ ÁÂÇ¥¸¦ ¹Ş¾Æ¼­
+				                        // í•´ë‹¹ ì£¼ì†Œì— ëŒ€í•œ ì¢Œí‘œë¥¼ ë°›ì•„ì„œ
 				                        var coords = new daum.maps.LatLng(result.y, result.x);
-				                        // Áöµµ¸¦ º¸¿©ÁØ´Ù.
+				                        // ì§€ë„ë¥¼ ë³´ì—¬ì¤€ë‹¤.
 				                        mapContainer.style.display = "block";
 				                        map.relayout();
-				                        // Áöµµ Áß½ÉÀ» º¯°æÇÑ´Ù.
+				                        // ì§€ë„ ì¤‘ì‹¬ì„ ë³€ê²½í•œë‹¤.
 				                        map.setCenter(coords);
-				                        // ¸¶Ä¿¸¦ °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ¿Å±ä´Ù.
+				                        // ë§ˆì»¤ë¥¼ ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¡œ ì˜®ê¸´ë‹¤.
 				                        marker.setPosition(coords)
 				                    }
 				                });
@@ -178,13 +178,13 @@ $(document).ready(function() {
 	        
 	           
 	        <div class="group">
-	          <label for="pass" class="label">Birth</label>
+	          <label for="pass" class="label">ìƒë…„ì›”ì¼</label>
 	          <input id="pass" type="text" class="input" name="user_birth">
 	        </div>        
 	        <div class="group">
-	          <label for="pass" class="label">Type</label>
-	         	<input type="radio" name="user_type" class="ra" value="1"><a style="color: black;" >ÀÏ¹İÈ¸¿ø</a>
-				<input type="radio" name="user_type" class="ra" value="2"><a style="color: black;" >°ü¸®ÀÚ</a>
+	          <label for="pass" class="label">íšŒì›íƒ€ì…</label>
+	         	<input type="radio" name="user_type" class="ra" value="1"><a style="color: black;" >ì¼ë°˜íšŒì›</a>
+				<input type="radio" name="user_type" class="ra" value="2"><a style="color: black;" >ê´€ë¦¬ì</a>
 	        </div>      
 	        <div class="group">
 	          <input type="submit" class="button" class="input" value="Sign Up" style="background-color: rgba(0,0,100,0.2); font-weight: bold; font-size: 23px;">

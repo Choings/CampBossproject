@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>CampBoss - ³» ÀÛ¼º±Û ¸®½ºÆ®</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CampBoss - ë‚´ ìž‘ì„±ê¸€ ë¦¬ìŠ¤íŠ¸</title>
 
 <link href="${path}/resources/boardcss/boardlist.css" rel="stylesheet">
 
@@ -29,7 +29,7 @@
 </head>
 <body>
 <div class="over" ></div>
-<h3>³» ÀÛ¼º±Û ¸®½ºÆ®</h3>
+<h3>ë‚´ ìž‘ì„±ê¸€ ë¦¬ìŠ¤íŠ¸</h3>
 
 <form action="${pageContext.request.contextPath }/board/boardList">
 <table class="table">
@@ -37,17 +37,17 @@
 	<c:when test="${empty list }">
 	<thead class="thead">
 		<tr>
-			<th>±Û¹øÈ£</th>
-			<th>Á¦¸ñ</th>
-			<th>³»¿ë</th>
-			<th>Á¶È¸¼ö</th>
-			<th>ÀÛ¼º³¯Â¥</th>
+			<th>ê¸€ë²ˆí˜¸</th>
+			<th>ì œëª©</th>
+			<th>ë‚´ìš©</th>
+			<th>ì¡°íšŒìˆ˜</th>
+			<th>ìž‘ì„±ë‚ ì§œ</th>
 		</tr>
 	</thead>
 	
 <tbody class="tbody">
 	<tr >
-		<td colspan="4">»óÇ°ÀÌ ¾ø½À´Ï´Ù.</td>
+		<td colspan="4">ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤.</td>
 	</tr>
 </tbody>	
 	</c:when>
@@ -59,11 +59,11 @@
 	
 <thead class="thead">
 	<tr>
-		<th scope="col">±Û¹øÈ£</th>
-		<th scope="col">Á¦¸ñ</th>
-		<th scope="col">³»¿ë</th>
-		<th scope="col">Á¶È¸¼ö</th>
-		<th scope="col">ÀÛ¼º³¯Â¥</th>
+		<th scope="col">ê¸€ë²ˆí˜¸</th>
+		<th scope="col">ì œëª©</th>
+		<th scope="col">ë‚´ìš©</th>
+		<th scope="col">ì¡°íšŒìˆ˜</th>
+		<th scope="col">ìž‘ì„±ë‚ ì§œ</th>
 	</tr>
 </thead>		
 

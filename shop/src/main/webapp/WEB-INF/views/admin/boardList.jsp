@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>CampBoss - �Խñ۸���Ʈ����</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CampBoss - 게시글리스트관리</title>
 
     <link href="${path}/resources/css/adminList.css" rel="stylesheet">
     
@@ -16,7 +16,7 @@
 <body>
 
 	</br></br></br></br></br>
-	<h2>�Խñ۸���Ʈ</h2>
+	<h2>게시글리스트</h2>
 	</br></br>
 
    <form action="${pageContext.request.contextPath}/admin/boardList" method="post">
@@ -24,15 +24,15 @@
             <c:choose>
                 <c:when test="${empty list}">
                     <tr>
-                        <td colspan="4" align="center">�����Ͱ� �����ϴ�.</td>
+                        <td colspan="4" align="center">데이터가 없습니다.</td>
                     </tr>
                 </c:when>
                 <c:when test="${not empty list}">
                     <thead>
                         <tr>
-                            <th>��ȣ</th>
-                            <th>����</th>
-                            <th>�Ǹ���</th>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>판매자</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -43,7 +43,7 @@
                                 <td><a href="${pageContext.request.contextPath }
 									/board/boardView?board_num=${p.board_num }&type=1">${p.board_name}</a></td>
                                 <td>${p.board_id}</td>
-                                <td><a href="${pageContext.request.contextPath}/board/bodel?num=${p.board_num}">����</a></td>
+                                <td><a href="${pageContext.request.contextPath}/board/bodel?num=${p.board_num}">삭제</a></td>
                             </tr>
                         </tbody>
                     </c:forEach>

@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-    <title>CampBoss - »óÇ°¸®½ºÆ®°ü¸®</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CampBoss - ìƒí’ˆë¦¬ìŠ¤íŠ¸ê´€ë¦¬</title>
     <link href="${path}/resources/css/adminList.css" rel="stylesheet">
     
     <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
@@ -15,7 +15,7 @@
 <body>
 
 	</br></br></br></br></br>
-	<h2>»óÇ°¸®½ºÆ®</h2>
+	<h2>ìƒí’ˆë¦¬ìŠ¤íŠ¸</h2>
 	</br></br>
 	
     <form action="${pageContext.request.contextPath}/admin/productList" method="post">
@@ -23,16 +23,16 @@
             <c:choose>
                 <c:when test="${empty list}">
                     <tr>
-                        <td colspan="5" align="center">µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.</td>
+                        <td colspan="5" align="center">ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.</td>
                     </tr>
                 </c:when>
                 <c:when test="${not empty list}">
                     <thead>
                         <tr>
-                            <th>¹øÈ£</th>
-                            <th>Á¦¸ñ</th>
-                            <th>°¡°Ý</th>
-                            <th>ÆÇ¸ÅÀÚ</th>
+                            <th>ë²ˆí˜¸</th>
+                            <th>ì œëª©</th>
+                            <th>ê°€ê²©</th>
+                            <th>íŒë§¤ìž</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -44,7 +44,7 @@
 									/product/productView?num=${p.num }&type=1">${p.name}</a></td>
                                 <td>${p.price}</td>
                                 <td>${p.seller_id}</td>
-                                <td><a href="${pageContext.request.contextPath}/seller/prodel?num=${p.num}">»èÁ¦</a></td>
+                                <td><a href="${pageContext.request.contextPath}/seller/prodel?num=${p.num}">ì‚­ì œ</a></td>
                             </tr>
                         </tbody>
                     </c:forEach>

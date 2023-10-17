@@ -62,9 +62,10 @@ li{
 .product-view h2{
 	padding: 0 0 20px;
 	
-	font-size: 24px;
+	font-size: 30px;
 	color: #232323;
 	line-height: 26px;
+	font-weight: bolder;
 }
 
 .product-view h5{
@@ -74,6 +75,7 @@ li{
 	font-size: 16px;
 	color: #232323;
 	line-height: 26px;
+	font-weight: bolder;
 }
 
 .product-view table th ,
@@ -158,9 +160,13 @@ h3{
 }
 
 .btn{
+	width: 70px;
+	height: 40px;
 	border: 1px solid #C4C4C4;
 	box-sizing: border-box;
 	border-radius: 10px;
+	background-color: transparent;
+	font-size: 15px;
 }
 
 .red {
