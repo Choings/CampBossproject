@@ -1,8 +1,12 @@
 package com.example.demo.seller;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import org.springframework.web.multipart.MultipartFile;
+
+
+
 
 public class Product {
 	private int num;
@@ -20,6 +24,7 @@ public class Product {
 	private MultipartFile file1;
 	private MultipartFile file2;
 	private MultipartFile file3;
+	
 
 	public Product() {
 		super();
@@ -63,6 +68,7 @@ public class Product {
 		this.file3 = file3;
 	}
 
+	
 	public int getNum() {
 		return num;
 	}
@@ -183,6 +189,8 @@ public class Product {
 		this.file3 = file3;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Product [num=" + num + ", name=" + name + ", quantity=" + quantity + ", info=" + info + ", addr=" + addr
@@ -191,5 +199,8 @@ public class Product {
 				+ ", cbproduct_hit=" + cbproduct_hit + ", file1=" + file1 + ", file2=" + file2 + ", file3=" + file3
 				+ "]";
 	}
+
+
+	
 
 }

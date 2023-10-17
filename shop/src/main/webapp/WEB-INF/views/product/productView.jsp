@@ -12,6 +12,8 @@
 <link href="${path}/resources/productcss/productview.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
+
+
 // 조회수
 
 let cbproduct_hit = ${p.cbproduct_hit};
@@ -104,29 +106,8 @@ $(document).ready(function() {
 	
 	</c:if>
 	</div>
-	
-	
-	<div class="line1">
-		<textarea class="info" >${p.info }</textarea>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-
-
-		
-		
-		
-		<div id="map" style="width:350px;height:350px; margin-top: 600px" class="name"></div>
-
+	
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f77ab4323888c99a1ffb18bd492e20cc&libraries=services"></script>
 				<script>
@@ -179,16 +160,15 @@ $(document).ready(function() {
 				    // 페이지가 로드될 때 자동으로 실행되도록 설정
 				    window.onload = initializeMap;
 				    	
-			</script>
-	
-
-		
-	
-      	
-
-			
+			</script>	
 	</form>
-
+	<div class="line1">
+		<textarea class="info" >${p.info }</textarea>
+	</div>
+	
+	
+	
+	
 </body>
 </html>
 

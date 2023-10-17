@@ -27,6 +27,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.admin.AdminService;
 import com.example.demo.member.Member;
 
+import com.example.demo.reply.Reply;
+
 
 
 @Controller
@@ -34,6 +36,8 @@ public class SellerController {
 
 	@Autowired
 	private SellerService service;
+	
+	
 
 	public static String basePath = "C:\\shopimg\\";
 	
@@ -140,6 +144,7 @@ public class SellerController {
 		if (type == 1) {
 			mav.setViewName("product/productView");
 		}
+
 		Product p = service.getProductByNum(num);
 		String path = basePath + p.getNum() + "\\";
 		File imgDir = new File(path);
