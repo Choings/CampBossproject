@@ -14,7 +14,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-	
 	$("#idCheck").click(function() {
 		$.post( "/member/idCheck", { user_id: $("#user_id").val()} )
 	    .done(function( data ) {
@@ -26,6 +25,42 @@ $(document).ready(function() {
 			$("form").submit();
 		}else{
 			alert("ID중복체크 먼저 해주세요");
+		}
+	});
+});
+
+
+
+$(document).ready(function() {
+	$("#login-button").click(function() {
+		var username = $("#user_id").val();
+		var password = $("#user_pwd").val();
+
+		if (username === "") {
+		    alert("아이디를 입력하세요.");
+		    window.location.href = "${path}/member/loginForm"; 
+
+		} else if (password === "") {
+		    alert("비밀번호를 입력하세요.");
+		    window.location.href = "${path}/member/loginForm"; 
+
+		} else {
+			$.ajax({
+				url: "/member/login",
+				type: "POST",
+				data: {
+					user_id: username,
+					user_pwd: password
+				},
+				success: function(response) {
+					if (response === "success") {
+						window.location.href = "${path}/member/main";
+					} 
+				},
+				error: function() {
+					alert("서버와의 통신 중 오류가 발생했습니다.");
+				}
+			});
 		}
 	});
 });
@@ -44,16 +79,17 @@ $(document).ready(function() {
 	 <form action="${pageContext.request.contextPath }/member/login"
 				method="post">
 	      <div class="sign-in-htm">
-	        <div class="group">
+	         <div class="group">
 	          <label for="user" class="label">아이디</label>
 	          <input id="user_id" type="text" class="input" name="user_id">
 	        </div>
 	        <div class="group">
 	          <label for="pass" class="label">비밀번호</label>
-	          <input id="user_pwd" type="password" class="input" name="user_pwd" >
+	          <input id="user_pwd" type="password" class="input" name="user_pwd">
 	        </div>
 	        <div class="group">
-	          <input type="submit" class="button" value="Sign In" id="login">
+	          <button id="login-button" class="button">Sign In</button>
+	       
 	        </div>
 	      </div>
 	  </form>
