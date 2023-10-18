@@ -9,8 +9,6 @@
 <title>CAMPBOSS</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <link href="${path}/resources/noticecss/noticeadd.css?after" rel="stylesheet">
-
-
 <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
    <br><br><br>
 </head>
@@ -19,24 +17,22 @@
 
     <form action="${pageContext.request.contextPath }/notice/add" method="post">
 
-    
-        
             <div>
                 <p class="title">제목</p>
                   <input type="text" name="notice_name"  class="title1">
             </div>          	   
             <div>
-                <p>작성자 : <input type="text" name="seller1" 
+                <p>작성자 : <input type="text" name="notice_id" 
                 value="${sessionScope.user_id }" class="seller" readonly></p>
-                
-            </div>           
+            </div> 
+                      
             <div>
                 <input type="submit" value="등록" class="btn">
-                <input type="reset" value="취소" class="btn">   
+                <input type="reset" value="취소" class="btn" >   
             </div>
             
             <div class="line1">
-				<textarea name="noticeInfo" class="info" ></textarea>
+				<textarea name="notice_info" class="info" ></textarea>
 			</div>
         </form>
 

@@ -97,4 +97,6 @@ public class NoticeController {
       service.delNotice(delNotice);
       return "redirect:/notice/noticeList2";
    }
+   
+
 }
