@@ -64,7 +64,11 @@
 										}
 									});
 						});
-
+					$("#del").click(function() {
+					$("#f1").attr('action', '/board/reset');
+					$("#f1").submit();
+				});
+	
 			});
 </script>
 
@@ -74,7 +78,7 @@
 <body>
 <h3>CampBoss - 게시글 작성</h3>
 
-<form action="${pageContext.request.contextPath }/board/add" method="post" enctype="multipart/form-data">
+<form action="${pageContext.request.contextPath }/board/add" method="post" enctype="multipart/form-data" id="f1">
 	
 	<p>카테고리 선택</p>
 	<select id="s1" name="boardcategory1_id" class="box" >
@@ -124,7 +128,7 @@
 					<th></th>
 					<td>	
 						<input type="submit" value="등록" class="btn">
-						<input type="reset" value="취소" class="btn">
+						<input type="reset" value="취소" class="btn" id="del">
 					</td>
 			</tr>
 			</tbody>

@@ -64,7 +64,10 @@
 										}
 									});
 						});
-
+					$("#del").click(function() {
+					$("#f1").attr('action', '/seller/reset');
+					$("#f1").submit();
+				});
 			});
 </script>
 
@@ -74,7 +77,7 @@
 <body>
 	<h3>CampBoss - 상품등록</h3>
 	<form action="${pageContext.request.contextPath }/seller/add" 
-	method="post" enctype="multipart/form-data"> 
+	method="post" enctype="multipart/form-data" id="f1"> 
 	<p>카테고리 선택</p>
 	<select id="s1" name="category1_id" class="box" >
 		<option disabled selected>대분류</option>
@@ -129,7 +132,7 @@
 				<th></th>
 				<td>	
 				<input type="submit" value="등록" class="btn">
-				<input type="reset" value="취소" class="btn">
+				<input type="reset" value="취소" class="btn" id="del">
 				</td>
 			</tr>
 		</tbody>

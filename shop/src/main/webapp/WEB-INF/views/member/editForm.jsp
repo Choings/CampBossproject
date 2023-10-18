@@ -9,6 +9,18 @@
   <!-- 상단 메뉴바 불러오기 -->
   <link href="${path}/resources/css/editmem.css" rel="stylesheet">
   <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script>
+  	$(document).ready(function name() {
+  				$("#del").click(function() {
+				$("#f1").attr('action', '/member/reset');
+				$("#f1").submit();
+			});
+	});
+  			
+  	
+  </script>
 </head>
 <body>
 </br></br>
@@ -18,7 +30,7 @@
   <div class="login-wrap">
     <div class="login-html">
       <div class="login-form">
-        <form action="${pageContext.request.contextPath}/member/edit" method="post">
+        <form action="${pageContext.request.contextPath}/member/edit" method="post" id="f1">
           <!-- 아이디 입력 -->
           <div class="group">
             <label for="user" class="label">아이디</label>
@@ -163,7 +175,7 @@
           <!-- 수정 및 취소 버튼 -->
           <div class="group">
             <input type="submit" class="button" value="수정"/>
-            <input type="reset" class="button" value="취소"/>
+            <input type="reset" class="button" value="취소" id="del"/>
           </div>
         </form>
       </div>
