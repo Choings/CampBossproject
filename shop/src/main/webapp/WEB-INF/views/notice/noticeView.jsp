@@ -4,15 +4,52 @@
 <html>
 
 <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://kit.fontawesome.com/af585378dc.js" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>CAMPBOSS</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous">
-   <link href="${path}/resources/noticecss/noticeview.css?after" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+crossorigin="anonymous">
+<link href="${path}/resources/noticecss/noticeview.css?after" rel="stylesheet">
+   
+   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+   <script>
+   
+   $(document).ready(function() {
+	    $("#btn1").click(function() {
+	        $.ajax({
+	            type: "POST",
+	            url: "${pageContext.request.contextPath}/notice/uplike?notice_num=${n.notice_num}&type=1",
+	            data: { },
+	            success: function(response) {
+	                
+	                location.reload(); 
+	            }
+	        });
+	    });
+	});
+
+
+	$(document).ready(function() {
+	    $("#btn2").click(function() {
+	        $.ajax({
+	            type: "POST",
+	            url: "${pageContext.request.contextPath}/notice/uphate?notice_num=${n.notice_num}&type=1",
+	            data: { },
+	            success: function(response) {
+	                
+	                location.reload(); 
+	            }
+	        });
+	    });
+	});
+   </script>
+   
+   
    <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
    <br><br><br>
+   
 </head>
 <body>
    <c:if test="${sessionScope.user_type==1 }">
@@ -34,12 +71,25 @@
             <p class="seller-title">작성날짜 : ${n.notice_date}</p>
          </div>
          
+         <div>
+            <input type="button" id="btn1" class="btn1" value="좋아요"><i class="fa-regular fa-thumbs-up"></i>${n.notice_like}
+			<input type="button" id="btn2" class="btn2" value="싫어요"><i class="fa-regular fa-thumbs-down"></i> ${n.notice_hate}
+         </div>
+         
+         
       </form>
       
       <div class="line1">
 			<textarea class="info" >${n.notice_info}</textarea>
 		</div>
    </c:if>
+
+
+
+
+
+
+
 
    <c:if test="${sessionScope.user_type==2 }">
       <form action="${pageContext.request.contextPath}/notice/noticeEdit" method="post" class="row g-3">
@@ -69,5 +119,11 @@
         
       </form>
    </c:if>
+   
+   <footer >
+	<div class="copyright">
+		<p>Copyright 2023 All ⓒ rights reserved </p>
+	</div>
+</footer>
 </body>
 </html>

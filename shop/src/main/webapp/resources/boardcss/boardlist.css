@@ -49,8 +49,7 @@ a {
     display: block;
   }
   
-<<<<<<< HEAD
-=======
+
   th {
     text-align: right;
   }
@@ -88,4 +87,23 @@ a {
   }
   
   }
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git
+
+  
+    footer{
+	clear: both;
+	width: 100%;
+	height: 80px;
+	margin-top: 330px;
+	margin-bottom: -100px;
+		
+	background-color: #73685d;
+}
+
+
+
+footer .copyright p{
+	font-size: 17px;
+	color: black;
+	text-align: center;
+	padding: 32px 0 0 40px;
+}

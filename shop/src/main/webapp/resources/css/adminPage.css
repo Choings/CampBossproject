@@ -111,4 +111,25 @@ input[type="text"] {
   padding: none; 
   background: rgb(10, 10, 10, 0.02);
 }
+
+footer{
+	clear: both;
+	width: 112.1%;
+	height: 80px;
+	margin-top: 500px;
+	margin-bottom: -100px;
+	margin-left: -100px;
+	margin-right: 10px;
+	background-color: #73685d;
+}
+
+
+
+footer .copyright p{
+	font-size: 17px;
+	color: black;
+	text-align: center;
+	padding: 32px 0 0 40px;
+}
+
   

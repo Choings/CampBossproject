@@ -52,6 +52,10 @@
         </table>
     </form>
 
-
+<footer >
+	<div class="copyright">
+		<p>Copyright 2023 All ⓒ rights reserved </p>
+	</div>
+</footer>
 </body>
 </html>

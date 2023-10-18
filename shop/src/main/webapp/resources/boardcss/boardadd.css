@@ -161,3 +161,25 @@ li{
    7px 7px 20px 0px #0002,
    4px 4px 5px 0px #0001;
 }
+
+
+ footer{
+	clear: both;
+	width: 107.5%;
+	height: 80px;
+	margin-top: 500px;
+	margin-bottom: -100px;
+	margin-left: -60px;
+	margin-right: 100px;
+	background-color: #73685d;
+}
+
+
+
+footer .copyright p{
+	font-size: 17px;
+	color: black;
+	text-align: center;
+	padding: 32px 0 0 40px;
+}
+

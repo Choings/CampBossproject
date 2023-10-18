@@ -95,3 +95,23 @@ a {
 	margin-right: 30px;
 	font-size: 25px;
 	}
+	
+	 footer{
+	clear: both;
+	width: 108.1%;
+	height: 80px;
+	margin-top: 500px;
+	margin-bottom: -100px;
+	margin-left: -100px;
+	margin-right: 10px;
+	background-color: #73685d;
+}
+
+
+
+footer .copyright p{
+	font-size: 17px;
+	color: black;
+	text-align: center;
+	padding: 32px 0 0 40px;
+}

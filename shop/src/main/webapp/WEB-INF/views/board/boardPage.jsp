@@ -135,7 +135,7 @@ $(document).ready(function() {
 	
 	<tbody>
 		<tr class="tbody">
-			<td colspan="4">검색된 글이 없습니다.</td>
+			<td colspan="5">검색된 글이 없습니다.</td>
 		</tr>
 	</tbody>
 	</table>
@@ -177,7 +177,11 @@ $(document).ready(function() {
 
 	</table>
 	</c:if>
-
+<footer >
+	<div class="copyright">
+		<p>Copyright 2023 All ⓒ rights reserved </p>
+	</div>
+</footer>
 
 
 </body>

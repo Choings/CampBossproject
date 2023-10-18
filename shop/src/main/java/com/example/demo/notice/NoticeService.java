@@ -50,5 +50,13 @@ public class NoticeService {
    public int getNum() {
       return mapper.getNum();
    }
+   
+	public void uplike(int notice_num) {
+		mapper.uplike(notice_num);
+	}
+	
+	public void uphate(int notice_num) {
+		mapper.uphate(notice_num);
+	}
     
 }
