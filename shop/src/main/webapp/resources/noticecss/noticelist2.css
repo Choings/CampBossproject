@@ -1,16 +1,14 @@
-@charset "EUC-KR";
-
-body{
-	  background: #f5f5f5
+body {
+  padding:1.5em;
+  background: #f5f5f5
 }
 
 
 h3{
 	text-align: center;
-	margin-top: 100px;
+	margin-top: 250px;
 	font-size: 35px;
 }
-
 
 table {
   border: 1px #a39485 solid;
@@ -90,3 +88,10 @@ a {
   }
   
   }
+  
+.write{
+	float: right;
+	margin-bottom: 20px;
+	margin-right: 30px;
+	font-size: 25px;
+	}

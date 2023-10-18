@@ -235,7 +235,7 @@ public class BoardController {
 	
 	@PostMapping(value = "/board/reset")
 	public String reset() {
-		return "board/boardPage";
+		return "redirect:/board/boardPage";
 	}
 	
 	//게시글전체출력 (관리자 )

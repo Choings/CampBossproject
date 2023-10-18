@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link href="${path}/resources/css/adminPage.css" rel="stylesheet">
+<link href="${path}/resources/css/adminPage.css?after" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	var sel1=0; //선택한 것 저장할 변수 대분류

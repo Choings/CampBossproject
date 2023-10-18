@@ -10,7 +10,7 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous">
-   <link href="${path}/resources/css/productEdit.css" rel="stylesheet">
+   <link href="${path}/resources/noticecss/noticeview.css?after" rel="stylesheet">
    <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
    <br><br><br>
 </head>
@@ -18,25 +18,27 @@
    <c:if test="${sessionScope.user_type==1 }">
       <form action="${pageContext.request.contextPath }/notice/view" method="post" class="row g-3">
 
-         <h3>공지사항 상세</h3>
+         
          <input type="hidden" name="notice_num" value="${n.notice_num}">
 
          <div>
-            <p class="name-title">제목</p>
-            <input type="text" value="${n.notice_name}" class="name" readonly>
+            <p class="name">${n.notice_name}</p>
+            
          </div>
 
          <div>
-            <p class="seller-title">작성자</p>
-            <input type="text" value="${n.notice_id}" class="seller" readonly>
+            <p class="seller-title">작성자 : ${n.notice_id}</p>
          </div>
-
+         
          <div>
-            <p class="info-title">내용</p>
+            <p class="seller-title">작성날짜 : ${n.notice_date}</p>
          </div>
-         <textarea name="info" class="info" readonly>${n.notice_info}</textarea>
-         <div>
+         
       </form>
+      
+      <div class="line1">
+			<textarea class="info" >${n.notice_info}</textarea>
+		</div>
    </c:if>
 
    <c:if test="${sessionScope.user_type==2 }">
@@ -47,23 +49,24 @@
          <input type="hidden" name="notice_num" value="${n.notice_num}">
 
          <div>
-            <p class="name-title">제목</p>
-            <input type="text" name="noticeName" value="${n.notice_name}" class="name">
+            <p class="title">제목</p>
+            <input type="text" name="noticeName" value="${n.notice_name}" class="title1">
          </div>
 
-         <div>
-            <p class="seller-title">작성자</p>
-            <input type="text" value="${n.notice_id}" class="seller" readonly>
+        <div>
+            <p class="seller-title">작성자 : ${n.notice_id}</p>
+         </div>
+         
+          <div>
+          	<input type="reset" value="취소" class="btn">
+            <input type="submit" value="수정" class="btn" >
+            
          </div>
 
-         <div>
-            <p class="info-title">내용</p></br>
-            <textarea name="noticeInfo" class="info">${n.notice_info}</textarea>
-         </div>
-         <div>
-            <input type="submit" value="수정" class="submit">
-            <input type="reset" value="초기화" class="submit">
-         </div>
+         <div class="line1">
+			<textarea name="noticeInfo" class="info" >${n.notice_info}</textarea>
+		</div>
+        
       </form>
    </c:if>
 </body>

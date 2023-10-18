@@ -8,16 +8,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CampBoss - 게시글리스트관리</title>
 
-    <link href="${path}/resources/css/adminList.css" rel="stylesheet">
+    <link href="${path}/resources/css/adminList.css?after" rel="stylesheet">
     
     <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
     
 </head>
 <body>
 
-	</br></br></br></br></br>
+
 	<h2>게시글리스트</h2>
-	</br></br>
+
 
    <form action="${pageContext.request.contextPath}/admin/boardList" method="post">
         <table>
@@ -32,7 +32,7 @@
                         <tr>
                             <th>번호</th>
                             <th>제목</th>
-                            <th>판매자</th>
+                            <th>작성자</th>
                             <th></th>
                         </tr>
                     </thead>

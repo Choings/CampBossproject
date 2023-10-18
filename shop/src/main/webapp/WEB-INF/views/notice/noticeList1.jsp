@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CampBoss - 공지사항</title>
 
-<link href="${path}/resources/css/prolist.css" rel="stylesheet">
+<link href="${path}/resources/noticecss/noticelist1.css?after" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
@@ -29,7 +29,7 @@
 </head>
 <body>
 <div class="over" ></div>
-<h2>공지사항</h2>
+<h3>공지사항</h3>
 
 <form action="${pageContext.request.contextPath }/notice/noticeList1">
 <table class="table">
@@ -38,8 +38,9 @@
    <thead class="thead">
       <tr>
          <th>글번호</th>
-         <th>제목</th>
+         <th class="n1">제목</th>
          <th>내용</th>
+         <th>작성날짜</th>
       </tr>
    </thead>
    
@@ -60,6 +61,7 @@
       <th scope="col">글번호</th>
       <th scope="col">제목</th>
       <th scope="col">내용</th>
+      <th scope="col">작성날짜</th>
    </tr>
 </thead>      
 
@@ -73,6 +75,7 @@
          <a href="${pageContext.request.contextPath}/notice/noticeView?notice_num=${n.notice_num}">
          ${n.notice_name } </a></td>
       <td>${n.notice_info }</td>
+      <td>${n.notice_date }</td>
 
    </tr>
 </tbody>

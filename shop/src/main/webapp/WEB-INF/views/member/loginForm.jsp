@@ -28,6 +28,7 @@ $(document).ready(function() {
 			alert("ID중복체크 먼저 해주세요");
 		}
 	});
+	
 });
 </script>
 

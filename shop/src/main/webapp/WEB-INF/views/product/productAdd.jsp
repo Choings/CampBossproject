@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CampBoss - 상품등록</title>
-<link href="${path}/resources/productcss/productadd.css" rel="stylesheet">
+<link href="${path}/resources/productcss/productadd.css?after" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	$(document).ready(
