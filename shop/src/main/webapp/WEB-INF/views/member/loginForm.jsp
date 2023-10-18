@@ -14,6 +14,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
+	
 	$("#idCheck").click(function() {
 		$.post( "/member/idCheck", { user_id: $("#user_id").val()} )
 	    .done(function( data ) {
@@ -45,14 +46,14 @@ $(document).ready(function() {
 	      <div class="sign-in-htm">
 	        <div class="group">
 	          <label for="user" class="label">아이디</label>
-	          <input id="user" type="text" class="input" name="user_id">
+	          <input id="user_id" type="text" class="input" name="user_id">
 	        </div>
 	        <div class="group">
 	          <label for="pass" class="label">비밀번호</label>
-	          <input id="pass" type="password" class="input" name="user_pwd">
+	          <input id="user_pwd" type="password" class="input" name="user_pwd" >
 	        </div>
 	        <div class="group">
-	          <input type="submit" class="button" value="Sign In">
+	          <input type="submit" class="button" value="Sign In" id="login">
 	        </div>
 	      </div>
 	  </form>
