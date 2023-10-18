@@ -141,7 +141,7 @@ public class BoardController {
 		saveImg(board_num, b.getFile1());
 		saveImg(board_num, b.getFile2());
 		saveImg(board_num, b.getFile3());
-		return "board/boardPage";
+		return "redirect:/board/boardPage";
 	}
 	
 	

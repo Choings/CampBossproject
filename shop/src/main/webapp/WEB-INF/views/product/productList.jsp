@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -75,7 +76,16 @@
 	<tr>
 		<td >${p.num }</td>
 		<td><a href="${pageContext.request.contextPath }/product/productEdit?num=${p.num}">${p.name }</a></td>
-		<td>${p.info }</td>
+		
+		<c:choose>
+           <c:when test="${fn:length(p.info ) > 14}">
+            <td><c:out value="${fn:substring(p.info ,0,13)}"/>....</td>
+           </c:when>
+           <c:otherwise>
+            <td><c:out value="${p.info }"/></td>
+           </c:otherwise> 
+    	 </c:choose>
+     
 		<td>${p.price }</td>
 		<td>${p.cbproduct_hit }</td>
 	</tr>

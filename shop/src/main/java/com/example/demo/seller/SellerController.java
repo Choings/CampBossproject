@@ -129,7 +129,7 @@ public class SellerController {
 		saveImg(num, p.getFile1());
 		saveImg(num, p.getFile2());
 		saveImg(num, p.getFile3());
-		return "product/productPage";
+		return "redirect:/product/productPage";
 	}
 	@RequestMapping(value = "/cbproduct/cbForm")
 	public void form() {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -74,7 +75,16 @@
 	<tr>
 		<td >${b.board_num }</td>
 		<td><a href="${pageContext.request.contextPath }/board/boardEdit?board_num=${b.board_num}">${b.board_name }</a></td>
-		<td>${b.board_info }</td>
+		
+		<c:choose>
+           <c:when test="${fn:length(b.board_info ) > 14}">
+            <td><c:out value="${fn:substring(b.board_info ,0,13)}"/>....</td>
+           </c:when>
+           <c:otherwise>
+            <td><c:out value="${b.board_info }"/></td>
+           </c:otherwise> 
+   	    </c:choose>
+   	    
 		<td>${b.cbboard_hit}</td>
 		<td>${b.board_date }</td>
 	</tr>
