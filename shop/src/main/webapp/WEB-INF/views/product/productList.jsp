@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CampBoss - 판매리스트</title>
 
-<link href="${path}/resources/productcss/productlist.css" rel="stylesheet">
+<link href="${path}/resources/productcss/productlist.css?after" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>

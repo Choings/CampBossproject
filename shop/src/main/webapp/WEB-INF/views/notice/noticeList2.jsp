@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>CampBoss - 공지사항 관리</title>
-    <link href="${path}/resources/css/adminList.css" rel="stylesheet">
+    <link href="${path}/resources/noticecss/noticelist2.css?after" rel="stylesheet">
     
     <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
 
@@ -23,11 +23,9 @@
 </head>
 <body>
 
-   </br></br></br></br></br>
-   <h2>공지사항 리스트</h2>
-   </br></br>
-
-    <a href="${pageContext.request.contextPath}/notice/noticeAdd"> 글작성 </a>
+   
+   <h3>공지사항 리스트</h3>
+    <a href="${pageContext.request.contextPath}/notice/noticeAdd" class="write"> 글작성 </a>
 
     <form action="${pageContext.request.contextPath}/notice/noticeList2" method="POST">
         <table>    
@@ -42,7 +40,8 @@
                         <tr>
                             <th>번호</th>
                             <th>제목</th>
-                            <th>판매자</th>
+                            <th>작성자</th>
+                             <th>작성날짜</th>
                             <!--이게 삭제버튼 위-->
                             <th></th>
                         </tr>
@@ -56,6 +55,7 @@
                                     <a href="${pageContext.request.contextPath}/notice/noticeView?notice_num=${n.notice_num}">
                                     ${n.notice_name}</a></td>
                                 <td>${n.notice_id}</td>
+                                <td>${n.notice_date}</td>
                                 <!--이게 삭제버튼-->
                                 <td><a href="${pageContext.request.contextPath}/notice/del?notice_num=${n.notice_num}">삭제</a></td>
                             </tr>

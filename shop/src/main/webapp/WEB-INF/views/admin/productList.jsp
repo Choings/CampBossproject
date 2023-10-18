@@ -7,16 +7,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>CampBoss - 상품리스트관리</title>
-    <link href="${path}/resources/css/adminList.css" rel="stylesheet">
+    <link href="${path}/resources/css/adminList.css?after" rel="stylesheet">
     
     <c:import url="/WEB-INF/views/member/mainMenu.jsp"></c:import>
     
 </head>
 <body>
 
-	</br></br></br></br></br>
+	
 	<h2>상품리스트</h2>
-	</br></br>
+
 	
     <form action="${pageContext.request.contextPath}/admin/productList" method="post">
         <table>

@@ -1,6 +1,8 @@
-body{
-	  background: #f5f5f5;
+body {
+  padding:1.5em;
+  background: #f5f5f5
 }
+
 
 h3{
 	text-align: center;
@@ -40,7 +42,6 @@ thead {
 
 a {
   color: #73685d;
-  text-decoration: none;
 }
   
  @media all and (max-width: 768px) {
@@ -49,8 +50,6 @@ a {
     display: block;
   }
   
-<<<<<<< HEAD
-=======
   th {
     text-align: right;
   }
@@ -88,4 +87,3 @@ a {
   }
   
   }
->>>>>>> branch 'master' of https://github.com/Choings/campbossproject.git

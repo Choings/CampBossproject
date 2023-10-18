@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CampBoss - 내 작성글 리스트</title>
 
-<link href="${path}/resources/boardcss/boardlist.css" rel="stylesheet">
+<link href="${path}/resources/boardcss/boardlist.css?after" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>

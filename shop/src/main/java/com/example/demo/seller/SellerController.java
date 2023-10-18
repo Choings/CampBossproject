@@ -246,7 +246,7 @@ public class SellerController {
 	@PostMapping(value = "/seller/reset")
 	public String reset() {
 		
-		return "product/productPage";
+		return "redirect:/product/productPage";
 	}
 	
 

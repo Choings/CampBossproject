@@ -8,11 +8,12 @@
       <result column="notice_name" property="notice_name" />
       <result column="notice_info" property="notice_info" />
       <result column="notice_id" property="notice_id" />
+      <result column="notice_date" property="notice_date" />
    </resultMap>
    
    <insert id="insert" parameterType="com.example.demo.notice.Notice">
       insert into noticeboard
-      values(#{notice_num}, #{notice_name}, #{notice_info}, #{notice_id}) 
+      values(#{notice_num}, #{notice_name}, #{notice_info}, #{notice_id}, sysdate) 
    </insert>
    
    <select id="select" resultMap="NoticeResult" 
