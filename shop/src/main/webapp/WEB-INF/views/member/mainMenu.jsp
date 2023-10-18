@@ -27,6 +27,11 @@
         
         <c:if test="${sessionScope.user_type==1 }">
         <ul class="nav-list">
+           	 <li>
+               <a href="${pageContext.request.contextPath }/notice/noticeList1">공지사항</a>
+             </li>             
+             
+             
              
              <li>
             <a href="#!">상품</a>
@@ -86,12 +91,7 @@
         
         <c:if test="${sessionScope.user_type==2 }"> 
         <ul class="nav-list">
-           <li>
-               <a href="#">추가메뉴</a>
-             </li>
-             <li>
-               <a href="#">추가메뉴2</a>
-             </li>
+
           <li>
             <a href="#">관리</a>
             <ul class="nav-dropdown">
@@ -106,6 +106,9 @@
               </li>
               <li>
                 <a href="${pageContext.request.contextPath }/admin/boardList"> 게시글관리</a>
+              </li>
+               <li>
+                <a href="${pageContext.request.contextPath }/notice/noticeList2"> 공지사항관리</a>
               </li>
             </ul>
           </li>
