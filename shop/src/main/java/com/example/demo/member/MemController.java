@@ -61,17 +61,22 @@ public class MemController {
 
 	@RequestMapping(value = "/member/login")
 	public String login(HttpServletRequest req, Member m) {
-		Member m2 = service.getMember(m.getUser_id());
-		if (m2 == null || !m2.getUser_pwd().equals(m.getUser_pwd())) {
-			System.out.println("로그인 실패");
-			return "member/loginForm";
-		} else {
-			HttpSession session = req.getSession();
-			session.setAttribute("user_id", m2.getUser_id());
-			session.setAttribute("user_type", m2.getUser_type());
-			return "member/main";
-		}
+	    Member m2 = service.getMember(m.getUser_id());
+	    if (m2 == null) {
+	        System.out.println("아이디에 해당하는 회원이 존재하지 않습니다.");
+	        return "member/loginForm"; 
+	    } else if (!m2.getUser_pwd().equals(m.getUser_pwd())) {
+	        System.out.println("비밀번호가 일치하지 않습니다.");
+	        return "member/loginForm"; 
+	    } else {
+	        HttpSession session = req.getSession();
+	        session.setAttribute("user_id", m2.getUser_id());
+	        session.setAttribute("user_type", m2.getUser_type());
+	        return "member/main"; 
+	    }
 	}
+
+		
 	@RequestMapping(value = "/member/editForm")
 	public ModelAndView editForm(HttpServletRequest req){
 		ModelAndView mav = new ModelAndView("member/editForm");
