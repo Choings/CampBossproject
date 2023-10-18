@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -54,6 +55,8 @@
                                 <td>
                                     <a href="${pageContext.request.contextPath}/notice/noticeView?notice_num=${n.notice_num}">
                                     ${n.notice_name}</a></td>
+                                    
+                                    
                                 <td>${n.notice_id}</td>
                                 <td>${n.notice_date}</td>
                                 <!--이게 삭제버튼-->

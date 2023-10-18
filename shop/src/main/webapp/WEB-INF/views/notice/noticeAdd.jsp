@@ -26,7 +26,7 @@
                   <input type="text" name="notice_name"  class="title1">
             </div>          	   
             <div>
-                <p>작성자 : <input type="text" name="seller1" 
+                <p>작성자 : <input type="text" name="notice_id" 
                 value="${sessionScope.user_id }" class="seller" readonly></p>
                 
             </div>           
@@ -36,7 +36,7 @@
             </div>
             
             <div class="line1">
-				<textarea name="noticeInfo" class="info" ></textarea>
+				<textarea name="notice_info" class="info" ></textarea>
 			</div>
         </form>
 

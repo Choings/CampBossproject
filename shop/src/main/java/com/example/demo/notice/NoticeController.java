@@ -97,4 +97,32 @@ public class NoticeController {
       service.delNotice(delNotice);
       return "redirect:/notice/noticeList2";
    }
+   
+   		//좋아요
+ 		@RequestMapping(value = "/notice/uplike")
+ 		public ModelAndView uplike(@RequestParam(value = "notice_num") int notice_num, @RequestParam(value = "type") int type) {
+ 			ModelAndView mav = new ModelAndView();
+ 			service.uplike(notice_num);
+ 			if(type == 1) {
+ 				mav.setViewName("notice/noticeView");
+ 			}
+ 			Notice n = service.getNoticeByNum(notice_num);
+
+ 			mav.addObject("n",n);
+ 			return mav;
+ 		}
+ 		//싫어요
+ 		@RequestMapping(value = "/notice/uphate")
+ 		public ModelAndView uphate(@RequestParam(value = "notice_num") int notice_num, @RequestParam(value = "type") int type) {
+ 			ModelAndView mav = new ModelAndView();
+ 			service.uphate(notice_num);
+ 			if(type == 1) {
+ 				mav.setViewName("notice/noticeView");
+ 			}			
+ 			Notice n = service.getNoticeByNum(notice_num);
+
+ 			mav.addObject("n",n);
+ 			return mav;
+ 		}
+   
 }

@@ -10,7 +10,7 @@ public interface NoticeMapper {
     
     void insert(Notice n);
     Notice select(String notice_id);
-    Notice selectByNum(int Notice_num);
+    Notice selectByNum(int notice_num);
 
 
     List selectByName(String notice_name);
@@ -18,6 +18,9 @@ public interface NoticeMapper {
     List selectAll();
 
     void update(Notice n);
+	void uplike(int notice_num);
+	void uphate(int notice_num);
+	
     void delete(int notice_num);
     int getNum();
     
