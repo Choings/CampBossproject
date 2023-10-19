@@ -121,10 +121,17 @@ li{
 	font-size: 17px;
 	color: #444;
 	text-align: left;
+	border-radius: 3px;
+	background-color: transparent;
 }
 
 .product-view table td{
 	padding-left: 100px;
+}
+
+.product-view table td input{
+	background-color: transparent;
+	text-align: center;
 }
 
 .product-view table td.pricecolor {
@@ -141,7 +148,8 @@ li{
 	margin-top: 100px;
 	margin-left: 280px;
 	resize: none;
-	border-radius: 2px;
+	border-radius: 4px;
+	background-color: transparent;
 }
 
 .line1 {

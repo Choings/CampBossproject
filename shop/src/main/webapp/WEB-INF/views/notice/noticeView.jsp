@@ -71,17 +71,15 @@ crossorigin="anonymous">
             <p class="seller-title">작성날짜 : ${n.notice_date}</p>
          </div>
          
-         <div>
-            <input type="button" id="btn1" class="btn1" value="좋아요"><i class="fa-regular fa-thumbs-up"></i>${n.notice_like}
+   		<div class="line1">
+      		<input type="button" id="btn1" class="btn1" value="좋아요"><i class="fa-regular fa-thumbs-up"></i>${n.notice_like}
 			<input type="button" id="btn2" class="btn2" value="싫어요"><i class="fa-regular fa-thumbs-down"></i> ${n.notice_hate}
-         </div>
-         
+			<textarea class="info" readonly>${n.notice_info}</textarea>
+		</div>
          
       </form>
       
-      <div class="line1">
-			<textarea class="info" >${n.notice_info}</textarea>
-		</div>
+      
    </c:if>
 
 
@@ -114,7 +112,7 @@ crossorigin="anonymous">
          </div>
 
          <div class="line1">
-			<textarea name="noticeInfo" class="info" >${n.notice_info}</textarea>
+			<textarea name="noticeInfo" class="info">${n.notice_info}</textarea>
 		</div>
         
       </form>

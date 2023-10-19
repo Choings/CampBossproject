@@ -233,7 +233,7 @@ $(document).ready(function(){
 			</script>	
 	</form>
 	<div class="line1">
-		<textarea class="info" >${p.info }</textarea>
+		<textarea class="info" readonly>${p.info }</textarea>
 	</div>
 	
 	

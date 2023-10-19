@@ -26,16 +26,21 @@
                 value="${sessionScope.user_id }" class="seller" readonly></p>
             </div> 
                       
-            <div>
-                <input type="submit" value="등록" class="btn">
-                <input type="reset" value="취소" class="btn" >   
-            </div>
             
             <div class="line1">
 				<textarea name="notice_info" class="info" ></textarea>
 			</div>
+			
+			 <div>
+			 <input type="submit" value="등록" class="btn">  
+                <input type="reset" value="취소" class="btn" > 
+            </div>
         </form>
 
-
+<footer >
+	<div class="copyright">
+		<p>Copyright 2023 All ⓒ rights reserved </p>
+	</div>
+</footer>
 </body>
 </html>

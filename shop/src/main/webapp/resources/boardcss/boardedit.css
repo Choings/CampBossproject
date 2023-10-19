@@ -74,6 +74,13 @@ li{
 	line-height: 26px;
 }
 
+.product-view h2 input{
+	background-color: transparent;
+	border-radius: 3px;
+	width: 600px;
+	height: 50px;
+}
+
 .product-view h5{
 	margin: 0 0 15px;
 	padding-left: 450px;
@@ -89,10 +96,17 @@ li{
 	font-size: 17px;
 	color: #444;
 	text-align: left;
+	border-radius: 3px;
 }
 
 .product-view table td{
 	padding-left: 100px;
+}
+
+.product-view table td input{
+	background-color: transparent;
+	text-align: center;
+	border-radius: 3px;
 }
 
 .product-view table td.pricecolor {
@@ -109,7 +123,8 @@ li{
 	margin-top: 100px;
 	margin-left: 280px;
 	resize: none;
-	border-radius: 2px;
+	border-radius: 4px;
+	background-color: transparent;
 }
 
 .line1 {
